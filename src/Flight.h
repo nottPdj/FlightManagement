@@ -10,16 +10,14 @@ class Flight {
     Airport * source;
     Airport * dest;      // destination vertex
     Airline * airline;
-    double weight;         // edge weight
 public:
-    Flight(Airport *d, double w);
+    Flight(Airport *source, Airport *dest, Airline *airline);
     Airport *getDest() const;
     void setDest(Airport *dest);
     Airline getAirline();
-    double getWeight() const;
-    void setWeight(double weight);
     friend class Graph;
     friend class Airport;
+
 };
 
 

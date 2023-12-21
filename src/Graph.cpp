@@ -269,3 +269,28 @@ vector<T> Graph<T>::bfs(const T & source) const {
     }
     return res;
 }*/
+
+#include "Graph.h"
+
+
+Airport *Graph::getAirport(std::string code) {
+    return this->airports[code];
+}
+
+Airline *Graph::getAirline(std::string code) {
+    return this->airlines[code];
+
+}
+
+void Graph::addFlight(Flight flight) {
+    flight.source->addFlight(flight);
+}
+
+void Graph::addAirport(std::string code, Airport* airport) {
+    airports.insert(make_pair(code, airport));
+}
+
+void Graph::addAirline(std::string code, Airline* airline) {
+    airlines.insert(make_pair(code, airline));
+}
+

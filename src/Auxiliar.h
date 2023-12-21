@@ -1,15 +1,13 @@
 #ifndef PROJETO2_AUXILIAR_H
 #define PROJETO2_AUXILIAR_H
-
+#include "Graph.h"
 
 class Auxiliar {
 public:
-    static void readClassesPerUc(Course& course);
-    static void readStudentsClasses(Course& course);
-    static void readClasses(Course& course);
+    static void readAirports(Graph& g);
+    static void readAirlines(Graph& g);
+    static void readFlights(Graph& g);
 
-    static void loadRequestRecord(std::queue<Request*> &pastRequests);
-    static void saveRequestRecord(std::stack<Request*> requestRecord);
 };
 
 
