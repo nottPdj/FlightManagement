@@ -11,14 +11,19 @@ class Airport {
     std::string country;
     std::string latitude;
     std::string longitude;
-    std::vector<Flight> adj;  // list of outgoing edges
+    std::vector<Flight> flights;  // list of outgoing flights
     bool visited;          // auxiliary field
     bool processing;
-    void addFlight(Airport *dest, double w);
+    void addFlight(Flight flight);
     bool removeFlightTo(Airport *d);
 public:
-    Airport();
-    T getInfo() const;
+    Airport(std::string code,
+    std::string name,
+    std::string city,
+    std::string country,
+    std::string latitude,
+    std::string longitude);
+    std::string getCode() const;
     void setInfo(T in);
     bool isVisited() const;
     void setVisited(bool v);

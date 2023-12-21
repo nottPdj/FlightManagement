@@ -5,6 +5,7 @@
 #include <vector>
 #include <queue>
 #include <unordered_set>
+#include <unordered_map>
 #include "Airport.h"
 
 using namespace std;
@@ -13,24 +14,25 @@ using namespace std;
 
 
 class Graph {
-    std::unordered_set<Airport *, AirportHash, AirportEqual> airports;
+    std::unordered_map<std::string, Airport *> airports;
     std::unordered_map<std::string, vector<Airport *>> airportsPerCity;
-    std::unordered_set<Airport *, AirlineHash, AirlineEqual> airlines;
+    std::unordered_map<std::string, Airline *> airlines;
 
     void dfsVisit(Airport *v,  vector<T> & res) const;
     bool dfsIsDAG(Airport *v) const;
 public:
-    Airport *findVertex(const T &in) const;
     int getNumVertex() const;
-    bool addVertex(const T &in);
-    bool removeVertex(const T &in);
-    bool addFlight(const T &sourc, const T &dest, double w);
-    bool removeFlight(const T &sourc, const T &dest);
+    void addFlight(Flight flight);
     vector<Airport * > getVertexSet() const;
     vector<T> dfs() const;
     vector<T> dfs(const T & source) const;
     vector<T> bfs(const T &source) const;
     bool dfsDAG(const T &source);
+
+    Airport* getAirport(std::string code);
+    Airline* getAirline(std::string code);
+    void addAirport(std::string code, Airport* airport);
+    void addAirline(std::string code, Airline* airline);
 
     std::vector<Airport *> getAirports();
     std::vector<Flight> getFlights();
