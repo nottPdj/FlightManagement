@@ -194,7 +194,7 @@ void Terminal::waitMenu(){
                     airlineCodes.push_back(airline);
                 }
             }
-            printFlightsList(g.getBestOption(source, searchFrom, dest, searchTo, maxAirlines, airlineCodes))
+            printFlightsList(g.getBestOption(source, searchFrom, dest, searchTo, maxAirlines, airlineCodes));
         }
         default: {
             printMainMenu();
@@ -255,8 +255,11 @@ void Terminal::printAirlinesList(std::vector<Airline> airlines) {
     std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH)
               << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|\n";
 
+    printSortingOptions();
     endDisplayMenu();
-    getInput();
+    if (getInput() == 's') {
+        printAirlinesList(airlines, )
+    }
 }
 
 void Terminal::printAirportsList(std::vector<Airport*> airports) {

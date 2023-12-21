@@ -7,6 +7,7 @@
 #include "Airline.h"
 
 class Flight {
+    Airport * source;
     Airport * dest;      // destination vertex
     Airline * airline;
     double weight;         // edge weight
