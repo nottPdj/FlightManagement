@@ -1,10 +1,11 @@
 #ifndef PROJETO2_FLIGHT_H
 #define PROJETO2_FLIGHT_H
 
-
 #include <string>
 #include "Airport.h"
 #include "Airline.h"
+
+class Airport;
 
 class Flight {
     Airport * source;

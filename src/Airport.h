@@ -4,6 +4,8 @@
 #include <vector>
 #include "Flight.h"
 
+class Flight;
+
 class Airport {
     std::string code;
     std::string name;
@@ -29,13 +31,11 @@ public:
     std::string getCountry() const;
     std::string getLatitude() const;
     std::string getLongitude() const;
-    void setInfo(T in);
+    std::vector<Flight> getFlights();
     bool isVisited() const;
     void setVisited(bool v);
     bool isProcessing() const;
     void setProcessing(bool p);
-    const vector<Flight > &getAdj() const;
-    void setAdj(const vector<Flight> &adj);
     friend class Graph;
 
     static bool byCode(Airport *a1, Airport *a2);

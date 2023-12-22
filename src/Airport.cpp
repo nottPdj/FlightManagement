@@ -37,7 +37,6 @@ std::string Airport::getLongitude() const {
     return longitude;
 }
 
-
 bool Airport::byCode(Airport *a1, Airport *a2) {
     return a1->getCode() <= a2->getCode();
 }
@@ -60,5 +59,25 @@ bool Airport::byLatitude(Airport *a1, Airport *a2) {
 
 bool Airport::byLongitude(Airport *a1, Airport *a2) {
     return a1->getLongitude() <= a2->getLongitude();
+}
+
+void Airport::setVisited(bool v) {
+    this->visited=v;
+}
+
+bool Airport::isVisited() const {
+    return visited;
+}
+
+bool Airport::isProcessing() const {
+    return processing;
+}
+
+void Airport::setProcessing(bool p) {
+    this->processing=p;
+}
+
+std::vector<Flight> Airport::getFlights() {
+    return flights;
 }
 
