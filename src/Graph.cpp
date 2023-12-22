@@ -19,6 +19,13 @@ void Graph::addFlight(Flight flight) {
 void Graph::addAirport(std::string code, Airport* airport) {
     vAirports.push_back(airport);
     airports.insert(make_pair(code, airport));
+    auto cityIt=airportsPerCity.find(airport->getCity());
+    if(cityIt!=airportsPerCity.end()){
+        cityIt->second.push_back(airport);
+    }
+    else{
+        airportsPerCity[airport->getCity()]={airport};
+    }
 }
 
 void Graph::addAirline(std::string code, Airline* airline) {
@@ -63,13 +70,27 @@ int Graph::getNumFlightsFromCity(std::string city) {
     return n;
 }
 
-//TODO
 int Graph::getNumFlightsPerAirline(std::string airline) {
-    return 0;
+    int n=0;
+    for(auto ap:vAirports){
+        for(auto f: ap->getFlights()){
+            if(f.getAirline()->getCode()==airline)
+                n++;
+        }
+    }
+    return n;
 }
 
-std::vector<std::string> Graph::printCountriesFromCity(std::string city) {
-    return std::vector<std::string>();
+std::vector<std::string> Graph::getCountriesFromCity(std::string city) {
+    std::vector<std::string> countries;
+    std::vector<Airport*> airportsInCity = airportsPerCity[city];
+    for(auto ap:airportsInCity){
+        for(auto f:ap->getFlights()){
+            if(std::find(countries.begin(),countries.end(),f.getDest()->getCountry())==countries.end())
+                countries.push_back(f.getDest()->getCountry());
+        }
+    }
+    return countries;
 }
 
 std::vector<Airport *> Graph::getReachableAirportsFrom(std::string code, int stops) {
