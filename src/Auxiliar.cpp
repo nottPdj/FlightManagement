@@ -51,7 +51,7 @@ void Auxiliar::readFlights(Graph &g) {
         getline(ss, source, ',');
         getline(ss, dest, ',');
         getline(ss, airline, '\r');
-        Flight flight = Flight(g.getAirport(source), g.getAirport(dest), g.getAirline(airline));
+        Flight flight(g.getAirport(source), g.getAirport(dest), g.getAirline(airline));
         g.addFlight(flight);
     }
 
