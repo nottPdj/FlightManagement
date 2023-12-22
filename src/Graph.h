@@ -7,6 +7,7 @@
 #include <set>
 #include <unordered_set>
 #include <unordered_map>
+#include <algorithm>
 #include "Airport.h"
 
 
@@ -31,7 +32,7 @@ public:
     std::pair<int,int> getNumFlightsFromAirport(std::string code);
     int getNumFlightsFromCity(std::string city);
     int getNumFlightsPerAirline(std::string airline);
-    std::vector<std::string> printCountriesFromCity(std::string city);
+    std::vector<std::string> getCountriesFromCity(std::string city);
     std::vector<Airport *> getReachableAirportsFrom(std::string code, int stops); // t
     std::vector<std::string> getReachableCitiesFrom(std::string code, int stops);
     std::vector<std::string> getReachableCountriesFrom(std::string code, int stops);
