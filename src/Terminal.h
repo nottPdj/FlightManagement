@@ -41,8 +41,10 @@ private:
 
     const static int MENU_WIDTH = 60;
     const static int CODE_WIDTH = 7;
-    const static int NAME_WIDTH = 35;
-    const static int DEFAULT_WIDTH = 20;
+    const static int NAME_WIDTH = 65;
+    const static int DEFAULT_WIDTH = 35;
+    const static int NUMBER_WIDTH = 20;
+
 
 
 public:

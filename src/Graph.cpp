@@ -68,20 +68,112 @@ int Graph::getNumFlightsPerAirline(std::string airline) {
     return 0;
 }
 
-std::vector<std::string> Graph::printCountriesFromCity(std::string city) {
+std::vector<std::string> Graph::getCountriesFromCity(std::string city) {
     return std::vector<std::string>();
 }
 
 std::vector<Airport *> Graph::getReachableAirportsFrom(std::string code, int stops) {
-    return std::vector<Airport *>();
+    std::vector<Airport *> res;
+    resetVisited();
+    std::queue<Airport *> aux;
+    Airport * airport = getAirport(code);
+    aux.push(airport);
+    airport->setVisited(true);
+    int xStops = -1;
+    while (true) {
+        for (int i = 0; i < aux.size(); i++) {
+            auto a = aux.front();
+            aux.pop();
+            res.push_back(a);
+            for (auto f: a->getFlights()) {
+                if (!f.getDest()->isVisited()) {
+                    aux.push(f.getDest());
+                    f.getDest()->setVisited(true);
+                }
+            }
+        }
+        xStops++;
+        if (xStops == stops) {
+            while (!aux.empty()) {
+                res.push_back(aux.front());
+                aux.pop();
+            }
+            break;
+        }
+    }
+    return res;
 }
 
 std::vector<std::string> Graph::getReachableCitiesFrom(std::string code, int stops) {
-    return std::vector<std::string>();
+    std::vector<std::string> res;
+    std::set<std::string> cities;
+    resetVisited();
+    std::queue<Airport *> aux;
+    Airport * airport = getAirport(code);
+    aux.push(airport);
+    airport->setVisited(true);
+    int xStops = -1;
+    while (true) {
+        for (int i = 0; i < aux.size(); i++) {
+            auto a = aux.front();
+            aux.pop();
+            cities.insert(a->getCity());
+            for (auto f: a->getFlights()) {
+                if (!f.getDest()->isVisited()) {
+                    aux.push(f.getDest());
+                    f.getDest()->setVisited(true);
+                }
+            }
+        }
+        xStops++;
+        if (xStops == stops) {
+            while (!aux.empty()) {
+                cities.insert(aux.front()->getCity());
+                aux.pop();
+            }
+            break;
+        }
+    }
+    for (auto city : cities) {
+        res.push_back(city);
+    }
+    return res;
 }
 
 std::vector<std::string> Graph::getReachableCountriesFrom(std::string code, int stops) {
-    return std::vector<std::string>();
+    std::vector<std::string> res;
+    std::set<std::string> countries;
+    resetVisited();
+    std::queue<Airport *> aux;
+    Airport * airport = getAirport(code);
+    aux.push(airport);
+    airport->setVisited(true);
+    int xStops = -1;
+    while (true) {
+        for (int i = 0; i < aux.size(); i++) {
+            auto a = aux.front();
+            aux.pop();
+            countries.insert(a->getCountry());
+            for (auto f: a->getFlights()) {
+                if (!f.getDest()->isVisited()) {
+                    aux.push(f.getDest());
+                    f.getDest()->setVisited(true);
+                }
+            }
+        }
+        xStops++;
+        if (xStops == stops) {
+            while (!aux.empty()) {
+                countries.insert(aux.front()->getCountry());
+                aux.pop();
+            }
+            break;
+        }
+    }
+    for (auto country : countries) {
+        res.push_back(country);
+    }
+    return res;
 }
 
 std::vector<Flight> Graph::getMaxTrip() {
@@ -100,6 +192,12 @@ std::vector<std::vector<Flight>>
 Graph::getBestOption(std::string source, int searchFrom, std::string dest, int searchTo, int maxAirlines,
                      std::vector<std::string> airlineCodes) {
     return std::vector<std::vector<Flight>>();
+}
+
+void Graph::resetVisited() {
+    for (auto airport : getvAirports()) {
+        airport->setVisited(false);
+    }
 }
 
 
