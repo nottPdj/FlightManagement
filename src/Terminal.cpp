@@ -28,12 +28,12 @@ void Terminal::run(){
 void Terminal::printMainMenu() {
     system("clear");
     std::cout << center("AIR TRAVEL FLIGHT", '*', MENU_WIDTH) << "\n\n"
-              << "\t0 - Consult airports" << "\n"
-              << "\t1 - Consult flights" << "\n"
-              << "\t2 - Consult airlines" << "\n"
-              << "\t3 - Flights from an airport" << "\n"
-              << "\t4 - Flights per city" << "\n"
-              << "\t5 - Flights per airline" << "\n"
+              << "\t0 - Global numbers" << "\n"
+              << "\t1 - Flights from an airport" << "\n"
+              << "\t2 - Flights per city" << "\n"
+              << "\t3 - Flights per airline" << "\n"
+              << "\t4 - Countries that an airport flies to" << "\n"
+              << "\t5 - Countries that a city flies to" << "\n"
               << "\t6 - Destinations from an airport" << "\n"
               << "\t7 - Reachable destinations from an airport in a maximum n lay-overs" << "\n"
               << "\t8 - Maximum trip (with the greatest number of lay-overs)" << "\n"
@@ -57,52 +57,67 @@ void Terminal::waitMenu(){
     system("clear");
     printingOptions options;
     switch (stoi(choice)) {
-        // Consult airports
+        // Global numbers
         case 0: {
-            options.message = "Global view of the airports\n";
-            printAirportsList(g.getAirports(), options);
-            break;
-        }
-        // Consult flights
-        case 1: {
-            options.message = "Global view of the flights\n";
-            printFlightsList(g.getFlights(), options);
-            break;
-        }
-        // Consult airlines
-        case 2: {
-            options.message = "Global view of the airlines\n";
-            printAirlinesList(g.getAirlines(), options);
+            std::cout << "Global numbers\n\n";
+            std::cout << "There are " + g.getNumAirports() + " airports\n";
+            std::cout << "There are " + g.getNumFlights() + " flights\n";
+            std::cout << "There are " + g.getNumAirlines() + " airlines\n";
+            endDisplayMenu();
+            getInput();
             break;
         }
         // Flights from an airport
-        case 3: {
+        case 1: {
             std::cout << "Enter the airport code: ";
             std::string code;
             std::cin >> code;        // Fetch airport code
             system("clear");
-            options.message = "Flights from airport " + code + "\n";
-            printFlightsList(g.getFlightsFromAirport(code), options);
+            std::pair<int, int> nums = g.getNumFlightsFromAirport(code);
+            std::cout << "There are " + std::to_string(nums.first) + " flights from airport " + code + "\n";
+            std::cout << "From " + std::to_string(nums.second) + " different airlines\n";
+            endDisplayMenu();
+            getInput();
             break;
         }
         // Flights per city
-        case 4: {
+        case 2: {
             std::cout << "Enter the city name: ";
             std::string city;
             std::cin >> city;        // Fetch city
             system("clear");
-            options.message = "Flights from " + city + "\n";
-            printFlightsList(g.getFlightsFromCity(city), options);
+            std::cout << "There are " + g.getNumFlightsFromCity(city) + " flights from " + city + "\n";
+            endDisplayMenu();
+            getInput();
             break;
         }
         // Flights per airline
-        case 5: {
+        case 3: {
             std::cout << "Enter the airline code: ";
             std::string airline;
             std::cin >> airline;        // Fetch country
             system("clear");
-            options.message = "Flights with " + airline + "\n";
-            printFlightsList(g.getFlightsPerAirline(airline), options);
+            std::cout << "There are " + g.getNumFlightsFromAirline(airline) + " flights from " + airline + "\n";
+            endDisplayMenu();
+            getInput();
+            break;
+        }
+        // Countries that an airport flies to
+        case 4: {
+            std::cout << "Enter the airport code: ";
+            std::string code;
+            std::cin >> code;        // Fetch airport code
+            options.message = "Countries that airport " + code + " flies to\n";
+            printCountriesList(g.getReachableCountriesFrom(code, 0), options);
+            break;
+        }
+        // Countries that a city flies to
+        case 5: {
+            std::cout << "Enter the city name: ";
+            std::string city;
+            std::cin >> city;        // Fetch city
+            options.message = "Countries that " + city + " flies to\n";
+            printCountriesList(printCountriesFromCity(city), options);
             break;
         }
         // Destinations from an airport
