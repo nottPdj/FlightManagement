@@ -12,11 +12,20 @@ struct sortingOptions {
     /**
      * Column, currently displaying, to order by
      */
-    int orderBy = -1;
+    int orderBy = 0;
     bool ascending = true;
 };
 
-
+struct printingOptions {
+    sortingOptions sortOptions;
+    std::string message;
+    bool printMessage = true;
+    bool printCountMessage = true;
+    bool sort = true;
+    bool showSortingOptions = true;
+    bool showEndMenu = true;
+    bool getInput = true;
+};
 
 /**
  * @brief Terminal is used to create an interface between the user and the program.
@@ -59,11 +68,22 @@ private:
 
     void getDestinations(std::string code, int stops = 0);
 
-    void printAirlinesList(std::vector<Airline> airlines);
-    void printAirportsList(std::vector<Airport*> airports);
-    void printFlightsList(std::vector<Flight> flights);
-    void printCitiesList(std::vector<std::string> cities);
-    void printCountriesList(std::vector<std::string> countries);
+
+    void printFlightsLists(std::vector<std::vector<Flight>> flightsLists, printingOptions options);
+    void printAirlinesList(std::vector<Airline *> airlines, printingOptions options);
+    void printAirportsList(std::vector<Airport*> airports, printingOptions options);
+    void printFlightsList(std::vector<Flight> flights, printingOptions options);
+    void printCitiesList(std::vector<std::string> cities, printingOptions options);
+    void printCountriesList(std::vector<std::string> countries, printingOptions options);
+
+    // Sorting lists
+    void sortAirportsList(std::vector<Airport *> &airports, sortingOptions sortOptions);
+    void sortAirlinesList(std::vector<Airline *> &airlines, sortingOptions sortOptions);
+    void sortFlightsList(std::vector<Flight> &flights, sortingOptions sortOptions);
+    void sortCitiesList(std::vector<std::string> &cities, sortingOptions sortOptions);
+    void sortCountriesList(std::vector<std::string> &countries, sortingOptions sortOptions);
+
+
 };
 
 

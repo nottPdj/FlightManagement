@@ -24,6 +24,11 @@ public:
     std::string latitude,
     std::string longitude);
     std::string getCode() const;
+    std::string getName() const;
+    std::string getCity() const;
+    std::string getCountry() const;
+    std::string getLatitude() const;
+    std::string getLongitude() const;
     void setInfo(T in);
     bool isVisited() const;
     void setVisited(bool v);
@@ -32,6 +37,13 @@ public:
     const vector<Flight > &getAdj() const;
     void setAdj(const vector<Flight> &adj);
     friend class Graph;
+
+    static bool byCode(Airport *a1, Airport *a2);
+    static bool byName(Airport *a1, Airport *a2);
+    static bool byCity(Airport *a1, Airport *a2);
+    static bool byCountry(Airport *a1, Airport *a2);
+    static bool byLatitude(Airport *a1, Airport *a2);
+    static bool byLongitude(Airport *a1, Airport *a2);
 };
 
 // Hash function for the Airport class

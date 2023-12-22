@@ -15,6 +15,16 @@ public:
             std::string name,
             std::string callsign,
             std::string country);
+    std::string getCode() const;
+    std::string getName() const;
+    std::string getCallsign() const;
+    std::string getCountry() const;
+
+
+    static bool byCode(Airline *a1, Airline *a2);
+    static bool byName(Airline *a1, Airline *a2);
+    static bool byCallsign(Airline *a1, Airline *a2);
+    static bool byCountry(Airline *a1, Airline *a2);
 };
 
 
