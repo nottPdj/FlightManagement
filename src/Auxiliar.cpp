@@ -3,7 +3,7 @@
 #include <fstream>
 
 void Auxiliar::readAirports(Graph &g) {
-    std::ifstream file("../airlines.csv");
+    std::ifstream file("../airports.csv");
     std::string line;
     std::string code, name, city, country, latitude, longitude;
 

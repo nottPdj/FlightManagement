@@ -55,11 +55,12 @@ std::pair<int,int> Graph::getNumFlightsFromAirport(std::string code) {
 }
 
 int Graph::getNumFlightsFromCity(std::string city) {
+    int n=0;
     std::vector<Airport*> airportsInCity = airportsPerCity[city];
     for(Airport* ap:airportsInCity){
-        return 0;
+        n+=ap->getFlights().size();
     }
-    return 0;
+    return n;
 }
 
 //TODO
