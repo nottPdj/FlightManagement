@@ -60,9 +60,9 @@ void Terminal::waitMenu(){
         // Global numbers
         case 0: {
             std::cout << "Global numbers\n\n";
-            std::cout << "There are " + g.getNumAirports() + " airports\n";
-            std::cout << "There are " + g.getNumFlights() + " flights\n";
-            std::cout << "There are " + g.getNumAirlines() + " airlines\n";
+            std::cout << "There are " + std::to_string(g.getNumAirports()) + " airports\n";
+            std::cout << "There are " + std::to_string(g.getNumFlights()) + " flights\n";
+            std::cout << "There are " + std::to_string(g.getNumAirlines()) + " airlines\n";
             endDisplayMenu();
             getInput();
             break;
@@ -86,7 +86,7 @@ void Terminal::waitMenu(){
             std::string city;
             std::cin >> city;        // Fetch city
             system("clear");
-            std::cout << "There are " + g.getNumFlightsFromCity(city) + " flights from " + city + "\n";
+            std::cout << "There are " + std::to_string(g.getNumFlightsFromCity(city)) + " flights from " + city + "\n";
             endDisplayMenu();
             getInput();
             break;
@@ -97,7 +97,7 @@ void Terminal::waitMenu(){
             std::string airline;
             std::cin >> airline;        // Fetch country
             system("clear");
-            std::cout << "There are " + g.getNumFlightsFromAirline(airline) + " flights from " + airline + "\n";
+            std::cout << "There are " + std::to_string(g.getNumFlightsPerAirline(airline)) + " flights from " + airline + "\n";
             endDisplayMenu();
             getInput();
             break;
@@ -117,7 +117,7 @@ void Terminal::waitMenu(){
             std::string city;
             std::cin >> city;        // Fetch city
             options.message = "Countries that " + city + " flies to\n";
-            printCountriesList(printCountriesFromCity(city), options);
+            printCountriesList(g.printCountriesFromCity(city), options);
             break;
         }
         // Destinations from an airport

@@ -55,12 +55,50 @@ std::pair<int,int> Graph::getNumFlightsFromAirport(std::string code) {
 }
 
 int Graph::getNumFlightsFromCity(std::string city) {
-
+    std::vector<Airport*> airportsInCity = airportsPerCity[city];
+    for(Airport* ap:airportsInCity){
+        return 0;
+    }
+    return 0;
 }
 
 //TODO
 int Graph::getNumFlightsPerAirline(std::string airline) {
     return 0;
+}
+
+std::vector<std::string> Graph::printCountriesFromCity(std::string city) {
+    return std::vector<std::string>();
+}
+
+std::vector<Airport *> Graph::getReachableAirportsFrom(std::string code, int stops) {
+    return std::vector<Airport *>();
+}
+
+std::vector<std::string> Graph::getReachableCitiesFrom(std::string code, int stops) {
+    return std::vector<std::string>();
+}
+
+std::vector<std::string> Graph::getReachableCountriesFrom(std::string code, int stops) {
+    return std::vector<std::string>();
+}
+
+std::vector<Flight> Graph::getMaxTrip() {
+    return std::vector<Flight>();
+}
+
+std::vector<Airport *> Graph::getGreatestNumFlights() {
+    return std::vector<Airport *>();
+}
+
+std::vector<Airport *> Graph::getEssentialAirports() {
+    return std::vector<Airport *>();
+}
+
+std::vector<std::vector<Flight>>
+Graph::getBestOption(std::string source, int searchFrom, std::string dest, int searchTo, int maxAirlines,
+                     std::vector<std::string> airlineCodes) {
+    return std::vector<std::vector<Flight>>();
 }
 
 
