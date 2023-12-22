@@ -117,7 +117,7 @@ void Terminal::waitMenu(){
             std::string city;
             std::cin >> city;        // Fetch city
             options.message = "Countries that " + city + " flies to\n";
-            printCountriesList(g.printCountriesFromCity(city), options);
+            printCountriesList(g.getCountriesFromCity(city), options);
             break;
         }
         // Destinations from an airport
@@ -268,11 +268,11 @@ void Terminal::printAirlinesList(std::vector<Airline *> airlines, printingOption
     std::cout << "\n";
 
     // HEADERS
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH)
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
               << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|\n";
     std::cout << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("Name", ' ', NAME_WIDTH) << "|"
               << center("Callsign", ' ', DEFAULT_WIDTH) << "|" << center("Country", ' ', DEFAULT_WIDTH) << "|\n";
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH)
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
               << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|\n";
 
     // SORTING
@@ -286,7 +286,7 @@ void Terminal::printAirlinesList(std::vector<Airline *> airlines, printingOption
     }
 
     // CLOSING TABLE
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH)
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
               << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|\n";
 
     if (options.showSortingOptions)
@@ -309,15 +309,15 @@ void Terminal::printAirportsList(std::vector<Airport*> airports, printingOptions
     std::cout << "\n";
 
    // HEADERS
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH)
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
               << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|"
-              << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|\n";
+              << fill('-', NUMBER_WIDTH) << "|" << fill('-', NUMBER_WIDTH) << "|\n";
     std::cout << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("Name", ' ', NAME_WIDTH) << "|"
               << center("City", ' ', DEFAULT_WIDTH) << "|" << center("Country", ' ', DEFAULT_WIDTH) << "|"
-              << center("Latitude", ' ', DEFAULT_WIDTH) << "|" << center("Longitude", ' ', DEFAULT_WIDTH) << "|\n";
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH)
+              << center("Latitude", ' ', NUMBER_WIDTH) << "|" << center("Longitude", ' ', NUMBER_WIDTH) << "|\n";
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
               << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|"
-              << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|\n";
+              << fill('-', NUMBER_WIDTH) << "|" << fill('-', NUMBER_WIDTH) << "|\n";
 
     // SORTING
     if (options.sort)
@@ -327,13 +327,13 @@ void Terminal::printAirportsList(std::vector<Airport*> airports, printingOptions
     for (Airport *airport : airports) {
         std::cout << "|" << center(airport->getCode(), ' ', CODE_WIDTH) << "|" << center(airport->getName(), ' ', NAME_WIDTH) << "|"
                   << center(airport->getCity(), ' ', DEFAULT_WIDTH) << "|" << center(airport->getCountry(), ' ', DEFAULT_WIDTH) << "|"
-                  << center(airport->getLatitude(), ' ', DEFAULT_WIDTH) << "|" << center(airport->getLongitude(), ' ', DEFAULT_WIDTH) << "|\n";
+                  << center(airport->getLatitude(), ' ', NUMBER_WIDTH) << "|" << center(airport->getLongitude(), ' ', NUMBER_WIDTH) << "|\n";
     }
 
     // CLOSING TABLE
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH)
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
               << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|"
-              << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|\n";
+              << fill('-', NUMBER_WIDTH) << "|" << fill('-', NUMBER_WIDTH) << "|\n";
 
     if (options.showSortingOptions)
         printSortingOptions();
@@ -363,7 +363,7 @@ void Terminal::printFlightsList(std::vector<Flight> flights, printingOptions opt
                 << "| AIRLINE" << fill(' ', DEFAULT_WIDTH - 8) << "|\n";
 
     for (int i = 0; i < 2; i++) {
-        std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFAULT_WIDTH)
+        std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|"
                   << fill('-', DEFAULT_WIDTH) << "|\n";
     }
     std::cout << "|" << fill('-', CODE_WIDTH) << "|\n";
@@ -376,7 +376,7 @@ void Terminal::printFlightsList(std::vector<Flight> flights, printingOptions opt
     std::cout << "|" << center("Code", ' ', CODE_WIDTH) << "|\n";
 
     for (int i = 0; i < 2; i++) {
-        std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFAULT_WIDTH)
+        std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|"
                   << fill('-', DEFAULT_WIDTH) << "|\n";
     }
     std::cout << "|" << fill('-', CODE_WIDTH) << "|\n";
@@ -396,7 +396,7 @@ void Terminal::printFlightsList(std::vector<Flight> flights, printingOptions opt
 
     // CLOSING TABLE
     for (int i = 0; i < 2; i++) {
-        std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFAULT_WIDTH)
+        std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|"
                   << fill('-', DEFAULT_WIDTH) << "|\n";
     }
     std::cout << "|" << fill('-', CODE_WIDTH) << "|\n";

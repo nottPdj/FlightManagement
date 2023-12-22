@@ -25,6 +25,7 @@ public:
     Airline* getAirline(std::string code);
     void addAirport(std::string code, Airport* airport);
     void addAirline(std::string code, Airline* airline);
+    void resetVisited();
 
     int getNumAirports();
     int getNumFlights();
