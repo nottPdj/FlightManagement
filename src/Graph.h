@@ -8,14 +8,10 @@
 #include <unordered_map>
 #include "Airport.h"
 
-using namespace std;
-
-
-
 
 class Graph {
     std::unordered_map<std::string, Airport *> airports;
-    std::unordered_map<std::string, vector<Airport *>> airportsPerCity;
+    std::unordered_map<std::string, std::vector<Airport *>> airportsPerCity;
     std::unordered_map<std::string, Airline *> airlines;
 
     void dfsVisit(Airport *v,  vector<T> & res) const;

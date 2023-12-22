@@ -83,6 +83,7 @@ private:
     void sortCitiesList(std::vector<std::string> &cities, sortingOptions sortOptions);
     void sortCountriesList(std::vector<std::string> &countries, sortingOptions sortOptions);
 
+
 };
 
 
