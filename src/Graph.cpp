@@ -197,9 +197,80 @@ std::vector<std::string> Graph::getReachableCountriesFrom(std::string code, int 
     return res;
 }
 
-std::vector<Flight> Graph::getMaxTrip() {
-    return std::vector<Flight>();
+int Graph::calculateMaxDistanceFrom(Airport * source) {
+    resetVisited();
+    std::queue<Airport *> aux;
+    aux.push(source);
+    source->setVisited(true);
+    int distance = 0;
+    while (!aux.empty()) {
+        std::unordered_set<Airport *> maxDests;
+        for (int i = 0; i < aux.size(); i++) {
+            auto a = aux.front();
+            aux.pop();
+            bool end = true;
+            for (auto f: a->getFlights()) {
+                if (!f.getDest()->isVisited()) {
+                    end = false;
+                    aux.push(f.getDest());
+                    f.getDest()->setVisited(true);
+                }
+            }
+            if (end) {
+                maxDests.insert(a);
+            }
+        }
+        distance++;
+        if (aux.empty()) {
+            source->setMaxTripDistance(distance);
+            for (auto it = maxDests.begin(); it != maxDests.end(); it++) {
+                source->addMaxTripDest(*it);
+            }
+            break;
+        }
+    }
+    return distance;
 }
+
+// TODO encontrar caminho mais rapido (menos paragens) entre source e dest
+std::vector<Flight> Graph::getMinTrip(Airport * source, Airport * dest) {
+    resetVisited();
+    std::vector<Flight> trip;
+/*    std::queue<Airport *> aux;
+    aux.push(source);
+    source->setVisited(true);
+    while (!aux.empty()) {
+        for (int i = 0; i < aux.size(); i++) {
+            auto a = aux.front();
+            aux.pop();
+            for (auto f: a->getFlights()) {
+                if (!f.getDest()->isVisited()) {
+                    aux.push(f.getDest());
+                    f.getDest()->setVisited(true);
+                }
+            }
+
+        }
+    }*/
+    return trip;
+}
+
+std::vector<std::vector<Flight>> Graph::getMaxTrip() {
+    std::vector<std::vector<Flight>> maxTrips;
+    int maxDistance = 0;
+    for (Airport * a : getvAirports()) {
+        maxDistance = std::max(maxDistance, calculateMaxDistanceFrom(a));
+    }
+    for (Airport * a : getvAirports()) {
+        if (a->getMaxTripDistance() == maxDistance) {
+            for (Airport * dest : a->getMaxTripDests()) {
+                maxTrips.push_back(getMinTrip(a, dest));
+            }
+        }
+    }
+    return maxTrips;
+}
+
 
 std::vector<Airport *> Graph::getGreatestNumFlights() {
     return std::vector<Airport *>();

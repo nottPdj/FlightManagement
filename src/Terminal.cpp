@@ -143,9 +143,9 @@ void Terminal::waitMenu(){
         case 8: {
             options.sort = false;
             options.showSortingOptions = false;
-            std::vector<Flight> maxTrip = g.getMaxTrip();
-            options.message = "Maximum trip available (with the greatest number of lay-overs): " + std::to_string(maxTrip.size() - 1) + "lay-overs\n";
-            printFlightsList(maxTrip, options);
+            std::vector<std::vector<Flight>> maxTrips = g.getMaxTrip();
+            /*options.message = "Maximum trip available (with the greatest number of lay-overs): " + std::to_string(maxTrip.size() - 1) + "lay-overs\n";
+            printFlightsList(maxTrip, options);*/
             break;
         }
         // Airports with the greatest air traffic capacity

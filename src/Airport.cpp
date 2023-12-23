@@ -81,3 +81,19 @@ std::vector<Flight> Airport::getFlights() {
     return flights;
 }
 
+int Airport::getMaxTripDistance() const {
+    return maxTripDistance;
+}
+
+void Airport::setMaxTripDistance(int distance) {
+    maxTripDistance = distance;
+}
+
+std::vector<Airport *> Airport::getMaxTripDests() const {
+    return maxTripDests;
+}
+
+void Airport::addMaxTripDest(Airport *dest) {
+    maxTripDests.push_back(dest);
+}
+

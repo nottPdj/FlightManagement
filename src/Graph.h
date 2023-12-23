@@ -17,6 +17,10 @@ class Graph {
     std::unordered_map<std::string, std::vector<Airport *>> airportsPerCity;
     std::unordered_map<std::string, Airline *> airlines;
 
+
+    int calculateMaxDistanceFrom(Airport * source);
+    std::vector<Flight> getMinTrip(Airport * source, Airport * dest);
+
 public:
     void addFlight(Flight flight);
 
@@ -37,7 +41,7 @@ public:
     std::vector<Airport *> getReachableAirportsFrom(std::string code, int stops); // t
     std::vector<std::string> getReachableCitiesFrom(std::string code, int stops);
     std::vector<std::string> getReachableCountriesFrom(std::string code, int stops);
-    std::vector<Flight> getMaxTrip(); // t
+    std::vector<std::vector<Flight>> getMaxTrip(); // t
     std::vector<Airport *> getGreatestNumFlights();
     std::vector<Airport *> getEssentialAirports();
     std::vector<std::vector<Flight>> getBestOption(std::string source, int searchFrom, std::string dest, int searchTo, int maxAirlines, std::vector<std::string> airlineCodes);

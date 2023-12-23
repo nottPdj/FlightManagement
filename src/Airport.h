@@ -2,6 +2,7 @@
 #define PROJETO2_AIRPORT_H
 
 #include <vector>
+#include <unordered_map>
 #include "Flight.h"
 
 class Flight;
@@ -16,6 +17,15 @@ class Airport {
     std::vector<Flight> flights;  // list of outgoing flights
     bool visited;          // auxiliary field
     bool processing;
+
+    int maxTripDistance;
+    std::vector<Airport *> maxTripDests;
+
+    int getMaxTripDistance() const;
+    void setMaxTripDistance(int distance);
+    std::vector<Airport *> getMaxTripDests() const;
+    void addMaxTripDest(Airport * dest);
+
     void addFlight(Flight flight);
     bool removeFlightTo(Airport *d);
 public:
