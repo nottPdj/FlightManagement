@@ -102,7 +102,8 @@ std::vector<Airport *> Graph::getReachableAirportsFrom(std::string code, int sto
     airport->setVisited(true);
     int xStops = -1;
     while (true) {
-        for (int i = 0; i < aux.size(); i++) {
+        int size = aux.size();
+        for (int i = 0; i < size; i++) {
             auto a = aux.front();
             aux.pop();
             res.push_back(a);
@@ -135,7 +136,8 @@ std::vector<std::string> Graph::getReachableCitiesFrom(std::string code, int sto
     airport->setVisited(true);
     int xStops = -1;
     while (true) {
-        for (int i = 0; i < aux.size(); i++) {
+        int size = aux.size();
+        for (int i = 0; i < size; i++) {
             auto a = aux.front();
             aux.pop();
             cities.insert(a->getCity());
@@ -171,7 +173,8 @@ std::vector<std::string> Graph::getReachableCountriesFrom(std::string code, int 
     airport->setVisited(true);
     int xStops = -1;
     while (true) {
-        for (int i = 0; i < aux.size(); i++) {
+        int size = aux.size();
+        for (int i = 0; i < size; i++) {
             auto a = aux.front();
             aux.pop();
             countries.insert(a->getCountry());
@@ -197,15 +200,21 @@ std::vector<std::string> Graph::getReachableCountriesFrom(std::string code, int 
     return res;
 }
 
+
+
 int Graph::calculateMaxDistanceFrom(Airport * source) {
     resetVisited();
+    if (source->getCode() == "STZ") {
+        int x = 0;
+    }
     std::queue<Airport *> aux;
     aux.push(source);
     source->setVisited(true);
     int distance = 0;
     while (!aux.empty()) {
         std::unordered_set<Airport *> maxDests;
-        for (int i = 0; i < aux.size(); i++) {
+        int size = aux.size();
+        for (int i = 0; i < size; i++) {
             auto a = aux.front();
             aux.pop();
             bool end = true;
@@ -232,26 +241,45 @@ int Graph::calculateMaxDistanceFrom(Airport * source) {
     return distance;
 }
 
-// TODO encontrar caminho mais rapido (menos paragens) entre source e dest
+// encontrar caminho mais rapido (menos paragens) entre source e dest
 std::vector<Flight> Graph::getMinTrip(Airport * source, Airport * dest) {
     resetVisited();
+    std::deque<Flight> tripReversed;
     std::vector<Flight> trip;
-/*    std::queue<Airport *> aux;
+    std::unordered_map<Airport *, Flight> flightTo;
+    std::queue<Airport *> aux;
     aux.push(source);
     source->setVisited(true);
     while (!aux.empty()) {
-        for (int i = 0; i < aux.size(); i++) {
+        int size = aux.size();
+        for (int i = 0; i < size; i++) {
             auto a = aux.front();
             aux.pop();
-            for (auto f: a->getFlights()) {
+            for (Flight f: a->getFlights()) {
                 if (!f.getDest()->isVisited()) {
                     aux.push(f.getDest());
                     f.getDest()->setVisited(true);
+                    flightTo.emplace(f.getDest(), f);
+                    if (f.getDest() == dest) {
+                        Airport *last = dest;
+                        Flight flightToLast = flightTo.find(last)->second;
+                        while (true) {
+                            tripReversed.push_front(flightToLast);
+                            last = flightToLast.getSource();
+                            if (last == source) {
+                                while (!tripReversed.empty()) {
+                                    trip.push_back(tripReversed.front());
+                                    tripReversed.pop_front();
+                                }
+                                return trip;
+                            }
+                            flightToLast = flightTo.find(last)->second;
+                        }
+                    }
                 }
             }
-
         }
-    }*/
+    }
     return trip;
 }
 

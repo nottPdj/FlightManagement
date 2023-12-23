@@ -146,6 +146,7 @@ void Terminal::waitMenu(){
             std::vector<std::vector<Flight>> maxTrips = g.getMaxTrip();
             /*options.message = "Maximum trip available (with the greatest number of lay-overs): " + std::to_string(maxTrip.size() - 1) + "lay-overs\n";
             printFlightsList(maxTrip, options);*/
+            printFlightsLists(maxTrips, options);
             break;
         }
         // Airports with the greatest air traffic capacity
@@ -356,30 +357,30 @@ void Terminal::printFlightsList(std::vector<Flight> flights, printingOptions opt
     std::cout << "\n";
 
     // HEADERS: FROM and TO and AIRLINE
-    std::cout << "|" << fill('-', (CODE_WIDTH + DEFAULT_WIDTH * 2) * 2 + CODE_WIDTH + 8) << "|\n";
+    std::cout << "|" << fill('-', (CODE_WIDTH + NAME_WIDTH * 2 + 2)) << "--" << fill('-', (CODE_WIDTH + NAME_WIDTH * 2 + 2)) << "--" << fill('-', AIRLINE_WIDTH) << "|\n";
 
-    std::cout << "| FROM" << fill(' ', CODE_WIDTH + DEFAULT_WIDTH * 2 + 2 - 5) << "|"
-                << "| TO" << fill(' ', CODE_WIDTH + DEFAULT_WIDTH * 2 + 2 - 3) << "|"
-                << "| AIRLINE" << fill(' ', DEFAULT_WIDTH - 8) << "|\n";
+    std::cout << "|" << center("FROM", ' ', (CODE_WIDTH + NAME_WIDTH * 2 + 2)) << "|"
+                << "|" << center("TO", ' ', (CODE_WIDTH + NAME_WIDTH * 2 + 2)) << "|"
+                << "|" << center("AIRLINE", ' ', AIRLINE_WIDTH) << "|\n";
 
     for (int i = 0; i < 2; i++) {
-        std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|"
-                  << fill('-', DEFAULT_WIDTH) << "|\n";
+        std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
+                  << fill('-', NAME_WIDTH) << "|";
     }
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|\n";
+    std::cout << "|" << fill('-', AIRLINE_WIDTH) << "|\n";
 
     // SECONDARY HEADERS
     for (int i = 0; i < 2; i++) {
-        std::cout << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("City", ' ', DEFAULT_WIDTH) << "|"
-                  << center("Country", ' ', DEFAULT_WIDTH) << "|";
+        std::cout << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("City", ' ', NAME_WIDTH) << "|"
+                  << center("Country", ' ', NAME_WIDTH) << "|";
     }
-    std::cout << "|" << center("Code", ' ', CODE_WIDTH) << "|\n";
+    std::cout << "|" << center("Code", ' ', AIRLINE_WIDTH) << "|\n";
 
     for (int i = 0; i < 2; i++) {
-        std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|"
-                  << fill('-', DEFAULT_WIDTH) << "|\n";
+        std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
+                  << fill('-', NAME_WIDTH) << "|";
     }
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|\n";
+    std::cout << "|" << fill('-', AIRLINE_WIDTH) << "|\n";
 
     // SORTING
     if (options.sort)
@@ -388,18 +389,19 @@ void Terminal::printFlightsList(std::vector<Flight> flights, printingOptions opt
     // FLIGHTS
     for (Flight flight : flights) {
         std::cout << "|" << center(flight.getSource()->getCode(), ' ', CODE_WIDTH) << "|" << center(flight.getSource()->getCity(), ' ', NAME_WIDTH) << "|"
-                  << center(flight.getSource()->getCountry(), ' ', DEFAULT_WIDTH) << "|"
+                  << center(flight.getSource()->getCountry(), ' ', NAME_WIDTH) << "|"
                     << "|" << center(flight.getDest()->getCode(), ' ', CODE_WIDTH) << "|" << center(flight.getDest()->getCity(), ' ', NAME_WIDTH) << "|"
-                  << center(flight.getDest()->getCountry(), ' ', DEFAULT_WIDTH) << "|"
-                    << "|" << center(flight.getAirline()->getCode(), ' ', CODE_WIDTH) << "|\n";
+                  << center(flight.getDest()->getCountry(), ' ', NAME_WIDTH) << "|"
+                    << "|" << center(flight.getAirline()->getCode(), ' ', AIRLINE_WIDTH) << "|\n";
     }
 
     // CLOSING TABLE
-    for (int i = 0; i < 2; i++) {
-        std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|"
-                  << fill('-', DEFAULT_WIDTH) << "|\n";
+/*    for (int i = 0; i < 2; i++) {
+        std::cout << "|" << fill('-', CODE_WIDTH) << "-" << fill('-', NAME_WIDTH) << "-"
+                  << fill('-', NAME_WIDTH) << "-";
     }
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|\n";
+    std::cout << "-" << fill('-', AIRLINE_WIDTH) << "|\n";*/
+    std::cout << "|" << fill('-', (CODE_WIDTH + NAME_WIDTH * 2 + 4) * 2 + AIRLINE_WIDTH) << "|\n";
 
     if (options.showSortingOptions)
         printSortingOptions();
