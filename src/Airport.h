@@ -15,6 +15,7 @@ class Airport {
     std::string latitude;
     std::string longitude;
     std::vector<Flight> flights;  // list of outgoing flights
+    int nFlightsOut;
     bool visited;          // auxiliary field
     bool processing;
 
@@ -41,6 +42,7 @@ public:
     std::string getCountry() const;
     std::string getLatitude() const;
     std::string getLongitude() const;
+    int getNFlightsOut() const;
     std::vector<Flight> getFlights();
     bool isVisited() const;
     void setVisited(bool v);
@@ -54,6 +56,8 @@ public:
     static bool byCountry(Airport *a1, Airport *a2);
     static bool byLatitude(Airport *a1, Airport *a2);
     static bool byLongitude(Airport *a1, Airport *a2);
+
+    static bool byNFlightsOut(Airport *a1, Airport *a2);
 };
 
 // Hash function for the Airport class

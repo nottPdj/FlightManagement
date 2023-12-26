@@ -156,7 +156,7 @@ void Terminal::waitMenu(){
             std::cin >> top;
             options.message = "Top-" + std::to_string(top) + " airports with the greatest air traffic capacity\n";
             // TODO cortar para ficar só com o top-k ou vêm só k da funcao?
-            printAirportsList(g.getGreatestNumFlights(), options);
+            printAirportsList(g.getGreatestNumFlights(top), options);
             break;
         }
         // Essential airports to the network’s circulation capability
@@ -312,13 +312,16 @@ void Terminal::printAirportsList(std::vector<Airport*> airports, printingOptions
    // HEADERS
     std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
               << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|"
-              << fill('-', NUMBER_WIDTH) << "|" << fill('-', NUMBER_WIDTH) << "|\n";
+              << fill('-', NUMBER_WIDTH) << "|" << fill('-', NUMBER_WIDTH) << "|"
+              << fill('-', OUTF_WIDTH) << "|\n";
     std::cout << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("Name", ' ', NAME_WIDTH) << "|"
               << center("City", ' ', DEFAULT_WIDTH) << "|" << center("Country", ' ', DEFAULT_WIDTH) << "|"
-              << center("Latitude", ' ', NUMBER_WIDTH) << "|" << center("Longitude", ' ', NUMBER_WIDTH) << "|\n";
+              << center("Latitude", ' ', NUMBER_WIDTH) << "|" << center("Longitude", ' ', NUMBER_WIDTH) << "|"
+              << center("OutFlights", ' ', OUTF_WIDTH) << "|\n";
     std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
               << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|"
-              << fill('-', NUMBER_WIDTH) << "|" << fill('-', NUMBER_WIDTH) << "|\n";
+              << fill('-', NUMBER_WIDTH) << "|" << fill('-', NUMBER_WIDTH) << "|"
+              << fill('-', OUTF_WIDTH) << "|\n";
 
     // SORTING
     if (options.sort)
@@ -328,13 +331,15 @@ void Terminal::printAirportsList(std::vector<Airport*> airports, printingOptions
     for (Airport *airport : airports) {
         std::cout << "|" << center(airport->getCode(), ' ', CODE_WIDTH) << "|" << center(airport->getName(), ' ', NAME_WIDTH) << "|"
                   << center(airport->getCity(), ' ', DEFAULT_WIDTH) << "|" << center(airport->getCountry(), ' ', DEFAULT_WIDTH) << "|"
-                  << center(airport->getLatitude(), ' ', NUMBER_WIDTH) << "|" << center(airport->getLongitude(), ' ', NUMBER_WIDTH) << "|\n";
+                  << center(airport->getLatitude(), ' ', NUMBER_WIDTH) << "|" << center(airport->getLongitude(), ' ', NUMBER_WIDTH)<< "|"
+                  << center(std::to_string(airport->getNFlightsOut()), ' ', OUTF_WIDTH) << "|\n";
     }
 
     // CLOSING TABLE
     std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
               << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|"
-              << fill('-', NUMBER_WIDTH) << "|" << fill('-', NUMBER_WIDTH) << "|\n";
+              << fill('-', NUMBER_WIDTH) << "|" << fill('-', NUMBER_WIDTH) << "|"
+              << fill('-', OUTF_WIDTH) << "|\n";
 
     if (options.showSortingOptions)
         printSortingOptions();
@@ -590,31 +595,43 @@ void Terminal::sortAirportsList(std::vector<Airport *> &airports, sortingOptions
                 std::sort(airports.begin(), airports.end(), Airport::byCode);
             else
                 std::sort(airports.rbegin(), airports.rend(), Airport::byCode);
+            break;
         case 1:
             if (sortOptions.ascending)
                 std::sort(airports.begin(), airports.end(), Airport::byName);
             else
                 std::sort(airports.rbegin(), airports.rend(), Airport::byName);
+            break;
         case 2:
             if (sortOptions.ascending)
                 std::sort(airports.begin(), airports.end(), Airport::byCity);
             else
                 std::sort(airports.rbegin(), airports.rend(), Airport::byCity);
+            break;
         case 3:
             if (sortOptions.ascending)
                 std::sort(airports.begin(), airports.end(), Airport::byCountry);
             else
                 std::sort(airports.rbegin(), airports.rend(), Airport::byCountry);
+            break;
         case 4:
             if (sortOptions.ascending)
                 std::sort(airports.begin(), airports.end(), Airport::byLatitude);
             else
                 std::sort(airports.rbegin(), airports.rend(), Airport::byLatitude);
+            break;
         case 5:
             if (sortOptions.ascending)
                 std::sort(airports.begin(), airports.end(), Airport::byLongitude);
             else
                 std::sort(airports.rbegin(), airports.rend(), Airport::byLongitude);
+            break;
+        case 6:
+            if (sortOptions.ascending)
+                std::sort(airports.begin(), airports.end(), Airport::byNFlightsOut);
+            else
+                std::sort(airports.rbegin(), airports.rend(), Airport::byNFlightsOut);
+            break;
     }
 }
 
@@ -625,21 +642,25 @@ void Terminal::sortAirlinesList(std::vector<Airline *> &airlines, sortingOptions
                 std::sort(airlines.begin(), airlines.end(), Airline::byCode);
             else
                 std::sort(airlines.rbegin(), airlines.rend(), Airline::byCode);
+            break;
         case 1:
             if (sortOptions.ascending)
                 std::sort(airlines.begin(), airlines.end(), Airline::byName);
             else
                 std::sort(airlines.rbegin(), airlines.rend(), Airline::byName);
+            break;
         case 2:
             if (sortOptions.ascending)
                 std::sort(airlines.begin(), airlines.end(), Airline::byCallsign);
             else
                 std::sort(airlines.rbegin(), airlines.rend(), Airline::byCallsign);
+            break;
         case 3:
             if (sortOptions.ascending)
                 std::sort(airlines.begin(), airlines.end(), Airline::byCountry);
             else
                 std::sort(airlines.rbegin(), airlines.rend(), Airline::byCountry);
+            break;
     }
 }
 
@@ -650,36 +671,43 @@ void Terminal::sortFlightsList(std::vector<Flight> &flights, sortingOptions sort
                 std::sort(flights.begin(), flights.end(), Flight::bySourceCode);
             else
                 std::sort(flights.rbegin(), flights.rend(), Flight::bySourceCode);
+            break;
         case 1:
             if (sortOptions.ascending)
                 std::sort(flights.begin(), flights.end(), Flight::bySourceCity);
             else
                 std::sort(flights.rbegin(), flights.rend(), Flight::bySourceCity);
+            break;
         case 2:
             if (sortOptions.ascending)
                 std::sort(flights.begin(), flights.end(), Flight::bySourceCountry);
             else
                 std::sort(flights.rbegin(), flights.rend(), Flight::bySourceCountry);
+            break;
         case 3:
             if (sortOptions.ascending)
                 std::sort(flights.begin(), flights.end(), Flight::byDestCode);
             else
                 std::sort(flights.rbegin(), flights.rend(), Flight::byDestCode);
+            break;
         case 4:
             if (sortOptions.ascending)
                 std::sort(flights.begin(), flights.end(), Flight::byDestCity);
             else
                 std::sort(flights.rbegin(), flights.rend(), Flight::byDestCity);
+            break;
         case 5:
             if (sortOptions.ascending)
                 std::sort(flights.begin(), flights.end(), Flight::byDestCountry);
             else
                 std::sort(flights.rbegin(), flights.rend(), Flight::byDestCountry);
+            break;
         case 6:
             if (sortOptions.ascending)
                 std::sort(flights.begin(), flights.end(), Flight::byAirlineCode);
             else
                 std::sort(flights.rbegin(), flights.rend(), Flight::byAirlineCode);
+            break;
     }
 }
 
@@ -700,6 +728,7 @@ void Terminal::sortCountriesList(std::vector<std::string> &countries, sortingOpt
                 std::sort(countries.begin(), countries.end());
             else
                 std::sort(countries.rbegin(), countries.rend());
+            break;
     }
 }
 

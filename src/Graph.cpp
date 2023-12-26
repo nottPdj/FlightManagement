@@ -50,6 +50,7 @@ int Graph::getNumAirlines() {
 }
 
 std::pair<int,int> Graph::getNumFlightsFromAirport(std::string code) {
+    //TODO verificar se airport existe senao crasha
     std::pair<int,int> res;
     Airport * airport = getAirport(code);
     int nflights = airport->flights.size();
@@ -300,8 +301,33 @@ std::vector<std::vector<Flight>> Graph::getMaxTrip() {
 }
 
 
-std::vector<Airport *> Graph::getGreatestNumFlights() {
-    return std::vector<Airport *>();
+std::vector<Airport *> Graph::getGreatestNumFlights(int n) {
+
+    struct compareNFlightsOut {
+        bool operator()(Airport* a, Airport* b) {
+            return a->getNFlightsOut() > b->getNFlightsOut(); // This creates a max heap
+        }
+    };
+    std::vector<Airport *> topFlights;
+    std::priority_queue<Airport *, std::vector<Airport *>, compareNFlightsOut> topMin;
+
+    for (Airport* a : getvAirports()){
+        if (topMin.size() < n){
+            topMin.push(a);
+        }
+        else {
+            if (a->getNFlightsOut() > topMin.top()->getNFlightsOut()){
+                topMin.pop();
+                topMin.push(a);
+            }
+        }
+    }
+    while (!topMin.empty()) {
+        topFlights.push_back(topMin.top());
+        topMin.pop();
+    }
+
+    return topFlights;
 }
 
 std::vector<Airport *> Graph::getEssentialAirports() {
@@ -319,9 +345,3 @@ void Graph::resetVisited() {
         airport->setVisited(false);
     }
 }
-
-
-
-
-
-

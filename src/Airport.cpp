@@ -61,6 +61,10 @@ bool Airport::byLongitude(Airport *a1, Airport *a2) {
     return a1->getLongitude() <= a2->getLongitude();
 }
 
+bool Airport::byNFlightsOut(Airport *a1, Airport *a2) {
+    return a1->getNFlightsOut() <= a2->getNFlightsOut();
+}
+
 void Airport::setVisited(bool v) {
     this->visited=v;
 }
@@ -97,3 +101,6 @@ void Airport::addMaxTripDest(Airport *dest) {
     maxTripDests.push_back(dest);
 }
 
+int Airport::getNFlightsOut() const {
+    return (int)this->flights.size();
+}
