@@ -1,6 +1,7 @@
 #include <sstream>
 #include "Graph.h"
 #include <cmath>
+#include <iomanip>
 
 std::vector<Airport *> Graph::getvAirports() {
     return vAirports;
@@ -254,7 +255,7 @@ int Graph::calculateMaxDistanceFrom(Airport * source) {
 }
 
 // encontrar caminho mais rapido (menos paragens) entre source e dest
-std::vector<Flight> Graph::getMinTrip(Airport * source, Airport * dest, std::vector<std::string> dontUse) {
+std::vector<Flight> Graph::getMinTrip(Airport * source, Airport * dest) {
     resetVisited();
     std::deque<Flight> tripReversed;
     std::vector<Flight> trip;
@@ -268,7 +269,49 @@ std::vector<Flight> Graph::getMinTrip(Airport * source, Airport * dest, std::vec
             auto a = aux.front();
             aux.pop();
             for (Flight f: a->getFlights()) {
-                if (!f.getDest()->isVisited() && (std::find(dontUse.begin(), dontUse.end(), f.getAirline()->getCode()) == dontUse.end())) {
+                if (!f.getDest()->isVisited()) {
+                    aux.push(f.getDest());
+                    f.getDest()->setVisited(true);
+                    flightTo.emplace(f.getDest(), f);
+                    if (f.getDest() == dest) {
+                        Airport *last = dest;
+                        Flight flightToLast = flightTo.find(last)->second;
+                        while (true) {
+                            tripReversed.push_front(flightToLast);
+                            last = flightToLast.getSource();
+                            if (last == source) {
+                                while (!tripReversed.empty()) {
+                                    trip.push_back(tripReversed.front());
+                                    tripReversed.pop_front();
+                                }
+                                return trip;
+                            }
+                            flightToLast = flightTo.find(last)->second;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return trip;
+}
+
+// encontrar caminho mais rapido (menos paragens) entre source e dest with specific airlines
+std::vector<Flight> Graph::getMinTripAirlines(Airport * source, Airport * dest, std::vector<std::string> use) {
+    resetVisited();
+    std::deque<Flight> tripReversed;
+    std::vector<Flight> trip;
+    std::unordered_map<Airport *, Flight> flightTo;
+    std::queue<Airport *> aux;
+    aux.push(source);
+    source->setVisited(true);
+    while (!aux.empty()) {
+        int size = aux.size();
+        for (int i = 0; i < size; i++) {
+            auto a = aux.front();
+            aux.pop();
+            for (Flight f: a->getFlights()) {
+                if (!f.getDest()->isVisited() && (std::find(use.begin(), use.end(), f.getAirline()->getCode()) != use.end())) {
                     aux.push(f.getDest());
                     f.getDest()->setVisited(true);
                     flightTo.emplace(f.getDest(), f);
@@ -304,9 +347,7 @@ std::vector<std::vector<Flight>> Graph::getMaxTrip() {
     for (Airport * a : getvAirports()) {
         if (a->getMaxTripDistance() == maxDistance) {
             for (Airport * dest : a->getMaxTripDests()) {
-                std::vector<std::string> dontUse;
-                dontUse.clear();
-                maxTrips.push_back(getMinTrip(a, dest, dontUse));
+                maxTrips.push_back(getMinTrip(a, dest));
             }
         }
     }
@@ -377,46 +418,49 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
             from.push_back(getAirportByName(source));
             break;
         // City
-        case 2:
-            std::vector<Airport *> aux = getAirportsByCity(source);
-            for (Airport * a : aux) {
+        case 2: {
+            std::vector<Airport *> airportByCity = getAirportByCity(source);
+            for (Airport *a: airportByCity) {
                 from.push_back(a);
             }
             break;
+        }
         // Geographical coordinates (lat, lon)
-        case 3:
+        case 3: {
             // TODO check
             double latitude;
             double longitude;
             std::string nothing;
             std::istringstream iss(source);
-            iss >> nothing >> latitude;
-            iss >> nothing >> longitude;
-            std::vector<Airport *> aux = getNearestAirports(source);
-            for (Airport * a : aux) {
+            iss >> std::setw(1) >> nothing >> latitude;
+            iss >> std::setw(1) >> nothing >> longitude;
+            std::vector<Airport *> nearestAirports = getNearestAirports(latitude, longitude);
+            for (Airport *a: nearestAirports) {
                 from.push_back(a);
             }
             break;
+        }
     }
 
     switch (searchTo) {
         // Airport code
         case 0:
-            from.push_back(getAirport(dest));
+            to.push_back(getAirport(dest));
             break;
-            // Airport name
+        // Airport name
         case 1:
-            from.push_back(getAirportByName(dest));
+            to.push_back(getAirportByName(dest));
             break;
-            // City
-        case 2:
-            std::vector<Airport *> aux = getAirportsByCity(dest);
-            for (Airport * a : aux) {
-                from.push_back(a);
+        // City
+        case 2: {
+            std::vector<Airport *> airportByCity = getAirportByCity(dest);
+            for (Airport *a: airportByCity) {
+                to.push_back(a);
             }
             break;
-            // Geographical coordinates (lat, lon)
-        case 3:
+        }
+        // Geographical coordinates (lat, lon)
+        case 3: {
             // TODO check
             double latitude;
             double longitude;
@@ -424,16 +468,17 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
             std::istringstream iss(source);
             iss >> nothing >> latitude;
             iss >> nothing >> longitude;
-            std::vector<Airport *> aux = getNearestAirports(dest);
-            for (Airport * a : aux) {
-                from.push_back(a);
+            std::vector<Airport *> nearestAirports = getNearestAirports(latitude, longitude);
+            for (Airport *a: nearestAirports) {
+                to.push_back(a);
             }
             break;
+        }
     }
 
     for (Airport * aSource : from) {
         for (Airport * aDest : to) {
-            std::vector<Flight> trip = getMinTrip(aSource, aDest, airlineCodes);
+            std::vector<Flight> trip = getMinTripAirlines(aSource, aDest, airlineCodes);
             if (lessThanMaxAirlines(trip, maxAirlines)) {
                 bestOptions.push_back(trip);
             }

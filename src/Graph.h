@@ -20,7 +20,8 @@ class Graph {
 
 
     int calculateMaxDistanceFrom(Airport * source);
-    std::vector<Flight> getMinTrip(Airport * source, Airport * dest, std::vector<std::string> dontUse);
+    std::vector<Flight> getMinTrip(Airport * source, Airport * dest);
+    std::vector<Flight> getMinTripAirlines(Airport * source, Airport * dest, std::vector<std::string> use);
     bool lessThanMaxAirlines(std::vector<Flight> trip, int max);
 
 public:

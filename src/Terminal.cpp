@@ -179,7 +179,7 @@ void Terminal::waitMenu(){
                 << "\t0 - Airport code\n"
                 << "\t1 - Airport name\n"
                 << "\t2 - City\n"
-                << "\t3 - Geographical coordinates (lat, lon)\n";
+                << "\t3 - Geographical coordinates (lat,lon)\n";
             int searchFrom;
             std::string source;
             std::cin >> searchFrom;
@@ -191,7 +191,7 @@ void Terminal::waitMenu(){
                       << "\t0 - Airport code\n"
                       << "\t1 - Airport name\n"
                       << "\t2 - City\n"
-                      << "\t3 - Geographical coordinates (lat, lon)\n";
+                      << "\t3 - Geographical coordinates (lat,lon)\n";
             int searchTo;
             std::string dest;
             std::cin >> searchTo;
@@ -203,9 +203,9 @@ void Terminal::waitMenu(){
             std::cout << "From " << source << " to " << dest << "\n\n";
 
             std::cout << "Airline Preferences\n"
-                << "\t0 - Maximum number of different airlines"
-                << "\t1 - Travel only in specific airlines"
-                << "\t2 - No preferences";
+                << "\t0 - Maximum number of different airlines\n"
+                << "\t1 - Travel only in specific airlines\n"
+                << "\t2 - No preferences\n";
             int preference = 2;
             std::cin >> preference;
 
@@ -221,7 +221,7 @@ void Terminal::waitMenu(){
                 std::string airline;
                 while (true) {
                     std::cin >> airline;
-                    if (airline == "code") {
+                    if (airline == "done") {
                         break;
                     }
                     airlineCodes.push_back(airline);
