@@ -19,6 +19,7 @@ struct sortingOptions {
 struct printingOptions {
     sortingOptions sortOptions;
     std::string message;
+    bool clear = true;
     bool printMessage = true;
     bool printCountMessage = true;
     bool sort = true;

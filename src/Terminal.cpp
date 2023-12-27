@@ -39,7 +39,7 @@ void Terminal::printMainMenu() {
               << "\t8 - Maximum trip (with the greatest number of lay-overs)" << "\n"
               << "\t9 - Top airports with the greatest air traffic capacity" << "\n"
               << "\t10 - Essential airports to the network’s circulation capability" << "\n"
-              << "\t11 - Consult the best flight option" << "\n";
+              << "\t11 - Consult the best flight option" << "\n\n";
 
     printExit();
     std::cout << "Press the number corresponding the action you want." << "\n";
@@ -63,6 +63,7 @@ void Terminal::waitMenu(){
             std::cout << "There are " + std::to_string(g.getNumAirports()) + " airports\n";
             std::cout << "There are " + std::to_string(g.getNumFlights()) + " flights\n";
             std::cout << "There are " + std::to_string(g.getNumAirlines()) + " airlines\n";
+            std::cout << "\n\n";
             endDisplayMenu();
             getInput();
             break;
@@ -76,6 +77,7 @@ void Terminal::waitMenu(){
             std::pair<int, int> nums = g.getNumFlightsFromAirport(code);
             std::cout << "There are " + std::to_string(nums.first) + " flights from airport " + code + "\n";
             std::cout << "From " + std::to_string(nums.second) + " different airlines\n";
+            std::cout << "\n\n";
             endDisplayMenu();
             getInput();
             break;
@@ -87,6 +89,7 @@ void Terminal::waitMenu(){
             std::cin >> city;        // Fetch city
             system("clear");
             std::cout << "There are " + std::to_string(g.getNumFlightsFromCity(city)) + " flights from " + city + "\n";
+            std::cout << "\n\n";
             endDisplayMenu();
             getInput();
             break;
@@ -98,6 +101,7 @@ void Terminal::waitMenu(){
             std::cin >> airline;        // Fetch country
             system("clear");
             std::cout << "There are " + std::to_string(g.getNumFlightsPerAirline(airline)) + " flights from " + airline + "\n";
+            std::cout << "\n\n";
             endDisplayMenu();
             getInput();
             break;
@@ -143,9 +147,10 @@ void Terminal::waitMenu(){
         case 8: {
             options.sort = false;
             options.showSortingOptions = false;
+            options.printCountMessage = false;
             std::vector<std::vector<Flight>> maxTrips = g.getMaxTrip();
-            /*options.message = "Maximum trip available (with the greatest number of lay-overs): " + std::to_string(maxTrip.size() - 1) + "lay-overs\n";
-            printFlightsList(maxTrip, options);*/
+            options.message = "Maximum trips available:\n";
+            options.message += "There are " + std::to_string(maxTrips.size()) + " trips with the greatest number of lay-overs (" + std::to_string(maxTrips[0].size() - 1) + ")\n";
             printFlightsLists(maxTrips, options);
             break;
         }
@@ -155,7 +160,9 @@ void Terminal::waitMenu(){
             int top;
             std::cin >> top;
             options.message = "Top-" + std::to_string(top) + " airports with the greatest air traffic capacity\n";
-            // TODO cortar para ficar só com o top-k ou vêm só k da funcao?
+            options.printCountMessage = false;
+            options.sortOptions.orderBy = 6;
+            options.sortOptions.ascending = false;
             printAirportsList(g.getGreatestNumFlights(top), options);
             break;
         }
@@ -176,11 +183,10 @@ void Terminal::waitMenu(){
             int searchFrom;
             std::string source;
             std::cin >> searchFrom;
-            system("clear");
-            std::cout << "From: ";
+            std::cout << "\nFrom: ";
             std::cin >> source;
 
-            std::cout << "TO\n";
+            std::cout << "\nTO\n";
             std::cout << "Search by: \n"
                       << "\t0 - Airport code\n"
                       << "\t1 - Airport name\n"
@@ -189,11 +195,12 @@ void Terminal::waitMenu(){
             int searchTo;
             std::string dest;
             std::cin >> searchTo;
-            system("clear");
-            std::cout << "To: ";
+            std::cout << "\nTo: ";
             std::cin >> dest;
+            system("clear");
 
             options.message = "Best flight option(s) from " + source + " to " + dest;
+            std::cout << "From " << source << " to " << dest << "\n\n";
 
             std::cout << "Airline Preferences\n"
                 << "\t0 - Maximum number of different airlines"
@@ -201,7 +208,6 @@ void Terminal::waitMenu(){
                 << "\t2 - No preferences";
             int preference = 2;
             std::cin >> preference;
-            system("clear");
 
             int maxAirlines = -1;
             std::vector<std::string> airlineCodes;
@@ -224,6 +230,7 @@ void Terminal::waitMenu(){
             }
             options.message += "\n";
             printFlightsLists(g.getBestOption(source, searchFrom, dest, searchTo, maxAirlines, airlineCodes), options);
+            break;
         }
         default: {
             printMainMenu();
@@ -262,6 +269,8 @@ void Terminal::getDestinations(std::string code, int stops) {
 
 
 void Terminal::printAirlinesList(std::vector<Airline *> airlines, printingOptions options) {
+    if (options.clear)
+        system("clear");
     if (options.printMessage)
         std::cout << options.message;
     if (options.printCountMessage)
@@ -290,6 +299,7 @@ void Terminal::printAirlinesList(std::vector<Airline *> airlines, printingOption
     std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
               << fill('-', DEFAULT_WIDTH) << "|" << fill('-', DEFAULT_WIDTH) << "|\n";
 
+    std::cout << "\n\n";
     if (options.showSortingOptions)
         printSortingOptions();
     if (options.showEndMenu)
@@ -303,6 +313,8 @@ void Terminal::printAirlinesList(std::vector<Airline *> airlines, printingOption
 }
 
 void Terminal::printAirportsList(std::vector<Airport*> airports, printingOptions options) {
+    if (options.clear)
+        system("clear");
     if (options.printMessage)
         std::cout << options.message;
     if (options.printCountMessage)
@@ -341,6 +353,7 @@ void Terminal::printAirportsList(std::vector<Airport*> airports, printingOptions
               << fill('-', NUMBER_WIDTH) << "|" << fill('-', NUMBER_WIDTH) << "|"
               << fill('-', OUTF_WIDTH) << "|\n";
 
+    std::cout << "\n\n";
     if (options.showSortingOptions)
         printSortingOptions();
     if (options.showEndMenu)
@@ -355,11 +368,13 @@ void Terminal::printAirportsList(std::vector<Airport*> airports, printingOptions
 
 
 void Terminal::printFlightsList(std::vector<Flight> flights, printingOptions options) {
+    if (options.clear)
+        system("clear");
     if (options.printMessage)
         std::cout << options.message;
     if (options.printCountMessage)
         std::cout << "There are " << flights.size() << " flights\n";
-    std::cout << "\n";
+    std::cout << "\nFrom " << flights.front().getSource()->getCode() << " To " << flights.back().getDest()->getCode() << "\n";
 
     // HEADERS: FROM and TO and AIRLINE
     std::cout << "|" << fill('-', (CODE_WIDTH + NAME_WIDTH * 2 + 2)) << "--" << fill('-', (CODE_WIDTH + NAME_WIDTH * 2 + 2)) << "--" << fill('-', AIRLINE_WIDTH) << "|\n";
@@ -401,13 +416,9 @@ void Terminal::printFlightsList(std::vector<Flight> flights, printingOptions opt
     }
 
     // CLOSING TABLE
-/*    for (int i = 0; i < 2; i++) {
-        std::cout << "|" << fill('-', CODE_WIDTH) << "-" << fill('-', NAME_WIDTH) << "-"
-                  << fill('-', NAME_WIDTH) << "-";
-    }
-    std::cout << "-" << fill('-', AIRLINE_WIDTH) << "|\n";*/
     std::cout << "|" << fill('-', (CODE_WIDTH + NAME_WIDTH * 2 + 4) * 2 + AIRLINE_WIDTH) << "|\n";
 
+    std::cout << "\n\n";
     if (options.showSortingOptions)
         printSortingOptions();
     if (options.showEndMenu)
@@ -422,6 +433,8 @@ void Terminal::printFlightsList(std::vector<Flight> flights, printingOptions opt
 
 
 void Terminal::printCitiesList(std::vector<std::string> cities, printingOptions options) {
+    if (options.clear)
+        system("clear");
     if (options.printMessage)
         std::cout << options.message;
     if (options.printCountMessage)
@@ -445,6 +458,7 @@ void Terminal::printCitiesList(std::vector<std::string> cities, printingOptions 
     // CLOSING TABLE
     std::cout << "|" << fill('-', DEFAULT_WIDTH) << "|\n";
 
+    std::cout << "\n\n";
     if (options.showSortingOptions)
         printSortingOptions();
     if (options.showEndMenu)
@@ -458,6 +472,8 @@ void Terminal::printCitiesList(std::vector<std::string> cities, printingOptions 
 }
 
 void Terminal::printCountriesList(std::vector<std::string> countries, printingOptions options) {
+    if (options.clear)
+        system("clear");
     if (options.printMessage)
         std::cout << options.message;
     if (options.printCountMessage)
@@ -481,6 +497,7 @@ void Terminal::printCountriesList(std::vector<std::string> countries, printingOp
     // CLOSING TABLE
     std::cout << "|" << fill('-', DEFAULT_WIDTH) << "|\n";
 
+    std::cout << "\n\n";
     if (options.showSortingOptions)
         printSortingOptions();
     if (options.showEndMenu)
@@ -507,6 +524,7 @@ void Terminal::printFlightsLists(std::vector<std::vector<Flight>> flightsLists, 
         printFlightsList(flightsLists[i], options);
         if (i == 0) {
             options.printMessage = false;
+            options.clear = false; // TODO check
         }
     }
 }
@@ -554,7 +572,7 @@ void Terminal::printSortingOptions() {
  * @param sortOptions Struct where the sorting options will be stored
  */
 void Terminal::getSortingOptions(sortingOptions &sortOptions) {
-    std::cout << "SORTING OPTIONS\n\n";
+    std::cout << "\nSORTING OPTIONS\n\n";
     std::cout << "Type the number of the column (starting at 0) to order by: ";
     std::cin >> sortOptions.orderBy;
     std::cout << "Type 0 for descending order or 1 for ascending order: ";
@@ -583,7 +601,6 @@ char Terminal::getInput() {
  * @brief Prints default menu after displaying anything that allows to go back to the main menu or exit the program.
  */
 void Terminal::endDisplayMenu() {
-    std::cout << "\n\n";
     printBackToMenu();
     printExit();
 }

@@ -54,11 +54,11 @@ bool Airport::byCountry(Airport *a1, Airport *a2) {
 }
 
 bool Airport::byLatitude(Airport *a1, Airport *a2) {
-    return a1->getLatitude() <= a2->getLatitude();
+    return std::stod(a1->getLatitude()) <= std::stod(a2->getLatitude());
 }
 
 bool Airport::byLongitude(Airport *a1, Airport *a2) {
-    return a1->getLongitude() <= a2->getLongitude();
+    return std::stod(a1->getLongitude()) <= std::stod(a2->getLongitude());
 }
 
 bool Airport::byNFlightsOut(Airport *a1, Airport *a2) {
