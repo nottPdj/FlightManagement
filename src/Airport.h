@@ -16,6 +16,8 @@ class Airport {
     std::string longitude;
     std::vector<Flight> flights;  // list of outgoing flights
     int nFlightsOut;
+    int num;
+    int low;
     bool visited;          // auxiliary field
     bool processing;
 
@@ -43,6 +45,10 @@ public:
     std::string getLatitude() const;
     std::string getLongitude() const;
     int getNFlightsOut() const;
+    void setNum(int i);
+    void setLow(int i);
+    int getNum();
+    int getLow();
     std::vector<Flight> getFlights();
     bool isVisited() const;
     void setVisited(bool v);

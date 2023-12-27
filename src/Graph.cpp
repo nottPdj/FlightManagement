@@ -330,9 +330,58 @@ std::vector<Airport *> Graph::getGreatestNumFlights(int n) {
     return topFlights;
 }
 
-std::vector<Airport *> Graph::getEssentialAirports() {
-    return std::vector<Airport *>();
+
+bool contains(std::string i ,std::stack<std::string>s){
+    while(!s.empty()){
+        if(s.top()==i){
+            return true;
+        }
+        s.pop();
+    }
+    return false;
 }
+
+void dfs_essential(Airport* airport, std::stack<std::string> &s, std::unordered_set<Airport*> &l, int &i) {
+    airport->setLow(i);
+    airport->setNum(i);
+    i++;
+    s.push(airport->getCode());
+
+    for (Flight f: airport->getFlights()) {
+        if (f.getDest()->getNum() == 0) {
+            dfs_essential(f.getDest(), s, l, i);
+            airport->setLow(std::min(airport->getLow(), f.getDest()->getLow()));
+
+            if ( f.getDest()->getLow() >=airport->getNum())
+                l.insert(airport);
+        } else if (contains(f.getDest()->getCode(), s)) {
+            airport->setLow(std::min(airport->getLow(), f.getDest()->getNum()));
+        }
+    }
+    s.pop();
+}
+
+std::vector<Airport *> Graph::getEssentialAirports() {
+    std::vector<Airport*> v;
+    std::unordered_set<Airport*>l;
+    std::stack<std::string>s;
+    int i=1;
+    for (Airport* ap : getvAirports()) {
+        ap->setNum(0);
+    }
+    int n =l.size();
+    for(Airport * ap:getvAirports()){
+        if(ap->getNum()==0){
+            dfs_essential(ap,s,l,i);
+            n=l.size();
+        }
+    }
+    for(auto ap:l){
+        v.push_back(ap);
+    }
+    return v;
+}
+
 
 std::vector<std::vector<Flight>>
 Graph::getBestOption(std::string source, int searchFrom, std::string dest, int searchTo, int maxAirlines,
