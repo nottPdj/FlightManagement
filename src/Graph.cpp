@@ -1,4 +1,5 @@
 #include "Graph.h"
+#include <cmath>
 
 std::vector<Airport *> Graph::getvAirports() {
     return vAirports;
@@ -6,6 +7,14 @@ std::vector<Airport *> Graph::getvAirports() {
 
 Airport *Graph::getAirport(std::string code) {
     return this->airports[code];
+}
+
+std::vector<Airport*> Graph::getAirportByCity(std::string city) {
+    return this->airportsPerCity[city];
+}
+
+Airport *Graph::getAirportByName(std::string name) {
+    return this->airportsName[name];
 }
 
 Airline *Graph::getAirline(std::string code) {
@@ -16,9 +25,10 @@ void Graph::addFlight(Flight flight) {
     flight.source->addFlight(flight);
 }
 
-void Graph::addAirport(std::string code, Airport* airport) {
+void Graph::addAirport(Airport* airport) {
     vAirports.push_back(airport);
-    airports.insert(make_pair(code, airport));
+    airports.insert(make_pair(airport->getCode(), airport));
+    airportsName.insert(make_pair(airport->getName(), airport));
     auto cityIt=airportsPerCity.find(airport->getCity());
     if(cityIt!=airportsPerCity.end()){
         cityIt->second.push_back(airport);
@@ -28,8 +38,8 @@ void Graph::addAirport(std::string code, Airport* airport) {
     }
 }
 
-void Graph::addAirline(std::string code, Airline* airline) {
-    airlines.insert(make_pair(code, airline));
+void Graph::addAirline(Airline* airline) {
+    airlines.insert(make_pair(airline->getCode(), airline));
 }
 
 
@@ -344,4 +354,33 @@ void Graph::resetVisited() {
     for (auto airport : getvAirports()) {
         airport->setVisited(false);
     }
+}
+
+std::vector<Airport *> Graph::getNearestAirports(double lat1, double lon1) {
+    std::vector<Airport *> nearest;
+    double maxDist = 0;
+
+    for (Airport* a : vAirports){
+        double lat2 = stod(a->getLatitude());
+        double lon2 = stod(a->getLongitude());
+        double dLat = (lat2 - lat1) * M_PI / 180.0;
+        double dLon = (lon2 - lon1) * M_PI / 180.0;
+        lat1 = (lat1) * M_PI / 180.0;
+        lat2 = (lat2) * M_PI / 180.0;
+        double aux = pow(sin(dLat / 2), 2) +
+                   pow(sin(dLon / 2), 2) *
+                   cos(lat1) * cos(lat2);
+
+        double distance = 6371 * 2 * asin(sqrt(aux));
+
+        if (distance == maxDist){
+            nearest.push_back(a);
+        }
+        else if (distance > maxDist){
+            nearest.clear();
+            nearest.push_back(a);
+            maxDist = distance;
+        }
+    }
+    return nearest;
 }

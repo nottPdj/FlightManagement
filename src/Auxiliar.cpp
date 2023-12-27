@@ -17,7 +17,7 @@ void Auxiliar::readAirports(Graph &g) {
         getline(ss, latitude, ',');
         getline(ss, longitude, '\r');
         Airport* airport = new Airport(code, name, city, country, latitude, longitude);
-        g.addAirport(code, airport);
+        g.addAirport(airport);
     }
 
 }
@@ -35,7 +35,7 @@ void Auxiliar::readAirlines(Graph &g) {
         getline(ss, callsign, ',');
         getline(ss, country, '\r');
         Airline* airline = new Airline(code, name, callsign, country);
-        g.addAirline(code, airline);
+        g.addAirline(airline);
     }
 
 }
