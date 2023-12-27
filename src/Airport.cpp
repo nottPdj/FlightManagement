@@ -104,3 +104,19 @@ void Airport::addMaxTripDest(Airport *dest) {
 int Airport::getNFlightsOut() const {
     return (int)this->flights.size();
 }
+
+void Airport::setNum(int i) {
+    num=i;
+}
+
+void Airport::setLow(int i) {
+    low=i;
+}
+
+int Airport::getNum() {
+    return num;
+}
+
+int Airport::getLow() {
+    return low;
+}
