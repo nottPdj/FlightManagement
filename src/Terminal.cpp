@@ -209,7 +209,7 @@ void Terminal::waitMenu(){
             int preference = 2;
             std::cin >> preference;
 
-            int maxAirlines = -1;
+            int maxAirlines = INT32_MAX;
             std::vector<std::string> airlineCodes;
 
             if (preference == 0) {
