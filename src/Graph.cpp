@@ -423,11 +423,10 @@ std::vector<Airport *> Graph::getEssentialAirports() {
     for (Airport* ap : getvAirports()) {
         ap->setNum(0);
     }
-    int n =l.size();
+    
     for(Airport * ap:getvAirports()){
         if(ap->getNum()==0){
             dfs_essential(ap,s,l,i);
-            n=l.size();
         }
     }
     for(auto ap:l){
