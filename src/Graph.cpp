@@ -427,7 +427,6 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
         }
         // Geographical coordinates (lat, lon)
         case 3: {
-            // TODO check
             double latitude;
             double longitude;
             std::string nothing;
@@ -461,7 +460,6 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
         }
         // Geographical coordinates (lat, lon)
         case 3: {
-            // TODO check
             double latitude;
             double longitude;
             std::string nothing;
@@ -478,7 +476,12 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
 
     for (Airport * aSource : from) {
         for (Airport * aDest : to) {
-            std::vector<Flight> trip = getMinTripAirlines(aSource, aDest, airlineCodes);
+            std::vector<Flight> trip;
+            if (airlineCodes.empty()) {
+                trip = getMinTrip(aSource, aDest);
+            } else {
+                trip = getMinTripAirlines(aSource, aDest, airlineCodes);
+            }
             if (lessThanMaxAirlines(trip, maxAirlines)) {
                 bestOptions.push_back(trip);
             }
@@ -496,11 +499,13 @@ void Graph::resetVisited() {
     }
 }
 
-std::vector<Airport *> Graph::getNearestAirports(double lat1, double lon1) {
+std::vector<Airport *> Graph::getNearestAirports(double lat, double lon) {
     std::vector<Airport *> nearest;
-    double maxDist = 0;
+    double minDist = 6371;
 
     for (Airport* a : vAirports){
+        double lat1 = lat;
+        double lon1 = lon;
         double lat2 = stod(a->getLatitude());
         double lon2 = stod(a->getLongitude());
         double dLat = (lat2 - lat1) * M_PI / 180.0;
@@ -513,13 +518,13 @@ std::vector<Airport *> Graph::getNearestAirports(double lat1, double lon1) {
 
         double distance = 6371 * 2 * asin(sqrt(aux));
 
-        if (distance == maxDist){
+        if (distance == minDist){
             nearest.push_back(a);
         }
-        else if (distance > maxDist){
+        else if (distance < minDist){
             nearest.clear();
             nearest.push_back(a);
-            maxDist = distance;
+            minDist = distance;
         }
     }
     return nearest;
