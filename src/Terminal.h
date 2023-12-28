@@ -78,17 +78,19 @@ private:
     void printAirlinesList(std::vector<Airline *> airlines, printingOptions options);
     void printAirportsList(std::vector<Airport*> airports, printingOptions options);
     void printFlightsList(std::vector<Flight> flights, printingOptions options);
-    void printCitiesList(std::vector<std::string> cities, printingOptions options);
+    void printCitiesList(std::vector<std::pair<std::string, std::string>> cities, printingOptions options);
     void printCountriesList(std::vector<std::string> countries, printingOptions options);
 
     // Sorting lists
     void sortAirportsList(std::vector<Airport *> &airports, sortingOptions sortOptions);
     void sortAirlinesList(std::vector<Airline *> &airlines, sortingOptions sortOptions);
     void sortFlightsList(std::vector<Flight> &flights, sortingOptions sortOptions);
-    void sortCitiesList(std::vector<std::string> &cities, sortingOptions sortOptions);
+    void sortCitiesList(std::vector<std::pair<std::string, std::string>> &cities, sortingOptions sortOptions);
     void sortCountriesList(std::vector<std::string> &countries, sortingOptions sortOptions);
 
 
+    static bool byCity(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2);
+    static bool byCountry(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2);
 };
 
 

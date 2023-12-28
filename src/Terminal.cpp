@@ -86,9 +86,13 @@ void Terminal::waitMenu(){
         case 2: {
             std::cout << "Enter the city name: ";
             std::string city;
-            std::cin >> city;        // Fetch city
+            std::getline(std::cin >> std::ws, city);        // Fetch city
+            std::cout << "Enter the country name: ";
+            std::string country;
+            std::getline(std::cin >> std::ws, country);        // Fetch country
+            std::pair<std::string, std::string> cityCountry = {city, country};
             system("clear");
-            std::cout << "There are " + std::to_string(g.getNumFlightsFromCity(city)) + " flights from " + city + "\n";
+            std::cout << "There are " + std::to_string(g.getNumFlightsFromCity(cityCountry)) + " flights from " + city + ", " + country + "\n";
             std::cout << "\n\n";
             endDisplayMenu();
             getInput();
@@ -98,7 +102,7 @@ void Terminal::waitMenu(){
         case 3: {
             std::cout << "Enter the airline code: ";
             std::string airline;
-            std::cin >> airline;        // Fetch country
+            std::cin >> airline;        // Fetch airline
             system("clear");
             std::cout << "There are " + std::to_string(g.getNumFlightsPerAirline(airline)) + " flights from " + airline + "\n";
             std::cout << "\n\n";
@@ -119,9 +123,13 @@ void Terminal::waitMenu(){
         case 5: {
             std::cout << "Enter the city name: ";
             std::string city;
-            std::cin >> city;        // Fetch city
-            options.message = "Countries that " + city + " flies to\n";
-            printCountriesList(g.getCountriesFromCity(city), options);
+            std::getline(std::cin >> std::ws, city);
+            std::cout << "Enter the country name: ";
+            std::string country;
+            std::getline(std::cin >> std::ws, country);
+            std::pair<std::string, std::string> cityCountry = {city, country};
+            options.message = "Countries that " + city + ", " + country + " flies to\n";
+            printCountriesList(g.getCountriesFromCity(cityCountry), options);
             break;
         }
         // Destinations from an airport
@@ -178,25 +186,25 @@ void Terminal::waitMenu(){
             std::cout << "Search by: \n"
                 << "\t0 - Airport code\n"
                 << "\t1 - Airport name\n"
-                << "\t2 - City\n"
-                << "\t3 - Geographical coordinates (lat,lon)\n";
+                << "\t2 - City (\"city,country\")\n"
+                << "\t3 - Geographical coordinates (\"lat,lon\")\n";
             int searchFrom;
             std::string source;
             std::cin >> searchFrom;
             std::cout << "\nFrom: ";
-            std::cin >> source;
+            std::getline(std::cin >> std::ws, source);
 
             std::cout << "\nTO\n";
             std::cout << "Search by: \n"
                       << "\t0 - Airport code\n"
                       << "\t1 - Airport name\n"
-                      << "\t2 - City\n"
-                      << "\t3 - Geographical coordinates (lat,lon)\n";
+                      << "\t2 - City (\"city,country\")\n"
+                      << "\t3 - Geographical coordinates (\"lat,lon\")\n";
             int searchTo;
             std::string dest;
             std::cin >> searchTo;
             std::cout << "\nTo: ";
-            std::cin >> dest;
+            std::getline(std::cin >> std::ws, dest);
             system("clear");
 
             options.message = "Best flight option(s) from " + source + " to " + dest;
@@ -432,7 +440,7 @@ void Terminal::printFlightsList(std::vector<Flight> flights, printingOptions opt
 }
 
 
-void Terminal::printCitiesList(std::vector<std::string> cities, printingOptions options) {
+void Terminal::printCitiesList(std::vector<std::pair<std::string, std::string>> cities, printingOptions options) {
     if (options.clear)
         system("clear");
     if (options.printMessage)
@@ -442,21 +450,21 @@ void Terminal::printCitiesList(std::vector<std::string> cities, printingOptions 
     std::cout << "\n";
 
     // HEADERS
-    std::cout << "|" << fill('-', DEFAULT_WIDTH) << "|\n";
-    std::cout << "|" << center("City", ' ', DEFAULT_WIDTH) << "|\n";
-    std::cout << "|" << fill('-', DEFAULT_WIDTH) << "|\n";
+    std::cout << "|" << fill('-', NAME_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|\n";
+    std::cout << "|" << center("City", ' ', NAME_WIDTH) << "|" << center("Country", ' ', NAME_WIDTH) << "|\n";
+    std::cout << "|" << fill('-', NAME_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|\n";
 
     // SORTING
     if (options.sort)
         sortCitiesList(cities, options.sortOptions);
 
     // CITIES
-    for (std::string city : cities) {
-        std::cout << "|" << center(city, ' ', DEFAULT_WIDTH) << "|\n";
+    for (std::pair<std::string, std::string> city : cities) {
+        std::cout << "|" << center(city.first, ' ', NAME_WIDTH) << "|" << center(city.second, ' ', NAME_WIDTH) << "|\n";
     }
 
     // CLOSING TABLE
-    std::cout << "|" << fill('-', DEFAULT_WIDTH) << "|\n";
+    std::cout << "|" << fill('-', NAME_WIDTH) << "|\n";
 
     std::cout << "\n\n";
     if (options.showSortingOptions)
@@ -728,13 +736,20 @@ void Terminal::sortFlightsList(std::vector<Flight> &flights, sortingOptions sort
     }
 }
 
-void Terminal::sortCitiesList(std::vector<std::string> &cities, sortingOptions sortOptions) {
+void Terminal::sortCitiesList(std::vector<std::pair<std::string, std::string>> &cities, sortingOptions sortOptions) {
     switch(sortOptions.orderBy) {
         case 0:
             if (sortOptions.ascending)
-                std::sort(cities.begin(), cities.end());
+                std::sort(cities.begin(), cities.end(), byCity);
             else
-                std::sort(cities.rbegin(), cities.rend());
+                std::sort(cities.rbegin(), cities.rend(), byCity);
+            break;
+        case 1:
+            if (sortOptions.ascending)
+                std::sort(cities.begin(), cities.end(), byCountry);
+            else
+                std::sort(cities.rbegin(), cities.rend(), byCountry);
+            break;
     }
 }
 
@@ -747,6 +762,14 @@ void Terminal::sortCountriesList(std::vector<std::string> &countries, sortingOpt
                 std::sort(countries.rbegin(), countries.rend());
             break;
     }
+}
+
+bool Terminal::byCity(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2) {
+    return p1.first <= p2.first;
+}
+
+bool Terminal::byCountry(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2) {
+    return p1.second <= p2.second;
 }
 
 

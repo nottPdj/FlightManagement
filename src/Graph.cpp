@@ -2,6 +2,7 @@
 #include "Graph.h"
 #include <cmath>
 #include <iomanip>
+#include <iostream>
 
 std::vector<Airport *> Graph::getvAirports() {
     return vAirports;
@@ -11,7 +12,7 @@ Airport *Graph::getAirport(std::string code) {
     return this->airports[code];
 }
 
-std::vector<Airport*> Graph::getAirportByCity(std::string city) {
+std::vector<Airport*> Graph::getAirportByCity(std::pair<std::string, std::string> city) {
     return this->airportsPerCity[city];
 }
 
@@ -31,12 +32,12 @@ void Graph::addAirport(Airport* airport) {
     vAirports.push_back(airport);
     airports.insert(make_pair(airport->getCode(), airport));
     airportsName.insert(make_pair(airport->getName(), airport));
-    auto cityIt=airportsPerCity.find(airport->getCity());
+    auto cityIt=airportsPerCity.find(make_pair(airport->getCity(), airport->getCountry()));
     if(cityIt!=airportsPerCity.end()){
         cityIt->second.push_back(airport);
     }
     else{
-        airportsPerCity[airport->getCity()]={airport};
+        airportsPerCity[make_pair(airport->getCity(), airport->getCountry())]={airport};
     }
 }
 
@@ -74,7 +75,7 @@ std::pair<int,int> Graph::getNumFlightsFromAirport(std::string code) {
     return res;
 }
 
-int Graph::getNumFlightsFromCity(std::string city) {
+int Graph::getNumFlightsFromCity(std::pair<std::string, std::string> city) {
     int n=0;
     std::vector<Airport*> airportsInCity = airportsPerCity[city];
     for(Airport* ap:airportsInCity){
@@ -94,7 +95,7 @@ int Graph::getNumFlightsPerAirline(std::string airline) {
     return n;
 }
 
-std::vector<std::string> Graph::getCountriesFromCity(std::string city) {
+std::vector<std::string> Graph::getCountriesFromCity(std::pair<std::string, std::string> city) {
     std::vector<std::string> countries;
     std::vector<Airport*> airportsInCity = airportsPerCity[city];
     for(auto ap:airportsInCity){
@@ -139,9 +140,9 @@ std::vector<Airport *> Graph::getReachableAirportsFrom(std::string code, int sto
     return res;
 }
 
-std::vector<std::string> Graph::getReachableCitiesFrom(std::string code, int stops) {
-    std::vector<std::string> res;
-    std::set<std::string> cities;
+std::vector<std::pair<std::string, std::string>> Graph::getReachableCitiesFrom(std::string code, int stops) {
+    std::vector<std::pair<std::string, std::string>> res;
+    std::set<std::pair<std::string, std::string>, CityCountryLess> cities;
     resetVisited();
     std::queue<Airport *> aux;
     Airport * airport = getAirport(code);
@@ -153,7 +154,7 @@ std::vector<std::string> Graph::getReachableCitiesFrom(std::string code, int sto
         for (int i = 0; i < size; i++) {
             auto a = aux.front();
             aux.pop();
-            cities.insert(a->getCity());
+            cities.insert(make_pair(a->getCity(), a->getCountry()));
             for (auto f: a->getFlights()) {
                 if (!f.getDest()->isVisited()) {
                     aux.push(f.getDest());
@@ -164,7 +165,7 @@ std::vector<std::string> Graph::getReachableCitiesFrom(std::string code, int sto
         xStops++;
         if (xStops == stops) {
             while (!aux.empty()) {
-                cities.insert(aux.front()->getCity());
+                cities.insert(make_pair(aux.front()->getCity(), aux.front()->getCountry()));
                 aux.pop();
             }
             break;
@@ -467,7 +468,13 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
             break;
         // City
         case 2: {
-            std::vector<Airport *> airportByCity = getAirportByCity(source);
+            std::string city;
+            std::string country;
+            std::string nothing;
+            std::istringstream iss(source);
+            std::getline(iss, city, ',');
+            std::getline(iss, country);
+            std::vector<Airport *> airportByCity = getAirportByCity(make_pair(city, country));
             for (Airport *a: airportByCity) {
                 from.push_back(a);
             }
@@ -479,7 +486,7 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
             double longitude;
             std::string nothing;
             std::istringstream iss(source);
-            iss >> std::setw(1) >> nothing >> latitude;
+            iss >> latitude;
             iss >> std::setw(1) >> nothing >> longitude;
             std::vector<Airport *> nearestAirports = getNearestAirports(latitude, longitude);
             for (Airport *a: nearestAirports) {
@@ -500,7 +507,13 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
             break;
         // City
         case 2: {
-            std::vector<Airport *> airportByCity = getAirportByCity(dest);
+            std::string city;
+            std::string country;
+            std::string nothing;
+            std::istringstream iss(source);
+            std::getline(iss, city, ',');
+            std::getline(iss, country);
+            std::vector<Airport *> airportByCity = getAirportByCity(make_pair(city, country));
             for (Airport *a: airportByCity) {
                 to.push_back(a);
             }
@@ -512,8 +525,8 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
             double longitude;
             std::string nothing;
             std::istringstream iss(source);
-            iss >> nothing >> latitude;
-            iss >> nothing >> longitude;
+            iss >> latitude;
+            iss >> std::setw(1) >> nothing >> longitude;
             std::vector<Airport *> nearestAirports = getNearestAirports(latitude, longitude);
             for (Airport *a: nearestAirports) {
                 to.push_back(a);

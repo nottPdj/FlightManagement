@@ -13,10 +13,34 @@
 
 
 class Graph {
+    struct CityCountryHash {
+        std::size_t operator()(const std::pair<std::string, std::string>& p) const {
+            std::size_t cityHash = std::hash<std::string>{}(p.first);
+            std::size_t countryHash = std::hash<std::string>{}(p.second);
+            return cityHash ^ (countryHash << 1);
+        }
+    };
+
+    struct CityCountryEqual {
+        bool operator()(const std::pair<std::string, std::string>& lhs, const std::pair<std::string, std::string>& rhs) const {
+            return lhs.first == rhs.first && lhs.second == rhs.second;
+        }
+    };
+
+    // TODO needed??
+    struct CityCountryLess {
+        bool operator()(const std::pair<std::string, std::string>& lhs, const std::pair<std::string, std::string>& rhs) const {
+            if (lhs.first == rhs.first) {
+                return lhs.second < rhs.second;
+            }
+            return lhs.first < rhs.first;
+        }
+    };
+
     std::vector<Airport*> vAirports;
     std::unordered_map<std::string, Airport *> airports;
     std::unordered_map<std::string, Airport *> airportsName;
-    std::unordered_map<std::string, std::vector<Airport *>> airportsPerCity;
+    std::unordered_map<std::pair<std::string, std::string>, std::vector<Airport *>, CityCountryHash, CityCountryEqual> airportsPerCity;
     std::unordered_map<std::string, Airline *> airlines;
 
 
@@ -30,7 +54,7 @@ public:
 
     std::vector<Airport*> getvAirports();
     Airport* getAirport(std::string code);
-    std::vector<Airport*> getAirportByCity(std::string city);
+    std::vector<Airport*> getAirportByCity(std::pair<std::string, std::string> city);
     Airport* getAirportByName(std::string name);
     Airline* getAirline(std::string code);
     void addAirport(Airport* airport);
@@ -41,11 +65,11 @@ public:
     int getNumFlights();
     int getNumAirlines();
     std::pair<int,int> getNumFlightsFromAirport(std::string code);
-    int getNumFlightsFromCity(std::string city);
+    int getNumFlightsFromCity(std::pair<std::string, std::string> city);
     int getNumFlightsPerAirline(std::string airline);
-    std::vector<std::string> getCountriesFromCity(std::string city);
+    std::vector<std::string> getCountriesFromCity(std::pair<std::string, std::string> city);
     std::vector<Airport *> getReachableAirportsFrom(std::string code, int stops); // t
-    std::vector<std::string> getReachableCitiesFrom(std::string code, int stops);
+    std::vector<std::pair<std::string, std::string>> getReachableCitiesFrom(std::string code, int stops);
     std::vector<std::string> getReachableCountriesFrom(std::string code, int stops);
     std::vector<std::vector<Flight>> getMaxTrip(); // t
     std::vector<Airport *> getGreatestNumFlights(int top);
