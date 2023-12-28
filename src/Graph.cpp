@@ -114,7 +114,7 @@ std::vector<Airport *> Graph::getReachableAirportsFrom(std::string code, int sto
     aux.push(airport);
     airport->setVisited(true);
     int xStops = -1;
-    while (true) {
+    while (!aux.empty()) {
         int size = aux.size();
         for (int i = 0; i < size; i++) {
             auto a = aux.front();
@@ -148,7 +148,7 @@ std::vector<std::pair<std::string, std::string>> Graph::getReachableCitiesFrom(s
     aux.push(airport);
     airport->setVisited(true);
     int xStops = -1;
-    while (true) {
+    while (!aux.empty()) {
         int size = aux.size();
         for (int i = 0; i < size; i++) {
             auto a = aux.front();
@@ -185,7 +185,7 @@ std::vector<std::string> Graph::getReachableCountriesFrom(std::string code, int 
     aux.push(airport);
     airport->setVisited(true);
     int xStops = -1;
-    while (true) {
+    while (!aux.empty()) {
         int size = aux.size();
         for (int i = 0; i < size; i++) {
             auto a = aux.front();
@@ -238,13 +238,14 @@ int Graph::calculateMaxDistanceFrom(Airport * source) {
                 maxDests.insert(a);
             }
         }
-        distance++;
         if (aux.empty()) {
             source->setMaxTripDistance(distance);
             for (auto it = maxDests.begin(); it != maxDests.end(); it++) {
                 source->addMaxTripDest(*it);
             }
             break;
+        } else {
+            distance++;
         }
     }
     return distance;
@@ -412,8 +413,9 @@ std::vector<std::vector<Flight>> Graph::getMinTripsAirlines(Airport * source, Ai
     return trips;
 }
 
-std::vector<std::vector<Flight>> Graph::getMaxTrip() {
-    std::vector<std::vector<Flight>> maxTrips;
+std::vector<std::pair<Airport *, Airport *>> Graph::getMaxTrip(int &stops) {
+    std::set<std::pair<Airport *, Airport *>> maxTrips;
+    std::vector<std::pair<Airport *, Airport *>> sourceDests;
     int maxDistance = 0;
     for (Airport * a : getvAirports()) {
         maxDistance = std::max(maxDistance, calculateMaxDistanceFrom(a));
@@ -422,12 +424,16 @@ std::vector<std::vector<Flight>> Graph::getMaxTrip() {
         if (a->getMaxTripDistance() == maxDistance) {
             for (Airport * dest : a->getMaxTripDests()) {
                 for (auto trip: getMinTrips(a, dest)) {
-                    maxTrips.push_back(trip);
+                    maxTrips.insert(std::make_pair(trip.front().getSource(), trip.back().getDest()));
                 }
             }
         }
     }
-    return maxTrips;
+    for (auto sourceDest : maxTrips) {
+        sourceDests.push_back(sourceDest);
+    }
+    stops = maxDistance - 1;
+    return sourceDests;
 }
 
 
