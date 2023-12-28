@@ -214,7 +214,6 @@ std::vector<std::string> Graph::getReachableCountriesFrom(std::string code, int 
 }
 
 
-
 int Graph::calculateMaxDistanceFrom(Airport * source) {
     resetVisited();
     std::queue<Airport *> aux;

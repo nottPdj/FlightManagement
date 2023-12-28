@@ -534,6 +534,10 @@ void Terminal::printFlightsLists(std::vector<std::vector<Flight>> flightsLists, 
             options.clear = false;
         }
     }
+    if (flightsLists.empty()) {
+        std::cout << "There are 0 flights\n";
+        // TODO
+    }
 }
 
 
