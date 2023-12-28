@@ -1,0 +1,41 @@
+\hypertarget{structprintingOptions}{}\doxysection{printing\+Options Struct Reference}
+\label{structprintingOptions}\index{printingOptions@{printingOptions}}
+
+
+Collaboration diagram for printing\+Options\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structprintingOptions_a4f959e3484fe6b729b3bdeea934d4c4d}\label{structprintingOptions_a4f959e3484fe6b729b3bdeea934d4c4d}} 
+\mbox{\hyperlink{structsortingOptions}{sorting\+Options}} {\bfseries sort\+Options}
+\item 
+\mbox{\Hypertarget{structprintingOptions_a057e60309a547693257708d31770df4a}\label{structprintingOptions_a057e60309a547693257708d31770df4a}} 
+std\+::string {\bfseries message}
+\item 
+\mbox{\Hypertarget{structprintingOptions_ac3e34965a7de9bbb6564b400f12582bd}\label{structprintingOptions_ac3e34965a7de9bbb6564b400f12582bd}} 
+bool {\bfseries clear} = true
+\item 
+\mbox{\Hypertarget{structprintingOptions_aa111badb8930f6f4b45ed046b2e3fcaa}\label{structprintingOptions_aa111badb8930f6f4b45ed046b2e3fcaa}} 
+bool {\bfseries print\+Message} = true
+\item 
+\mbox{\Hypertarget{structprintingOptions_ab5c2d610b85f00dc140c4b939a62d95e}\label{structprintingOptions_ab5c2d610b85f00dc140c4b939a62d95e}} 
+bool {\bfseries print\+Count\+Message} = true
+\item 
+\mbox{\Hypertarget{structprintingOptions_adad293632f94db33ae3ab10dddb9dfdd}\label{structprintingOptions_adad293632f94db33ae3ab10dddb9dfdd}} 
+bool {\bfseries sort} = true
+\item 
+\mbox{\Hypertarget{structprintingOptions_a34ba252c2fece0b73609279619907df4}\label{structprintingOptions_a34ba252c2fece0b73609279619907df4}} 
+bool {\bfseries show\+Sorting\+Options} = true
+\item 
+\mbox{\Hypertarget{structprintingOptions_a82ba98ba779b3e0e5dc9b61121bc7e3b}\label{structprintingOptions_a82ba98ba779b3e0e5dc9b61121bc7e3b}} 
+bool {\bfseries show\+End\+Menu} = true
+\item 
+\mbox{\Hypertarget{structprintingOptions_a491e22393e197e939a57285ea2cca5b9}\label{structprintingOptions_a491e22393e197e939a57285ea2cca5b9}} 
+bool {\bfseries get\+Input} = true
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/tiago/\+Desktop/\+Flight\+Management/src/Terminal.\+h\end{DoxyCompactItemize}
