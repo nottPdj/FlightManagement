@@ -63,7 +63,6 @@ int Graph::getNumAirlines() {
 }
 
 std::pair<int,int> Graph::getNumFlightsFromAirport(std::string code) {
-    //TODO verificar se airport existe senao crasha
     std::pair<int,int> res;
     Airport * airport = getAirport(code);
     int nflights = airport->flights.size();

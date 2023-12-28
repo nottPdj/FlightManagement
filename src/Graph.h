@@ -27,7 +27,6 @@ class Graph {
         }
     };
 
-    // TODO needed??
     struct CityCountryLess {
         bool operator()(const std::pair<std::string, std::string>& lhs, const std::pair<std::string, std::string>& rhs) const {
             if (lhs.first == rhs.first) {

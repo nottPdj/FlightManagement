@@ -32,9 +32,9 @@ void Terminal::printMainMenu() {
               << "\t1 - Flights from an airport" << "\n"
               << "\t2 - Flights per city" << "\n"
               << "\t3 - Flights per airline" << "\n"
-              << "\t4 - Countries that an airport flies to" << "\n"
-              << "\t5 - Countries that a city flies to" << "\n"
-              << "\t6 - Destinations from an airport" << "\n"
+              << "\t4 - Countries that a city flies to directly" << "\n"
+              << "\t5 - Direct destinations from an airport" << "\n"
+              << "\t6 - All possible destinations from an airport" << "\n"
               << "\t7 - Reachable destinations from an airport in a maximum n lay-overs" << "\n"
               << "\t8 - Maximum trip (with the greatest number of lay-overs)" << "\n"
               << "\t9 - Top airports with the greatest air traffic capacity" << "\n"
@@ -110,17 +110,8 @@ void Terminal::waitMenu(){
             getInput();
             break;
         }
-        // Countries that an airport flies to
+        // Countries that a city flies to directly
         case 4: {
-            std::cout << "Enter the airport code: ";
-            std::string code;
-            std::cin >> code;        // Fetch airport code
-            options.message = "Countries that airport " + code + " flies to\n";
-            printCountriesList(g.getReachableCountriesFrom(code, 0), options);
-            break;
-        }
-        // Countries that a city flies to
-        case 5: {
             std::cout << "Enter the city name: ";
             std::string city;
             std::getline(std::cin >> std::ws, city);
@@ -132,12 +123,20 @@ void Terminal::waitMenu(){
             printCountriesList(g.getCountriesFromCity(cityCountry), options);
             break;
         }
-        // Destinations from an airport
-        case 6: {
+        // Direct destinations from an airport
+        case 5: {
             std::cout << "Enter the airport code: ";
             std::string code;
             std::cin >> code;        // Fetch airport code
             getDestinations(code);
+            break;
+        }
+        // All possible destinations from an airport
+        case 6: {
+            std::cout << "Enter the airport code: ";
+            std::string code;
+            std::cin >> code;        // Fetch airport code
+            getDestinations(code, INT32_MAX);
             break;
         }
         // Reachable destinations from an airport in a maximum n lay-overs
@@ -532,7 +531,7 @@ void Terminal::printFlightsLists(std::vector<std::vector<Flight>> flightsLists, 
         printFlightsList(flightsLists[i], options);
         if (i == 0) {
             options.printMessage = false;
-            options.clear = false; // TODO check
+            options.clear = false;
         }
     }
 }
