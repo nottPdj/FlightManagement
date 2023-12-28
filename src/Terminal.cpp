@@ -4,6 +4,7 @@
 #include <cmath>
 #include "Terminal.h"
 
+
 /**
  * @brief Constructor of the Terminal class. Stores the graph containing all air travel information in the private field
  * so that it can communicate with it throughout the program.
