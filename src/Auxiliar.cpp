@@ -2,6 +2,11 @@
 #include <sstream>
 #include <fstream>
 
+/**
+ * @brief Reads the airports
+ * @param g
+ * @details Time Complexity O(n) n = number of airports
+ */
 void Auxiliar::readAirports(Graph &g) {
     std::ifstream file("../airports.csv");
     std::string line;
@@ -22,6 +27,11 @@ void Auxiliar::readAirports(Graph &g) {
 
 }
 
+/**
+ * @brief Reads the airlines
+ * @param g
+ * @details Time Complexity O(n) n = number of airlines
+ */
 void Auxiliar::readAirlines(Graph &g) {
     std::ifstream file("../airlines.csv");
     std::string line;
@@ -40,6 +50,11 @@ void Auxiliar::readAirlines(Graph &g) {
 
 }
 
+/**
+ * @brief Reads the flights
+ * @param g
+ * @details Time Complexity O(n) n = number of flights
+ */
 void Auxiliar::readFlights(Graph &g) {
     std::ifstream file("../flights.csv");
     std::string line;

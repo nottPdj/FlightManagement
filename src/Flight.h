@@ -7,6 +7,9 @@
 
 class Airport;
 
+/**
+ * @brief Flight is the class that represents a flight, a edge of the graph
+ */
 class Flight {
     Airport * source;
     Airport * dest;      // destination vertex

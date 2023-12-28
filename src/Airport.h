@@ -6,7 +6,9 @@
 #include "Flight.h"
 
 class Flight;
-
+/**
+ * @brief Airport is the class that represents a airport which is also a vertex in the graph
+ */
 class Airport {
     std::string code;
     std::string name;
@@ -47,8 +49,8 @@ public:
     int getNFlightsOut() const;
     void setNum(int i);
     void setLow(int i);
-    int getNum();
-    int getLow();
+    int getNum() const;
+    int getLow() const;
     std::vector<Flight> getFlights();
     bool isVisited() const;
     void setVisited(bool v);

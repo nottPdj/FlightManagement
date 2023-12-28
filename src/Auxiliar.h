@@ -2,6 +2,9 @@
 #define PROJETO2_AUXILIAR_H
 #include "Graph.h"
 
+/**
+ * @brief Auxiliar is used to read the data files
+ */
 class Auxiliar {
 public:
     static void readAirports(Graph& g);
