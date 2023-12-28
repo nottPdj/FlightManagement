@@ -216,7 +216,7 @@ void Terminal::waitMenu(){
             int preference = 2;
             std::cin >> preference;
 
-            int maxAirlines = INT32_MAX;
+            int maxAirlines = -1;
             std::vector<std::string> airlineCodes;
 
             if (preference == 0) {

@@ -217,9 +217,6 @@ std::vector<std::string> Graph::getReachableCountriesFrom(std::string code, int 
 
 int Graph::calculateMaxDistanceFrom(Airport * source) {
     resetVisited();
-    if (source->getCode() == "STZ") {
-        int x = 0;
-    }
     std::queue<Airport *> aux;
     aux.push(source);
     source->setVisited(true);
@@ -255,87 +252,165 @@ int Graph::calculateMaxDistanceFrom(Airport * source) {
 }
 
 // encontrar caminho mais rapido (menos paragens) entre source e dest
-std::vector<Flight> Graph::getMinTrip(Airport * source, Airport * dest) {
+std::vector<std::vector<Flight>> Graph::getMinTrips(Airport * source, Airport * dest) {
     resetVisited();
-    std::deque<Flight> tripReversed;
-    std::vector<Flight> trip;
-    std::unordered_map<Airport *, Flight> flightTo;
+    resetProcessing();
+    std::vector<std::vector<Flight>> trips;
+    std::unordered_map<Airport *, std::vector<Flight>> flightTo;
     std::queue<Airport *> aux;
+    std::vector<Airport *> processing;
+    bool foundDest = false;
+    Airport * last;
     aux.push(source);
     source->setVisited(true);
+    int distance = 0;
     while (!aux.empty()) {
         int size = aux.size();
+        distance++;
         for (int i = 0; i < size; i++) {
             auto a = aux.front();
             aux.pop();
             for (Flight f: a->getFlights()) {
                 if (!f.getDest()->isVisited()) {
-                    aux.push(f.getDest());
-                    f.getDest()->setVisited(true);
-                    flightTo.emplace(f.getDest(), f);
+                    if (!f.getDest()->isProcessing()) {
+                        aux.push(f.getDest());
+                        f.getDest()->setProcessing(true);
+                        processing.push_back(f.getDest());
+                    }
+                    flightTo[f.getDest()].push_back(f);
                     if (f.getDest() == dest) {
-                        Airport *last = dest;
-                        Flight flightToLast = flightTo.find(last)->second;
-                        while (true) {
-                            tripReversed.push_front(flightToLast);
-                            last = flightToLast.getSource();
-                            if (last == source) {
-                                while (!tripReversed.empty()) {
-                                    trip.push_back(tripReversed.front());
-                                    tripReversed.pop_front();
-                                }
-                                return trip;
-                            }
-                            flightToLast = flightTo.find(last)->second;
-                        }
+                        last = dest;
+                        foundDest = true;
                     }
                 }
             }
         }
+        if (foundDest) {
+            std::queue<std::deque<Flight>> tripsReversed;
+            std::vector<Flight> flightsToLast = flightTo.find(last)->second;
+            for (Flight f : flightsToLast) {
+                std::deque<Flight> tripReversed;
+                tripReversed.push_front(f);
+                tripsReversed.push(tripReversed);
+            }
+            bool end = false;
+            while (true) {
+                int size = tripsReversed.size();
+                for (int i = 0; i < size; i++) {
+                    auto tripR = tripsReversed.front();
+                    tripsReversed.pop();
+                    last = tripR.front().getSource();
+
+                    if (last == source) {
+                        end = true;
+                        std::vector<Flight> trip;
+                        while (!tripR.empty()) {
+                            trip.push_back(tripR.front());
+                            tripR.pop_front();
+                        }
+                        trips.push_back(trip);
+                    } else {
+                        flightsToLast = flightTo.find(last)->second;
+                        for (Flight f: flightsToLast) {
+                            std::deque<Flight> tripReversed = tripR;
+                            tripReversed.push_front(f);
+                            tripsReversed.push(tripReversed);
+                        }
+                    }
+                }
+                if (end) {
+                    return trips;
+                }
+            }
+        }
+
+        for (Airport * a : processing) {
+            a->setProcessing(false);
+            a->setVisited(true);
+        }
     }
-    return trip;
+    return trips;
 }
 
 // encontrar caminho mais rapido (menos paragens) entre source e dest with specific airlines
-std::vector<Flight> Graph::getMinTripAirlines(Airport * source, Airport * dest, std::vector<std::string> use) {
+std::vector<std::vector<Flight>> Graph::getMinTripsAirlines(Airport * source, Airport * dest, std::vector<std::string> use) {
     resetVisited();
-    std::deque<Flight> tripReversed;
-    std::vector<Flight> trip;
-    std::unordered_map<Airport *, Flight> flightTo;
+    resetProcessing();
+    std::vector<std::vector<Flight>> trips;
+    std::unordered_map<Airport *, std::vector<Flight>> flightTo;
     std::queue<Airport *> aux;
+    std::vector<Airport *> processing;
+    bool foundDest = false;
+    Airport * last;
     aux.push(source);
     source->setVisited(true);
+    int distance = 0;
     while (!aux.empty()) {
         int size = aux.size();
+        distance++;
         for (int i = 0; i < size; i++) {
             auto a = aux.front();
             aux.pop();
             for (Flight f: a->getFlights()) {
                 if (!f.getDest()->isVisited() && (std::find(use.begin(), use.end(), f.getAirline()->getCode()) != use.end())) {
-                    aux.push(f.getDest());
-                    f.getDest()->setVisited(true);
-                    flightTo.emplace(f.getDest(), f);
+                    if (!f.getDest()->isProcessing()) {
+                        aux.push(f.getDest());
+                        f.getDest()->setProcessing(true);
+                        processing.push_back(f.getDest());
+                    }
+                    flightTo[f.getDest()].push_back(f);
                     if (f.getDest() == dest) {
-                        Airport *last = dest;
-                        Flight flightToLast = flightTo.find(last)->second;
-                        while (true) {
-                            tripReversed.push_front(flightToLast);
-                            last = flightToLast.getSource();
-                            if (last == source) {
-                                while (!tripReversed.empty()) {
-                                    trip.push_back(tripReversed.front());
-                                    tripReversed.pop_front();
-                                }
-                                return trip;
-                            }
-                            flightToLast = flightTo.find(last)->second;
-                        }
+                        last = dest;
+                        foundDest = true;
                     }
                 }
             }
         }
+        if (foundDest) {
+            std::queue<std::deque<Flight>> tripsReversed;
+            std::vector<Flight> flightsToLast = flightTo.find(last)->second;
+            for (Flight f : flightsToLast) {
+                std::deque<Flight> tripReversed;
+                tripReversed.push_front(f);
+                tripsReversed.push(tripReversed);
+            }
+            bool end = false;
+            while (true) {
+                int size = tripsReversed.size();
+                for (int i = 0; i < size; i++) {
+                    auto tripR = tripsReversed.front();
+                    tripsReversed.pop();
+                    last = tripR.front().getSource();
+
+                    if (last == source) {
+                        end = true;
+                        std::vector<Flight> trip;
+                        while (!tripR.empty()) {
+                            trip.push_back(tripR.front());
+                            tripR.pop_front();
+                        }
+                        trips.push_back(trip);
+                    } else {
+                        flightsToLast = flightTo.find(last)->second;
+                        for (Flight f: flightsToLast) {
+                            std::deque<Flight> tripReversed = tripR;
+                            tripReversed.push_front(f);
+                            tripsReversed.push(tripReversed);
+                        }
+                    }
+                }
+                if (end) {
+                    return trips;
+                }
+            }
+        }
+
+        for (Airport * a : processing) {
+            a->setProcessing(false);
+            a->setVisited(true);
+        }
     }
-    return trip;
+    return trips;
 }
 
 std::vector<std::vector<Flight>> Graph::getMaxTrip() {
@@ -347,7 +422,9 @@ std::vector<std::vector<Flight>> Graph::getMaxTrip() {
     for (Airport * a : getvAirports()) {
         if (a->getMaxTripDistance() == maxDistance) {
             for (Airport * dest : a->getMaxTripDests()) {
-                maxTrips.push_back(getMinTrip(a, dest));
+                for (auto trip: getMinTrips(a, dest)) {
+                    maxTrips.push_back(trip);
+                }
             }
         }
     }
@@ -438,12 +515,12 @@ std::vector<Airport *> Graph::getEssentialAirports() {
 
 bool Graph::lessThanMaxAirlines(std::vector<Flight> trip, int max) {
     int n = 0;
-    std::vector<Airline *> used;
+    std::set<Airline *> used;
     for (Flight f : trip) {
-        if (find(used.begin(), used.end(), f.getAirline()) == used.end()) {
-            n++;
+        if (used.find(f.getAirline()) == used.end()) {
+            used.insert(f.getAirline());
         }
-        if (n > max) {
+        if (used.size() > max) {
             return false;
         }
     }
@@ -509,7 +586,7 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
             std::string city;
             std::string country;
             std::string nothing;
-            std::istringstream iss(source);
+            std::istringstream iss(dest);
             std::getline(iss, city, ',');
             std::getline(iss, country);
             std::vector<Airport *> airportByCity = getAirportByCity(make_pair(city, country));
@@ -523,7 +600,7 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
             double latitude;
             double longitude;
             std::string nothing;
-            std::istringstream iss(source);
+            std::istringstream iss(dest);
             iss >> latitude;
             iss >> std::setw(1) >> nothing >> longitude;
             std::vector<Airport *> nearestAirports = getNearestAirports(latitude, longitude);
@@ -534,16 +611,29 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
         }
     }
 
+    std::vector<std::vector<Flight>> trips;
     for (Airport * aSource : from) {
         for (Airport * aDest : to) {
-            std::vector<Flight> trip;
             if (airlineCodes.empty()) {
-                trip = getMinTrip(aSource, aDest);
+                for (auto trip : getMinTrips(aSource, aDest)) {
+                    trips.push_back(trip);
+                }
             } else {
-                trip = getMinTripAirlines(aSource, aDest, airlineCodes);
+                for (auto trip : getMinTripsAirlines(aSource, aDest, airlineCodes)) {
+                    trips.push_back(trip);
+                }
             }
-            if (lessThanMaxAirlines(trip, maxAirlines)) {
-                bestOptions.push_back(trip);
+            if (maxAirlines != -1) {
+                for (auto trip: trips) {
+                    if (lessThanMaxAirlines(trip, maxAirlines)) {
+                        bestOptions.push_back(trip);
+                    }
+                }
+                return bestOptions;
+            } else {
+                for (auto trip: trips) {
+                    bestOptions.push_back(trip);
+                }
             }
         }
     }
@@ -556,6 +646,12 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
 void Graph::resetVisited() {
     for (auto airport : getvAirports()) {
         airport->setVisited(false);
+    }
+}
+
+void Graph::resetProcessing() {
+    for (auto airport : getvAirports()) {
+        airport->setProcessing(false);
     }
 }
 
