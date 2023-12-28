@@ -555,10 +555,6 @@ void Terminal::printSourceDestList(std::vector<std::pair<Airport *, Airport *>> 
     }
     std::cout << "\n";
 
-    // SORTING
-/*    if (options.sort)
-        sortSourceDestList(sourceDestPairs, options.sortOptions);*/
-
     // FLIGHTS
     for (auto sourceDest : sourceDestPairs) {
         std::cout << "|" << center(sourceDest.first->getCode(), ' ', CODE_WIDTH) << "|" << center(sourceDest.first->getCity(), ' ', NAME_WIDTH) << "|"
@@ -571,16 +567,10 @@ void Terminal::printSourceDestList(std::vector<std::pair<Airport *, Airport *>> 
     std::cout << "|" << fill('-', (CODE_WIDTH + NAME_WIDTH * 2 + 4) * 2 - 2) << "|\n";
 
     std::cout << "\n\n";
-/*    if (options.showSortingOptions)
-        printSortingOptions();*/
     if (options.showEndMenu)
         endDisplayMenu();
     if (options.getInput) {
         getInput();
-        /*if (getInput() == 's') {
-            getSortingOptions(options.sortOptions);
-            printSourceDestList(sourceDestPairs, options);
-        }*/
     }
 }
 
@@ -589,6 +579,12 @@ void Terminal::printFlightsLists(std::vector<std::vector<Flight>> flightsLists, 
     system("clear");
     options.message +=  "There are " + std::to_string(flightsLists.size()) + " options\n\n";
     std::cout << "There are " << std::to_string(flightsLists.size()) << " options\n";
+    if (flightsLists.empty()) {
+        std::cout << "\n\n";
+        endDisplayMenu();
+        getInput();
+        return;
+    }
     std::cout << "Do you wish to display them? (y/n)";
     std::string option;
     std::cin >> option;
@@ -611,10 +607,6 @@ void Terminal::printFlightsLists(std::vector<std::vector<Flight>> flightsLists, 
     } else {
         endDisplayMenu();
         getInput();
-    }
-    if (flightsLists.empty()) {
-        std::cout << "There are 0 flights\n";
-        // TODO
     }
 }
 
@@ -849,46 +841,6 @@ void Terminal::sortCountriesList(std::vector<std::string> &countries, sortingOpt
     }
 }
 
-void Terminal::sortSourceDestList(std::vector<std::pair<Airport *, Airport *>> &sourceDestPairs, sortingOptions sortOptions) {
-/*    switch(sortOptions.orderBy) {
-        case 0:
-            if (sortOptions.ascending)
-                std::sort(flights.begin(), flights.end(), Flight::bySourceCode);
-            else
-                std::sort(flights.rbegin(), flights.rend(), Flight::bySourceCode);
-            break;
-        case 1:
-            if (sortOptions.ascending)
-                std::sort(flights.begin(), flights.end(), Flight::bySourceCity);
-            else
-                std::sort(flights.rbegin(), flights.rend(), Flight::bySourceCity);
-            break;
-        case 2:
-            if (sortOptions.ascending)
-                std::sort(flights.begin(), flights.end(), Flight::bySourceCountry);
-            else
-                std::sort(flights.rbegin(), flights.rend(), Flight::bySourceCountry);
-            break;
-        case 3:
-            if (sortOptions.ascending)
-                std::sort(flights.begin(), flights.end(), Flight::byDestCode);
-            else
-                std::sort(flights.rbegin(), flights.rend(), Flight::byDestCode);
-            break;
-        case 4:
-            if (sortOptions.ascending)
-                std::sort(flights.begin(), flights.end(), Flight::byDestCity);
-            else
-                std::sort(flights.rbegin(), flights.rend(), Flight::byDestCity);
-            break;
-        case 5:
-            if (sortOptions.ascending)
-                std::sort(flights.begin(), flights.end(), Flight::byDestCountry);
-            else
-                std::sort(flights.rbegin(), flights.rend(), Flight::byDestCountry);
-            break;
-    }*/
-}
 
 bool Terminal::byCity(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2) {
     return p1.first <= p2.first;

@@ -88,7 +88,6 @@ private:
     void sortFlightsList(std::vector<Flight> &flights, sortingOptions sortOptions);
     void sortCitiesList(std::vector<std::pair<std::string, std::string>> &cities, sortingOptions sortOptions);
     void sortCountriesList(std::vector<std::string> &countries, sortingOptions sortOptions);
-    void sortSourceDestList(std::vector<std::pair<Airport *, Airport *>> &sourceDestPairs, sortingOptions sortOptions);
 
     static bool byCity(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2);
     static bool byCountry(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2);
