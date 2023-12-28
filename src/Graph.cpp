@@ -4,30 +4,59 @@
 #include <iomanip>
 #include <iostream>
 
+/**
+ * @brief Gets all the airports
+ * @return vAirports
+ */
 std::vector<Airport *> Graph::getvAirports() {
     return vAirports;
 }
 
+/**
+ * @brief Gets a airport using its code
+ * @param code
+ */
 Airport *Graph::getAirport(std::string code) {
     return this->airports[code];
 }
 
+/**
+ * @brief Gets the airports by the city where they are located
+ * @param city
+ */
 std::vector<Airport*> Graph::getAirportByCity(std::pair<std::string, std::string> city) {
     return this->airportsPerCity[city];
 }
 
+/**
+ * @brief Gets the airport by its name
+ * @param name
+ */
 Airport *Graph::getAirportByName(std::string name) {
     return this->airportsName[name];
 }
 
+/**
+ * @brief Gets a airline by its code
+ * @param code
+ * @return
+ */
 Airline *Graph::getAirline(std::string code) {
     return this->airlines[code];
 }
 
+/**
+ * @brief Adds a flight (edge) to the graph
+ * @param flight
+ */
 void Graph::addFlight(Flight flight) {
     flight.source->addFlight(flight);
 }
 
+/**
+ * @brief Adds a airport (vertex) to the graph
+ * @param airport
+ */
 void Graph::addAirport(Airport* airport) {
     vAirports.push_back(airport);
     airports.insert(make_pair(airport->getCode(), airport));
@@ -41,15 +70,25 @@ void Graph::addAirport(Airport* airport) {
     }
 }
 
+/**
+ * @brief Adds a airline to the graph
+ * @param airline
+ */
 void Graph::addAirline(Airline* airline) {
     airlines.insert(make_pair(airline->getCode(), airline));
 }
 
-
+/**
+ *@brief Gets the number of airports (vertices) of the graph
+ */
 int Graph::getNumAirports() {
     return airports.size();
 }
 
+/**
+ * @brief Gets the number of flights (edges) of the graph
+ * @details Time Complexity = O(V)
+ */
 int Graph::getNumFlights() {
     int n=0;
     for(auto ap:getvAirports()){
@@ -58,22 +97,37 @@ int Graph::getNumFlights() {
     return n;
 }
 
+/**
+ * @brief Gets the number of airlines of the graph
+ */
 int Graph::getNumAirlines() {
     return airlines.size();
 }
 
+/**
+ * @brief Gets the number of flights (edges) and different airlines from a airport (vertex)
+ * @param code
+ * @return res
+ * @details Time Complexity = O(n*log(m)) -> n is the number of edges from the airport, m is the number of different airlines
+ */
 std::pair<int,int> Graph::getNumFlightsFromAirport(std::string code) {
     std::pair<int,int> res;
     Airport * airport = getAirport(code);
     int nflights = airport->flights.size();
     std::set<std::string> nairlines;
-    for(Flight f:airport->flights){
+    for(Flight f:airport->getFlights()){
         nairlines.insert(f.getAirline()->getCode());
     }
     res={nflights,nairlines.size()};
     return res;
 }
 
+/**
+ * @brief Gets the number of flights from a city
+ * @param city
+ * @return n
+ * @details Time Complexity = O(n) -> n is the number of airports in the city
+ */
 int Graph::getNumFlightsFromCity(std::pair<std::string, std::string> city) {
     int n=0;
     std::vector<Airport*> airportsInCity = airportsPerCity[city];
@@ -83,6 +137,12 @@ int Graph::getNumFlightsFromCity(std::pair<std::string, std::string> city) {
     return n;
 }
 
+/**
+ * @brief Gets the number of flights per airline
+ * @param airline
+ * @return n
+ * @details Time Complexity = O(V+E)
+ */
 int Graph::getNumFlightsPerAirline(std::string airline) {
     int n=0;
     for(auto ap:vAirports){
@@ -94,18 +154,32 @@ int Graph::getNumFlightsPerAirline(std::string airline) {
     return n;
 }
 
+/**
+ * @brief Gets the countries that a given city flies to
+ * @param city
+ * @return res
+ * @details Time Complexity = O(A*F*log(n)) ->A is the number of airports in the city,F is the number of flights per A,n is the number of countries in the set(countries)
+ */
 std::vector<std::string> Graph::getCountriesFromCity(std::pair<std::string, std::string> city) {
-    std::vector<std::string> countries;
+    std::set<std::string> countries;
     std::vector<Airport*> airportsInCity = airportsPerCity[city];
     for(auto ap:airportsInCity){
         for(auto f:ap->getFlights()){
-            if(std::find(countries.begin(),countries.end(),f.getDest()->getCountry())==countries.end())
-                countries.push_back(f.getDest()->getCountry());
+                countries.insert(f.getDest()->getCountry());
         }
     }
-    return countries;
+    std::vector<std::string> res;
+    for(std::string s:countries){res.push_back(s);}
+
+    return res;
 }
 
+/**
+ * @brief Gets the reachable airports from a given airport in a max number of n stops
+ * @param code
+ * @param stops
+ * @return res
+ */
 std::vector<Airport *> Graph::getReachableAirportsFrom(std::string code, int stops) {
     std::vector<Airport *> res;
     resetVisited();
@@ -138,7 +212,14 @@ std::vector<Airport *> Graph::getReachableAirportsFrom(std::string code, int sto
     }
     return res;
 }
-
+//TODO
+/**
+ * @brief Gets the reachable cities from a given airport in a max number of n stops
+ * @param code
+ * @param stops
+ * @return res
+ * @details Time Complexity= O()
+ */
 std::vector<std::pair<std::string, std::string>> Graph::getReachableCitiesFrom(std::string code, int stops) {
     std::vector<std::pair<std::string, std::string>> res;
     std::set<std::pair<std::string, std::string>, CityCountryLess> cities;
@@ -175,7 +256,14 @@ std::vector<std::pair<std::string, std::string>> Graph::getReachableCitiesFrom(s
     }
     return res;
 }
-
+//TODO
+/**
+ * @brief Gets the reachable countries from a given airport in a max number of n stops
+ * @param code
+ * @param stops
+ * @return res
+ * @details Time complexity = O()
+ */
 std::vector<std::string> Graph::getReachableCountriesFrom(std::string code, int stops) {
     std::vector<std::string> res;
     std::set<std::string> countries;
@@ -435,8 +523,13 @@ std::vector<std::pair<Airport *, Airport *>> Graph::getMaxTrip(int &stops) {
     stops = maxDistance - 1;
     return sourceDests;
 }
-
-
+//TODO
+/**
+ * @brief
+ * @param n
+ * @return topFlights
+ * @details Time Complexity = O()
+ */
 std::vector<Airport *> Graph::getGreatestNumFlights(int n) {
 
     struct compareNFlightsOut {
@@ -466,7 +559,11 @@ std::vector<Airport *> Graph::getGreatestNumFlights(int n) {
     return topFlights;
 }
 
-
+/**
+ * @brief Auxiliary function to check if a stack contains a certain string
+ * @param i
+ * @param s
+ */
 bool contains(std::string i ,std::stack<std::string>s){
     while(!s.empty()){
         if(s.top()==i){
@@ -477,6 +574,13 @@ bool contains(std::string i ,std::stack<std::string>s){
     return false;
 }
 
+/**
+ * @brief Auxiliary Deep-First-Search function to get essential airports
+ * @param airport
+ * @param s
+ * @param l
+ * @param i
+ */
 void dfs_essential(Airport* airport, std::stack<std::string> &s, std::unordered_set<Airport*> &l, int &i) {
     airport->setLow(i);
     airport->setNum(i);
@@ -497,6 +601,11 @@ void dfs_essential(Airport* airport, std::stack<std::string> &s, std::unordered_
     s.pop();
 }
 
+/**
+ * @brief Gets the airports that are essential to the network's
+ * @return v
+ * @details Time Complexity = O()
+ */
 std::vector<Airport *> Graph::getEssentialAirports() {
     std::vector<Airport*> v;
     std::unordered_set<Airport*>l;

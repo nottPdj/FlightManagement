@@ -11,8 +11,14 @@
 #include <algorithm>
 #include "Airport.h"
 
+/**
+ * @brief Graph is the class that represents the graph which contains all the information about the flight system
+ */
 
 class Graph {
+    /**
+     * @brief Auxiliary struct for map hashing
+     */
     struct CityCountryHash {
         std::size_t operator()(const std::pair<std::string, std::string>& p) const {
             std::size_t cityHash = std::hash<std::string>{}(p.first);
@@ -20,13 +26,19 @@ class Graph {
             return cityHash ^ (countryHash << 1);
         }
     };
-
+     /**
+     * @brief Auxiliary struct to compare the equality of a city
+      * @note Different countries have cities with the same name
+     */
     struct CityCountryEqual {
         bool operator()(const std::pair<std::string, std::string>& lhs, const std::pair<std::string, std::string>& rhs) const {
             return lhs.first == rhs.first && lhs.second == rhs.second;
         }
     };
 
+    /**
+     * @brief Auxiliary struct for ordering the cities in a set
+     */
     struct CityCountryLess {
         bool operator()(const std::pair<std::string, std::string>& lhs, const std::pair<std::string, std::string>& rhs) const {
             if (lhs.first == rhs.first) {

@@ -4,6 +4,10 @@
 
 #include <string>
 
+/**
+ * @brief Airline is a class that represents a airline which a Flight contains
+ */
+
 class Airline {
     std::string code;
     std::string name;
