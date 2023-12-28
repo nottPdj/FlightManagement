@@ -27,7 +27,6 @@ class Graph {
         }
     };
 
-    // TODO needed??
     struct CityCountryLess {
         bool operator()(const std::pair<std::string, std::string>& lhs, const std::pair<std::string, std::string>& rhs) const {
             if (lhs.first == rhs.first) {
@@ -45,8 +44,8 @@ class Graph {
 
 
     int calculateMaxDistanceFrom(Airport * source);
-    std::vector<Flight> getMinTrip(Airport * source, Airport * dest);
-    std::vector<Flight> getMinTripAirlines(Airport * source, Airport * dest, std::vector<std::string> use);
+    std::vector<std::vector<Flight>> getMinTrips(Airport * source, Airport * dest);
+    std::vector<std::vector<Flight>> getMinTripsAirlines(Airport * source, Airport * dest, std::vector<std::string> use);
     bool lessThanMaxAirlines(std::vector<Flight> trip, int max);
 
 public:
@@ -60,6 +59,8 @@ public:
     void addAirport(Airport* airport);
     void addAirline(Airline* airline);
     void resetVisited();
+    void resetProcessing();
+
 
     int getNumAirports();
     int getNumFlights();
@@ -68,7 +69,7 @@ public:
     int getNumFlightsFromCity(std::pair<std::string, std::string> city);
     int getNumFlightsPerAirline(std::string airline);
     std::vector<std::string> getCountriesFromCity(std::pair<std::string, std::string> city);
-    std::vector<Airport *> getReachableAirportsFrom(std::string code, int stops); // t
+    std::vector<Airport *> getReachableAirportsFrom(std::string code, int stops);
     std::vector<std::pair<std::string, std::string>> getReachableCitiesFrom(std::string code, int stops);
     std::vector<std::string> getReachableCountriesFrom(std::string code, int stops);
     std::vector<std::vector<Flight>> getMaxTrip(); // t
