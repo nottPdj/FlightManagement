@@ -72,7 +72,7 @@ public:
     std::vector<Airport *> getReachableAirportsFrom(std::string code, int stops);
     std::vector<std::pair<std::string, std::string>> getReachableCitiesFrom(std::string code, int stops);
     std::vector<std::string> getReachableCountriesFrom(std::string code, int stops);
-    std::vector<std::vector<Flight>> getMaxTrip(); // t
+    std::vector<std::pair<Airport *, Airport *>> getMaxTrip(int &stops);
     std::vector<Airport *> getGreatestNumFlights(int top);
     std::vector<Airport *> getEssentialAirports();
     std::vector<std::vector<Flight>> getBestOption(std::string source, int searchFrom, std::string dest, int searchTo, int maxAirlines, std::vector<std::string> airlineCodes);

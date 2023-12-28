@@ -155,10 +155,11 @@ void Terminal::waitMenu(){
             options.sort = false;
             options.showSortingOptions = false;
             options.printCountMessage = false;
-            std::vector<std::vector<Flight>> maxTrips = g.getMaxTrip();
+            int stops;
+            std::vector<std::pair<Airport *, Airport *>> maxTrips = g.getMaxTrip(stops);
             options.message = "Maximum trips available:\n";
-            options.message += "There are " + std::to_string(maxTrips.size()) + " trips with the greatest number of lay-overs (" + std::to_string(maxTrips[0].size() - 1) + ")\n";
-            printFlightsLists(maxTrips, options);
+            options.message += "There are " + std::to_string(maxTrips.size()) + " trips with the greatest number of lay-overs (" + std::to_string(stops) + ")\n";
+            printSourceDestList(maxTrips, options);
             break;
         }
         // Airports with the greatest air traffic capacity
@@ -257,6 +258,8 @@ void Terminal::getDestinations(std::string code, int stops) {
     printingOptions options;
     if (stops == 0) {
         options.message = "Destinations from the airport " + code + "\n";
+    } else if (stops == INT32_MAX) {
+        options.message = "All possible destinations from the airport " + code + "\n";
     } else {
         options.message = "Reachable destinations from the airport " + code + " in a maximum of " + std::to_string(stops) + " lay-overs\n";
     }
@@ -381,7 +384,7 @@ void Terminal::printFlightsList(std::vector<Flight> flights, printingOptions opt
         std::cout << options.message;
     if (options.printCountMessage)
         std::cout << "There are " << flights.size() << " flights\n";
-    std::cout << "\nFrom " << flights.front().getSource()->getCode() << " To " << flights.back().getDest()->getCode() << "\n";
+    std::cout << "From " << flights.front().getSource()->getCode() << " To " << flights.back().getDest()->getCode() << "\n";
 
     // HEADERS: FROM and TO and AIRLINE
     std::cout << "|" << fill('-', (CODE_WIDTH + NAME_WIDTH * 2 + 2)) << "--" << fill('-', (CODE_WIDTH + NAME_WIDTH * 2 + 2)) << "--" << fill('-', AIRLINE_WIDTH) << "|\n";
@@ -463,7 +466,7 @@ void Terminal::printCitiesList(std::vector<std::pair<std::string, std::string>> 
     }
 
     // CLOSING TABLE
-    std::cout << "|" << fill('-', NAME_WIDTH) << "|\n";
+    std::cout << "|" << fill('-', NAME_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|\n";
 
     std::cout << "\n\n";
     if (options.showSortingOptions)
@@ -517,22 +520,96 @@ void Terminal::printCountriesList(std::vector<std::string> countries, printingOp
     }
 }
 
+void Terminal::printSourceDestList(std::vector<std::pair<Airport *, Airport *>> sourceDestPairs, printingOptions options) {
+    if (options.clear)
+        system("clear");
+    if (options.printMessage)
+        std::cout << options.message;
+    if (options.printCountMessage)
+        std::cout << "There are " << sourceDestPairs.size() << " source-destination pairs\n";
+    std::cout << "\n";
+
+    // HEADERS: FROM and TO and AIRLINE
+    std::cout << "|" << fill('-', (CODE_WIDTH + NAME_WIDTH * 2 + 2)) << "--" << fill('-', (CODE_WIDTH + NAME_WIDTH * 2 + 2)) << "|\n";
+
+    std::cout << "|" << center("FROM", ' ', (CODE_WIDTH + NAME_WIDTH * 2 + 2)) << "|"
+              << "|" << center("TO", ' ', (CODE_WIDTH + NAME_WIDTH * 2 + 2)) << "|\n";
+
+    for (int i = 0; i < 2; i++) {
+        std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
+                  << fill('-', NAME_WIDTH) << "|";
+    }
+    std::cout << "\n";
+
+    // SECONDARY HEADERS
+    for (int i = 0; i < 2; i++) {
+        std::cout << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("City", ' ', NAME_WIDTH) << "|"
+                  << center("Country", ' ', NAME_WIDTH) << "|";
+    }
+    std::cout << "\n";
+
+    for (int i = 0; i < 2; i++) {
+        std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', NAME_WIDTH) << "|"
+                  << fill('-', NAME_WIDTH) << "|";
+    }
+    std::cout << "\n";
+
+    // SORTING
+/*    if (options.sort)
+        sortSourceDestList(sourceDestPairs, options.sortOptions);*/
+
+    // FLIGHTS
+    for (auto sourceDest : sourceDestPairs) {
+        std::cout << "|" << center(sourceDest.first->getCode(), ' ', CODE_WIDTH) << "|" << center(sourceDest.first->getCity(), ' ', NAME_WIDTH) << "|"
+                  << center(sourceDest.first->getCountry(), ' ', NAME_WIDTH) << "|"
+                  << "|" << center(sourceDest.second->getCode(), ' ', CODE_WIDTH) << "|" << center(sourceDest.second->getCity(), ' ', NAME_WIDTH) << "|"
+                  << center(sourceDest.second->getCountry(), ' ', NAME_WIDTH) << "|\n";
+    }
+
+    // CLOSING TABLE
+    std::cout << "|" << fill('-', (CODE_WIDTH + NAME_WIDTH * 2 + 4) * 2 - 2) << "|\n";
+
+    std::cout << "\n\n";
+/*    if (options.showSortingOptions)
+        printSortingOptions();*/
+    if (options.showEndMenu)
+        endDisplayMenu();
+    if (options.getInput) {
+        getInput();
+        /*if (getInput() == 's') {
+            getSortingOptions(options.sortOptions);
+            printSourceDestList(sourceDestPairs, options);
+        }*/
+    }
+}
+
 
 void Terminal::printFlightsLists(std::vector<std::vector<Flight>> flightsLists, printingOptions options) {
+    system("clear");
+    options.message +=  "There are " + std::to_string(flightsLists.size()) + " options\n\n";
+    std::cout << "There are " << std::to_string(flightsLists.size()) << " options\n";
+    std::cout << "Do you wish to display them? (y/n)";
+    std::string option;
+    std::cin >> option;
     options.sort = false;
     options.showSortingOptions = false;
-    options.showEndMenu = false;
-    options.getInput = false;
-    for (int i = 0; i < flightsLists.size(); i++) {
-        if (i == flightsLists.size() - 1) {
-            options.showEndMenu = true;
-            options.getInput = true;
+    if (option == "y") {
+        options.showEndMenu = false;
+        options.getInput = false;
+        for (int i = 0; i < flightsLists.size(); i++) {
+            if (i == flightsLists.size() - 1) {
+                options.showEndMenu = true;
+                options.getInput = true;
+            }
+            printFlightsList(flightsLists[i], options);
+            if (i == 0) {
+                options.printMessage = false;
+                options.clear = false;
+            }
         }
-        printFlightsList(flightsLists[i], options);
-        if (i == 0) {
-            options.printMessage = false;
-            options.clear = false;
-        }
+    } else {
+        endDisplayMenu();
+        getInput();
     }
 }
 
@@ -559,8 +636,12 @@ std::string Terminal::fill(char c, int width) {
  */
 std::string Terminal::center(const std::string &str, char sep, int width) {
     std::ostringstream oss;
-    int space = (width - str.length()) / 2;
-    std::cout << std::setw(space) << std::setfill(sep) << "" << str << std::setw(width - str.length() - space) << std::setfill(sep) << "";
+    std::string str2 = str;
+    if (str.length() > width) {
+        str2 = str.substr(0, width);
+    }
+    int space = (width - str2.length()) / 2;
+    std::cout << std::setw(space) << std::setfill(sep) << "" << str2 << std::setw(width - str2.length() - space) << std::setfill(sep) << "";
     return oss.str();
 }
 
@@ -763,6 +844,47 @@ void Terminal::sortCountriesList(std::vector<std::string> &countries, sortingOpt
     }
 }
 
+void Terminal::sortSourceDestList(std::vector<std::pair<Airport *, Airport *>> &sourceDestPairs, sortingOptions sortOptions) {
+/*    switch(sortOptions.orderBy) {
+        case 0:
+            if (sortOptions.ascending)
+                std::sort(flights.begin(), flights.end(), Flight::bySourceCode);
+            else
+                std::sort(flights.rbegin(), flights.rend(), Flight::bySourceCode);
+            break;
+        case 1:
+            if (sortOptions.ascending)
+                std::sort(flights.begin(), flights.end(), Flight::bySourceCity);
+            else
+                std::sort(flights.rbegin(), flights.rend(), Flight::bySourceCity);
+            break;
+        case 2:
+            if (sortOptions.ascending)
+                std::sort(flights.begin(), flights.end(), Flight::bySourceCountry);
+            else
+                std::sort(flights.rbegin(), flights.rend(), Flight::bySourceCountry);
+            break;
+        case 3:
+            if (sortOptions.ascending)
+                std::sort(flights.begin(), flights.end(), Flight::byDestCode);
+            else
+                std::sort(flights.rbegin(), flights.rend(), Flight::byDestCode);
+            break;
+        case 4:
+            if (sortOptions.ascending)
+                std::sort(flights.begin(), flights.end(), Flight::byDestCity);
+            else
+                std::sort(flights.rbegin(), flights.rend(), Flight::byDestCity);
+            break;
+        case 5:
+            if (sortOptions.ascending)
+                std::sort(flights.begin(), flights.end(), Flight::byDestCountry);
+            else
+                std::sort(flights.rbegin(), flights.rend(), Flight::byDestCountry);
+            break;
+    }*/
+}
+
 bool Terminal::byCity(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2) {
     return p1.first <= p2.first;
 }
@@ -770,6 +892,7 @@ bool Terminal::byCity(std::pair<std::string, std::string> p1, std::pair<std::str
 bool Terminal::byCountry(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2) {
     return p1.second <= p2.second;
 }
+
 
 
 

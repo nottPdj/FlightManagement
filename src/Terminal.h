@@ -43,7 +43,7 @@ private:
     const static int MENU_WIDTH = 60;
     const static int CODE_WIDTH = 5;
     const static int OUTF_WIDTH = 13;
-    const static int NAME_WIDTH = 43; // 65
+    const static int NAME_WIDTH = 43;
     const static int DEFAULT_WIDTH = 35;
     const static int NUMBER_WIDTH = 20;
     const static int AIRLINE_WIDTH = 9;
@@ -80,6 +80,7 @@ private:
     void printFlightsList(std::vector<Flight> flights, printingOptions options);
     void printCitiesList(std::vector<std::pair<std::string, std::string>> cities, printingOptions options);
     void printCountriesList(std::vector<std::string> countries, printingOptions options);
+    void printSourceDestList(std::vector<std::pair<Airport *, Airport *>> sourceDestPairs, printingOptions options);
 
     // Sorting lists
     void sortAirportsList(std::vector<Airport *> &airports, sortingOptions sortOptions);
@@ -87,7 +88,7 @@ private:
     void sortFlightsList(std::vector<Flight> &flights, sortingOptions sortOptions);
     void sortCitiesList(std::vector<std::pair<std::string, std::string>> &cities, sortingOptions sortOptions);
     void sortCountriesList(std::vector<std::string> &countries, sortingOptions sortOptions);
-
+    void sortSourceDestList(std::vector<std::pair<Airport *, Airport *>> &sourceDestPairs, sortingOptions sortOptions);
 
     static bool byCity(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2);
     static bool byCountry(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2);
