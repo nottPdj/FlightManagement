@@ -172,6 +172,7 @@ void Terminal::waitMenu(){
             options.printCountMessage = false;
             options.sortOptions.orderBy = 6;
             options.sortOptions.ascending = false;
+            options.showSortingOptions = false;
             printAirportsList(g.getGreatestNumFlights(top), options);
             break;
         }
