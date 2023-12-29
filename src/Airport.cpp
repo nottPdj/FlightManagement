@@ -104,6 +104,9 @@ bool Airport::byCity(Airport *a1, Airport *a2) {
  * @param a2
  */
 bool Airport::byCountry(Airport *a1, Airport *a2) {
+    if (a1 == nullptr || a2 == nullptr) {
+        return false;
+    }
     return a1->getCountry() <= a2->getCountry();
 }
 /**
