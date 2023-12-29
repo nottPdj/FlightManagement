@@ -712,14 +712,8 @@ void Terminal::sortAirportsList(std::vector<Airport *> &airports, sortingOptions
                 std::sort(airports.rbegin(), airports.rend(), Airport::byCity);
             break;
         case 3:
-            if (sortOptions.ascending) {
-                for (Airport *a: airports) {
-                    if (a == nullptr) {
-                        return;
-                    }
-                }
+            if (sortOptions.ascending)
                 std::sort(airports.begin(), airports.end(), Airport::byCountry);
-            }
             else
                 std::sort(airports.rbegin(), airports.rend(), Airport::byCountry);
             break;
