@@ -210,6 +210,7 @@ std::vector<Airport *> Graph::getReachableAirportsFrom(std::string code, int sto
             break;
         }
     }
+    res.erase(res.begin());
     return res;
 }
 //TODO
@@ -234,7 +235,8 @@ std::vector<std::pair<std::string, std::string>> Graph::getReachableCitiesFrom(s
         for (int i = 0; i < size; i++) {
             auto a = aux.front();
             aux.pop();
-            cities.insert(make_pair(a->getCity(), a->getCountry()));
+            if (xStops != -1)
+                cities.insert(make_pair(a->getCity(), a->getCountry()));
             for (auto f: a->getFlights()) {
                 if (!f.getDest()->isVisited()) {
                     aux.push(f.getDest());
@@ -278,7 +280,8 @@ std::vector<std::string> Graph::getReachableCountriesFrom(std::string code, int 
         for (int i = 0; i < size; i++) {
             auto a = aux.front();
             aux.pop();
-            countries.insert(a->getCountry());
+            if (xStops != -1)
+                countries.insert(a->getCountry());
             for (auto f: a->getFlights()) {
                 if (!f.getDest()->isVisited()) {
                     aux.push(f.getDest());
