@@ -43,7 +43,7 @@ Airline *Flight::getAirline() const {
  * @param f2
  */
 bool Flight::bySourceCode(Flight f1, Flight f2) {
-    return f1.getSource()->getCode() <= f2.getSource()->getCode();
+    return f1.getSource()->getCode() < f2.getSource()->getCode();
 }
 
 /**
@@ -52,7 +52,7 @@ bool Flight::bySourceCode(Flight f1, Flight f2) {
  * @param f2
  */
 bool Flight::bySourceCity(Flight f1, Flight f2) {
-    return f1.getSource()->getCity() <= f2.getSource()->getCity();
+    return f1.getSource()->getCity() < f2.getSource()->getCity();
 }
 
 /**
@@ -61,7 +61,7 @@ bool Flight::bySourceCity(Flight f1, Flight f2) {
  * @param f2
  */
 bool Flight::bySourceCountry(Flight f1, Flight f2) {
-    return f1.getSource()->getCountry() <= f2.getSource()->getCountry();
+    return f1.getSource()->getCountry() < f2.getSource()->getCountry();
 }
 
 /**
@@ -70,7 +70,7 @@ bool Flight::bySourceCountry(Flight f1, Flight f2) {
  * @param f2
  */
 bool Flight::byDestCode(Flight f1, Flight f2) {
-    return f1.getDest()->getCode() <= f2.getDest()->getCode();
+    return f1.getDest()->getCode() < f2.getDest()->getCode();
 }
 
 /**
@@ -79,7 +79,7 @@ bool Flight::byDestCode(Flight f1, Flight f2) {
  * @param f2
  */
 bool Flight::byDestCity(Flight f1, Flight f2) {
-    return f1.getDest()->getCity() <= f2.getDest()->getCity();
+    return f1.getDest()->getCity() < f2.getDest()->getCity();
 }
 
 /**
@@ -88,7 +88,7 @@ bool Flight::byDestCity(Flight f1, Flight f2) {
  * @param f2
  */
 bool Flight::byDestCountry(Flight f1, Flight f2) {
-    return f1.getDest()->getCountry() <= f2.getDest()->getCountry();
+    return f1.getDest()->getCountry() < f2.getDest()->getCountry();
 }
 
 /**
@@ -97,5 +97,5 @@ bool Flight::byDestCountry(Flight f1, Flight f2) {
  * @param f2
  */
 bool Flight::byAirlineCode(Flight f1, Flight f2) {
-    return f1.getAirline()->getCode() <= f2.getAirline()->getCode();
+    return f1.getAirline()->getCode() < f2.getAirline()->getCode();
 }

@@ -80,7 +80,7 @@ std::string Airport::getLongitude() const {
  * @param a2
  */
 bool Airport::byCode(Airport *a1, Airport *a2) {
-    return a1->getCode() <= a2->getCode();
+    return a1->getCode() < a2->getCode();
 }
 /**
  * @brief Boolean function to order airports by name
@@ -88,7 +88,7 @@ bool Airport::byCode(Airport *a1, Airport *a2) {
  * @param a2
  */
 bool Airport::byName(Airport *a1, Airport *a2) {
-    return a1->getName() <= a2->getName();
+    return a1->getName() < a2->getName();
 }
 /**
  * @brief Boolean function to order airports by city
@@ -96,7 +96,7 @@ bool Airport::byName(Airport *a1, Airport *a2) {
  * @param a2
  */
 bool Airport::byCity(Airport *a1, Airport *a2) {
-    return a1->getCity() <= a2->getCity();
+    return a1->getCity() < a2->getCity();
 }
 /**
  * @brief Boolean function to order airports by country
@@ -104,7 +104,7 @@ bool Airport::byCity(Airport *a1, Airport *a2) {
  * @param a2
  */
 bool Airport::byCountry(Airport *a1, Airport *a2) {
-    return a1->getCountry() <= a2->getCountry();
+    return a1->getCountry() < a2->getCountry();
 }
 /**
  * @brief Boolean function to order airports by latitude
@@ -112,7 +112,7 @@ bool Airport::byCountry(Airport *a1, Airport *a2) {
  * @param a2
  */
 bool Airport::byLatitude(Airport *a1, Airport *a2) {
-    return std::stod(a1->getLatitude()) <= std::stod(a2->getLatitude());
+    return std::stod(a1->getLatitude()) < std::stod(a2->getLatitude());
 }
 /**
  * @brief Boolean function to order airports by longitude
@@ -120,7 +120,7 @@ bool Airport::byLatitude(Airport *a1, Airport *a2) {
  * @param a2
  */
 bool Airport::byLongitude(Airport *a1, Airport *a2) {
-    return std::stod(a1->getLongitude()) <= std::stod(a2->getLongitude());
+    return std::stod(a1->getLongitude()) < std::stod(a2->getLongitude());
 }
 /**
  * @brief Boolean function to order airports by the number of flights out
@@ -128,7 +128,7 @@ bool Airport::byLongitude(Airport *a1, Airport *a2) {
  * @param a2
  */
 bool Airport::byNFlightsOut(Airport *a1, Airport *a2) {
-    return a1->getNFlightsOut() <= a2->getNFlightsOut();
+    return a1->getNFlightsOut() < a2->getNFlightsOut();
 }
 
 /**
