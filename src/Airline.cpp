@@ -52,7 +52,7 @@ std::string Airline::getCountry() const {
  * @param a2
  */
 bool Airline::byCode(Airline *a1, Airline *a2) {
-    return a1->getCode() <= a2->getCode();
+    return a1->getCode() < a2->getCode();
 }
 
 /**
@@ -61,7 +61,7 @@ bool Airline::byCode(Airline *a1, Airline *a2) {
  * @param a2
  */
 bool Airline::byName(Airline *a1, Airline *a2) {
-    return a1->getName() <= a2->getName();
+    return a1->getName() < a2->getName();
 }
 
 /**
@@ -70,7 +70,7 @@ bool Airline::byName(Airline *a1, Airline *a2) {
  * @param a2
  */
 bool Airline::byCallsign(Airline *a1, Airline *a2) {
-    return a1->getCallsign() <= a2->getCallsign();
+    return a1->getCallsign() < a2->getCallsign();
 }
 
 /**
@@ -79,6 +79,6 @@ bool Airline::byCallsign(Airline *a1, Airline *a2) {
  * @param a2
  */
 bool Airline::byCountry(Airline *a1, Airline *a2) {
-    return a1->getCountry() <= a2->getCountry();
+    return a1->getCountry() < a2->getCountry();
 }
 
