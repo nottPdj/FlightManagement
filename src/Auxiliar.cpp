@@ -4,7 +4,7 @@
 
 /**
  * @brief Reads the airports
- * @param g
+ * @param g The main graph
  * @details Time Complexity O(n) n = number of airports
  */
 void Auxiliar::readAirports(Graph &g) {
@@ -29,7 +29,7 @@ void Auxiliar::readAirports(Graph &g) {
 
 /**
  * @brief Reads the airlines
- * @param g
+ * @param g The main graph
  * @details Time Complexity O(n) n = number of airlines
  */
 void Auxiliar::readAirlines(Graph &g) {
@@ -52,7 +52,7 @@ void Auxiliar::readAirlines(Graph &g) {
 
 /**
  * @brief Reads the flights
- * @param g
+ * @param g The main graph
  * @details Time Complexity O(n) n = number of flights
  */
 void Auxiliar::readFlights(Graph &g) {

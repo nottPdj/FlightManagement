@@ -550,18 +550,18 @@ std::vector<std::pair<Airport *, Airport *>> Graph::getMaxTrip(int &stops) {
     stops = maxDistance - 1;
     return sourceDests;
 }
-//TODO
+
 /**
- * @brief
- * @param n
- * @return topFlights
- * @details Time Complexity = O()
+ * @brief Gets a vector with a given size of the airports with the most flight out
+ * @param n Number of airports to show
+ * @return vector with size n containing the airports with the most flights out
+ * @details Time Complexity = O(V), V = nº airports
  */
 std::vector<Airport *> Graph::getGreatestNumFlights(int n) {
 
     struct compareNFlightsOut {
         bool operator()(Airport* a, Airport* b) {
-            return a->getNFlightsOut() > b->getNFlightsOut(); // This creates a max heap
+            return a->getNFlightsOut() > b->getNFlightsOut();
         }
     };
     std::vector<Airport *> topFlights;
@@ -656,7 +656,7 @@ std::vector<Airport *> Graph::getEssentialAirports() {
 }
 
 /**
- * Verifies if it are used fewer than max airlines in a set of flights
+ * @brief Verifies if it are used fewer than max airlines in a set of flights
  * @param trip Flights
  * @param max Maximum number of airlines that can be used
  * @return True if it aren't used more airlines than max, false otherwise
@@ -824,8 +824,14 @@ void Graph::resetProcessing() {
     }
 }
 
-//TODO
-std::vector<Airport *> Graph::getNearestAirports(double lat, double lon) {
+/**
+ * @brief Gets the closest airport (or more, if at the same distance) to the coordinates given
+ * @param lat Given latitude
+ * @param lon Given longitude
+ * @return Vector with the airports closer to the point given (usually with size 1)
+ * @details Time Complexity = O(V), V = nº airports in
+ */
+ std::vector<Airport *> Graph::getNearestAirports(double lat, double lon) {
     std::vector<Airport *> nearest;
     double minDist = 6371;
 
