@@ -586,11 +586,11 @@ std::vector<Airport *> Graph::getGreatestNumFlights(int n) {
     return topFlights;
 }
 
-//TODO
 /**
  * @brief Auxiliary function to check if a stack contains a certain string
  * @param i
  * @param s
+ * @details Time complexity O(n) -> n is the size of the stack
  */
 bool contains(std::string i ,std::stack<std::string>s){
     while(!s.empty()){
@@ -602,13 +602,13 @@ bool contains(std::string i ,std::stack<std::string>s){
     return false;
 }
 
-//TODO
 /**
  * @brief Auxiliary Deep-First-Search function to get essential airports
  * @param airport
  * @param s
  * @param l
  * @param i
+ * @details Time Complexity = O(E)
  */
 void dfs_essential(Airport* airport, std::stack<std::string> &s, std::unordered_set<Airport*> &l, int &i) {
     airport->setLow(i);
@@ -630,11 +630,10 @@ void dfs_essential(Airport* airport, std::stack<std::string> &s, std::unordered_
     s.pop();
 }
 
-//TODO
 /**
  * @brief Gets the airports that are essential to the network's
  * @return v
- * @details Time Complexity = O()
+ * @details Time Complexity = O(V+E)
  */
 std::vector<Airport *> Graph::getEssentialAirports() {
     std::vector<Airport*> v;
