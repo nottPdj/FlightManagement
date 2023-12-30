@@ -1,4 +1,3 @@
-#include <iostream>
 #include "src/Graph.h"
 #include "src/Terminal.h"
 #include "src/Auxiliar.h"

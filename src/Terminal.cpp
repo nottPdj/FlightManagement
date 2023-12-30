@@ -4,7 +4,6 @@
 #include <cmath>
 #include "Terminal.h"
 
-
 /**
  * @brief Constructor of the Terminal class. Stores the graph containing all air travel information in the private field
  * so that it can communicate with it throughout the program.
@@ -248,7 +247,11 @@ void Terminal::waitMenu(){
     }
 }
 
-
+/**
+ * @brief Gets destinations from an airport in a maximum of stops
+ * @param code Code of the source airport
+ * @param stops Maximum of stops
+ */
 void Terminal::getDestinations(std::string code, int stops) {
     std::cout << "Choose how to display destinations: \n"
         << "\t0 - Airports\n"
@@ -278,8 +281,11 @@ void Terminal::getDestinations(std::string code, int stops) {
     }
 }
 
-
-
+/**
+ * @brief Prints an airline list
+ * @param airlines Airline list
+ * @param options Printing options
+ */
 void Terminal::printAirlinesList(std::vector<Airline *> airlines, printingOptions options) {
     if (options.clear)
         system("clear");
@@ -324,6 +330,11 @@ void Terminal::printAirlinesList(std::vector<Airline *> airlines, printingOption
     }
 }
 
+/**
+ * @brief Prints an airport list
+ * @param airports Airport list
+ * @param options Printing options
+ */
 void Terminal::printAirportsList(std::vector<Airport*> airports, printingOptions options) {
     if (options.clear)
         system("clear");
@@ -378,7 +389,11 @@ void Terminal::printAirportsList(std::vector<Airport*> airports, printingOptions
     }
 }
 
-
+/**
+ * @brief Prints a flight list
+ * @param flights Flight list
+ * @param options Printing options
+ */
 void Terminal::printFlightsList(std::vector<Flight> flights, printingOptions options) {
     if (options.clear)
         system("clear");
@@ -443,7 +458,11 @@ void Terminal::printFlightsList(std::vector<Flight> flights, printingOptions opt
     }
 }
 
-
+/**
+ * @brief Prints a city list
+ * @param cities City list
+ * @param options Printing options
+ */
 void Terminal::printCitiesList(std::vector<std::pair<std::string, std::string>> cities, printingOptions options) {
     if (options.clear)
         system("clear");
@@ -483,6 +502,11 @@ void Terminal::printCitiesList(std::vector<std::pair<std::string, std::string>> 
     }
 }
 
+/**
+ * @brief Prints a country list
+ * @param countries Country list
+ * @param options Printing options
+ */
 void Terminal::printCountriesList(std::vector<std::string> countries, printingOptions options) {
     if (options.clear)
         system("clear");
@@ -522,6 +546,11 @@ void Terminal::printCountriesList(std::vector<std::string> countries, printingOp
     }
 }
 
+/**
+ * @brief Prints a source-destination pair of airports list
+ * @param sourceDestPairs Source-destination pair of airports list
+ * @param options Printing options
+ */
 void Terminal::printSourceDestList(std::vector<std::pair<Airport *, Airport *>> sourceDestPairs, printingOptions options) {
     if (options.clear)
         system("clear");
@@ -575,7 +604,11 @@ void Terminal::printSourceDestList(std::vector<std::pair<Airport *, Airport *>> 
     }
 }
 
-
+/**
+ * @brief Prints a set of flight lists
+ * @param flightsLists Flight lists
+ * @param options Printing options
+ */
 void Terminal::printFlightsLists(std::vector<std::vector<Flight>> flightsLists, printingOptions options) {
     system("clear");
     options.message +=  "There are " + std::to_string(flightsLists.size()) + " options\n\n";
@@ -691,6 +724,11 @@ void Terminal::endDisplayMenu() {
     printExit();
 }
 
+/**
+ * @brief Sorts an airport list
+ * @param airports Airport list
+ * @param sortOptions Sorting options
+ */
 void Terminal::sortAirportsList(std::vector<Airport *> &airports, sortingOptions sortOptions) {
     switch(sortOptions.orderBy) {
         case 0:
@@ -738,6 +776,11 @@ void Terminal::sortAirportsList(std::vector<Airport *> &airports, sortingOptions
     }
 }
 
+/**
+ * @brief Sorts an airline list
+ * @param airlines Airline list
+ * @param sortOptions Sorting options
+ */
 void Terminal::sortAirlinesList(std::vector<Airline *> &airlines, sortingOptions sortOptions) {
     switch(sortOptions.orderBy) {
         case 0:
@@ -767,6 +810,11 @@ void Terminal::sortAirlinesList(std::vector<Airline *> &airlines, sortingOptions
     }
 }
 
+/**
+ * @brief Sorts a flight list
+ * @param flights Flight list
+ * @param sortOptions Sorting options
+ */
 void Terminal::sortFlightsList(std::vector<Flight> &flights, sortingOptions sortOptions) {
     switch(sortOptions.orderBy) {
         case 0:
@@ -814,6 +862,11 @@ void Terminal::sortFlightsList(std::vector<Flight> &flights, sortingOptions sort
     }
 }
 
+/**
+ * @brief Sorts a city list
+ * @param cities City list
+ * @param sortOptions Sorting options
+ */
 void Terminal::sortCitiesList(std::vector<std::pair<std::string, std::string>> &cities, sortingOptions sortOptions) {
     switch(sortOptions.orderBy) {
         case 0:
@@ -831,6 +884,11 @@ void Terminal::sortCitiesList(std::vector<std::pair<std::string, std::string>> &
     }
 }
 
+/**
+ * @brief Sorts a country list
+ * @param countries Country list
+ * @param sortOptions Sorting options
+ */
 void Terminal::sortCountriesList(std::vector<std::string> &countries, sortingOptions sortOptions) {
     switch(sortOptions.orderBy) {
         case 0:
@@ -841,7 +899,6 @@ void Terminal::sortCountriesList(std::vector<std::string> &countries, sortingOpt
             break;
     }
 }
-
 
 bool Terminal::byCity(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2) {
     return p1.first <= p2.first;

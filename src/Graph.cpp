@@ -156,8 +156,8 @@ int Graph::getNumFlightsPerAirline(std::string airline) {
 
 /**
  * @brief Gets the countries that a given city flies to
- * @param city
- * @return res
+ * @param city Source city
+ * @return Countries that city flies to
  * @details Time Complexity = O(A*F*log(n)) ->A is the number of airports in the city,F is the number of flights per A,n is the number of countries in the set(countries)
  */
 std::vector<std::string> Graph::getCountriesFromCity(std::pair<std::string, std::string> city) {
@@ -175,10 +175,11 @@ std::vector<std::string> Graph::getCountriesFromCity(std::pair<std::string, std:
 }
 
 /**
- * @brief Gets the reachable airports from a given airport in a max number of n stops
- * @param code
- * @param stops
- * @return res
+ * @brief Gets the reachable airports from a given airport in a max number of stops
+ * @param code Code from source airport
+ * @param stops Max number of stops
+ * @return Reachable airports from source in a max number of stops
+ * @details Time Complexity = O(V+E), V = nº airports, E = nº flights
  */
 std::vector<Airport *> Graph::getReachableAirportsFrom(std::string code, int stops) {
     std::vector<Airport *> res;
@@ -213,13 +214,13 @@ std::vector<Airport *> Graph::getReachableAirportsFrom(std::string code, int sto
     res.erase(res.begin());
     return res;
 }
-//TODO
+
 /**
- * @brief Gets the reachable cities from a given airport in a max number of n stops
- * @param code
- * @param stops
- * @return res
- * @details Time Complexity= O()
+ * @brief Gets the reachable cities from a given airport in a max number of stops
+ * @param code Code from source airport
+ * @param stops Max number of stops
+ * @return Reachable cities from source in a max number of stops
+ * @details Time Complexity = O(V+E), V = nº airports, E = nº flights
  */
 std::vector<std::pair<std::string, std::string>> Graph::getReachableCitiesFrom(std::string code, int stops) {
     std::vector<std::pair<std::string, std::string>> res;
@@ -258,13 +259,13 @@ std::vector<std::pair<std::string, std::string>> Graph::getReachableCitiesFrom(s
     }
     return res;
 }
-//TODO
+
 /**
- * @brief Gets the reachable countries from a given airport in a max number of n stops
- * @param code
- * @param stops
- * @return res
- * @details Time complexity = O()
+ * @brief Gets the reachable countries from a given airport in a max number of stops
+ * @param code Code from source airport
+ * @param stops Max number of stops
+ * @return Reachable countries from source in a max number of stops
+ * @details Time Complexity = O(V+E), V = nº airports, E = nº flights
  */
 std::vector<std::string> Graph::getReachableCountriesFrom(std::string code, int stops) {
     std::vector<std::string> res;
@@ -304,7 +305,12 @@ std::vector<std::string> Graph::getReachableCountriesFrom(std::string code, int 
     return res;
 }
 
-
+/**
+ * @brief Calculates the trip with the maximum distance starting from source and stores that distance and the destinations in the source
+ * @param source Source
+ * @return Distance of the maximum trip starting from source
+ * @details Time Complexity = O(V+E), V = nº airports, E = nº flights
+ */
 int Graph::calculateMaxDistanceFrom(Airport * source) {
     resetVisited();
     std::queue<Airport *> aux;
@@ -342,7 +348,13 @@ int Graph::calculateMaxDistanceFrom(Airport * source) {
     return distance;
 }
 
-// encontrar caminho mais rapido (menos paragens) entre source e dest
+/**
+ * @brief Gets the minimum trip (or trips, if equivalent) from source to dest
+ * @param source Source
+ * @param dest Destination
+ * @return Vector with the minimum trips (vector of flights)
+ * @details Time Complexity = O(V+E+F), V = nº airports, E = nº flights, F = total number of flights from the minimum trip(s)
+ */
 std::vector<std::vector<Flight>> Graph::getMinTrips(Airport * source, Airport * dest) {
     resetVisited();
     resetProcessing();
@@ -423,7 +435,14 @@ std::vector<std::vector<Flight>> Graph::getMinTrips(Airport * source, Airport * 
     return trips;
 }
 
-// encontrar caminho mais rapido (menos paragens) entre source e dest with specific airlines
+/**
+ * @brief Gets the minimum trip (or trips, if equivalent) from source to dest only using specified airlines
+ * @param source Source
+ * @param dest Destination
+ * @param use Airlines that can be used
+ * @return Vector with the minimum trips (vector of flights)
+ * @details Time Complexity = O(V+E+F), V = nº airports, E = nº flights, F = total number of flights from the minimum trip(s)
+ */
 std::vector<std::vector<Flight>> Graph::getMinTripsAirlines(Airport * source, Airport * dest, std::vector<std::string> use) {
     resetVisited();
     resetProcessing();
@@ -504,6 +523,13 @@ std::vector<std::vector<Flight>> Graph::getMinTripsAirlines(Airport * source, Ai
     return trips;
 }
 
+/**
+ * @brief Gets the pair of source-destination airports (or pairs, if more than
+one) that correspond to the maximum trip, that is, the flight trip(s) with the greatest number of stops in between them
+ * @param stops Stops of the maximum trip
+ * @return Vector with the pairs of source-destination airports
+ * @details Time Complexity = O(V(V+E)), V = nº airports, E = nº flights
+ */
 std::vector<std::pair<Airport *, Airport *>> Graph::getMaxTrip(int &stops) {
     std::set<std::pair<Airport *, Airport *>> maxTrips;
     std::vector<std::pair<Airport *, Airport *>> sourceDests;
@@ -514,9 +540,7 @@ std::vector<std::pair<Airport *, Airport *>> Graph::getMaxTrip(int &stops) {
     for (Airport * a : getvAirports()) {
         if (a->getMaxTripDistance() == maxDistance) {
             for (Airport * dest : a->getMaxTripDests()) {
-                for (auto trip: getMinTrips(a, dest)) {
-                    maxTrips.insert(std::make_pair(trip.front().getSource(), trip.back().getDest()));
-                }
+                maxTrips.insert(std::make_pair(a, dest));
             }
         }
     }
@@ -562,6 +586,7 @@ std::vector<Airport *> Graph::getGreatestNumFlights(int n) {
     return topFlights;
 }
 
+//TODO
 /**
  * @brief Auxiliary function to check if a stack contains a certain string
  * @param i
@@ -577,6 +602,7 @@ bool contains(std::string i ,std::stack<std::string>s){
     return false;
 }
 
+//TODO
 /**
  * @brief Auxiliary Deep-First-Search function to get essential airports
  * @param airport
@@ -604,6 +630,7 @@ void dfs_essential(Airport* airport, std::stack<std::string> &s, std::unordered_
     s.pop();
 }
 
+//TODO
 /**
  * @brief Gets the airports that are essential to the network's
  * @return v
@@ -629,7 +656,12 @@ std::vector<Airport *> Graph::getEssentialAirports() {
     return v;
 }
 
-
+/**
+ * Verifies if it are used fewer than max airlines in a set of flights
+ * @param trip Flights
+ * @param max Maximum number of airlines that can be used
+ * @return True if it aren't used more airlines than max, false otherwise
+ */
 bool Graph::lessThanMaxAirlines(std::vector<Flight> trip, int max) {
     int n = 0;
     std::set<Airline *> used;
@@ -644,6 +676,21 @@ bool Graph::lessThanMaxAirlines(std::vector<Flight> trip, int max) {
     return true;
 }
 
+/**
+ *  @brief Gets the best flight option (or the set of options if they are equivalent), for a given source and
+destination location.
+ If specified by client the best flight option(s) have the constraint of a maximum number of airlines used.
+ If specified by client the best flight option(s) have the constraint of using only specified airlines.
+ * @param source Source location
+ * @param searchFrom Type of source
+ * @param dest Destination location
+ * @param searchTo Type of dest
+ * @param maxAirlines Maximum number of airlines that can be used
+ * @param airlineCodes Codes of the only airlines that can be used
+ * @return Vector with the best options
+ * @details Time Complexity = O(S*D*(V+E+F)), S = nº airports in (or closest) source location, D = nº airports in (or closest) destination location,
+ * V = nº airports, E = nº flights, F = total number of flights from the minimum trip(s)
+ */
 std::vector<std::vector<Flight>>
 Graph::getBestOption(std::string source, int searchFrom, std::string dest, int searchTo, int maxAirlines, std::vector<std::string> airlineCodes) {
     std::vector<std::vector<Flight>> bestOptions;
@@ -758,20 +805,27 @@ Graph::getBestOption(std::string source, int searchFrom, std::string dest, int s
     return bestOptions;
 }
 
-
-
+/**
+ * @brief Sets visited to false for all the airports
+ * @details Time Complexity = O(V),  V = nº airports
+ */
 void Graph::resetVisited() {
     for (auto airport : getvAirports()) {
         airport->setVisited(false);
     }
 }
 
+/**
+ * @brief Sets processing to false for all the airports
+ * @details Time Complexity = O(V),  V = nº airports
+ */
 void Graph::resetProcessing() {
     for (auto airport : getvAirports()) {
         airport->setProcessing(false);
     }
 }
 
+//TODO
 std::vector<Airport *> Graph::getNearestAirports(double lat, double lon) {
     std::vector<Airport *> nearest;
     double minDist = 6371;

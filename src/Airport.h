@@ -68,19 +68,5 @@ public:
     static bool byNFlightsOut(Airport *a1, Airport *a2);
 };
 
-// Hash function for the Airport class
-struct AirportHash {
-    std::size_t operator()(const Airport *airport) const {
-        return std::hash<std::string>{}(airport->getCode());
-    }
-};
-
-// Equality function for the Airport class
-struct AirportEqual {
-    bool operator()(const Airport *lhs, const Airport *rhs) const {
-        return lhs->getCode() == rhs->getCode();
-    }
-};
-
 
 #endif //PROJETO2_AIRPORT_H

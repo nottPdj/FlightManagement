@@ -6,7 +6,7 @@
 #include "Graph.h"
 
 /**
- * @brief Terminal auxiliar struct storing the sorting options of a table.
+ * @brief Terminal auxiliary struct storing the sorting options of a table.
  */
 struct sortingOptions {
     /**
@@ -16,6 +16,9 @@ struct sortingOptions {
     bool ascending = true;
 };
 
+/**
+ * @brief Terminal auxiliary struct storing the printing options for a printing function.
+ */
 struct printingOptions {
     sortingOptions sortOptions;
     std::string message;
@@ -30,7 +33,7 @@ struct printingOptions {
 
 /**
  * @brief Terminal is used to create an interface between the user and the program.
- * Uses the console to output and to receive inputs. There are some functionalities available only for Ubuntu.
+ * Uses the console to receive and output inputs. There are some functionalities available only for Ubuntu.
  * */
 class Terminal {
 
@@ -40,6 +43,7 @@ private:
      */
     Graph g;
 
+    // Table column widths
     const static int MENU_WIDTH = 60;
     const static int CODE_WIDTH = 5;
     const static int OUTF_WIDTH = 13;
@@ -47,8 +51,6 @@ private:
     const static int DEFAULT_WIDTH = 35;
     const static int NUMBER_WIDTH = 20;
     const static int AIRLINE_WIDTH = 9;
-
-
 
 public:
     Terminal(const Graph &g);
@@ -67,13 +69,14 @@ private:
     void printSortingOptions();
     void printExit();
 
-    // Auxiliar formatting functions
+    // Auxiliary formatting functions
     std::string fill(char c, int width);
     std::string center(const std::string &str, char sep, int width);
 
+    // Auxiliary
     void getDestinations(std::string code, int stops = 0);
 
-
+    // Printing
     void printFlightsLists(std::vector<std::vector<Flight>> flightsLists, printingOptions options);
     void printAirlinesList(std::vector<Airline *> airlines, printingOptions options);
     void printAirportsList(std::vector<Airport*> airports, printingOptions options);
@@ -89,6 +92,7 @@ private:
     void sortCitiesList(std::vector<std::pair<std::string, std::string>> &cities, sortingOptions sortOptions);
     void sortCountriesList(std::vector<std::string> &countries, sortingOptions sortOptions);
 
+    // Auxiliary sorting functions
     static bool byCity(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2);
     static bool byCountry(std::pair<std::string, std::string> p1, std::pair<std::string, std::string> p2);
 };

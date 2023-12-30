@@ -59,6 +59,8 @@ class Graph {
     std::vector<std::vector<Flight>> getMinTrips(Airport * source, Airport * dest);
     std::vector<std::vector<Flight>> getMinTripsAirlines(Airport * source, Airport * dest, std::vector<std::string> use);
     bool lessThanMaxAirlines(std::vector<Flight> trip, int max);
+    void resetVisited();
+    void resetProcessing();
 
 public:
     void addFlight(Flight flight);
@@ -70,9 +72,6 @@ public:
     Airline* getAirline(std::string code);
     void addAirport(Airport* airport);
     void addAirline(Airline* airline);
-    void resetVisited();
-    void resetProcessing();
-
 
     int getNumAirports();
     int getNumFlights();
@@ -88,7 +87,7 @@ public:
     std::vector<Airport *> getGreatestNumFlights(int top);
     std::vector<Airport *> getEssentialAirports();
     std::vector<std::vector<Flight>> getBestOption(std::string source, int searchFrom, std::string dest, int searchTo, int maxAirlines, std::vector<std::string> airlineCodes);
-     std::vector<Airport*> getNearestAirports(double latitude, double longitude);
+    std::vector<Airport*> getNearestAirports(double latitude, double longitude);
 };
 
 
