@@ -44,7 +44,7 @@ private:
     Graph g;
 
     // Table column widths
-    const static int MENU_WIDTH = 60;
+    const static int MENU_WIDTH = 75;
     const static int CODE_WIDTH = 5;
     const static int OUTF_WIDTH = 13;
     const static int NAME_WIDTH = 43;
