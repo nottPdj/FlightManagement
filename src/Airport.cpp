@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "Airport.h"
 
 /**
@@ -236,4 +237,15 @@ int Airport::getNum() const {
  */
 int Airport::getLow() const {
     return low;
+}
+
+/**
+ * @brief Deletes flights by the Airline code
+ * @param airlineCode
+ * @details Time Complexity = O(n) n-> number of flights of the airport
+ */
+void Airport::deleteFlightsByAirline(const std::string& airlineCode) {
+
+    flights.erase(std::remove_if(flights.begin(),flights.end(),[airlineCode](const Flight& f)
+    {return f.getAirline()->getCode() == airlineCode;}),flights.end());
 }

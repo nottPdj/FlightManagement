@@ -33,6 +33,7 @@ class Airport {
 
     void addFlight(Flight flight);
     bool removeFlightTo(Airport *d);
+    void deleteFlightsByAirline(const std::string& airlineCode);
 public:
     Airport(std::string code,
     std::string name,

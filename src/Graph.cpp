@@ -610,23 +610,26 @@ bool contains(std::string i ,std::stack<std::string>s){
  * @param i
  * @details Time Complexity = O(E)
  */
-void dfs_essential(Airport* airport, std::stack<std::string> &s, std::unordered_set<Airport*> &l, int &i) {
+void dfs_essential(Airport* airport, std::stack<std::string> &s, std::unordered_set<Airport*> &l, int &i, Airport * parent=nullptr) {
     airport->setLow(i);
     airport->setNum(i);
     i++;
     s.push(airport->getCode());
-
+    int children =0;
     for (Flight f: airport->getFlights()) {
         if (f.getDest()->getNum() == 0) {
-            dfs_essential(f.getDest(), s, l, i);
+            dfs_essential(f.getDest(), s, l, i,airport);
             airport->setLow(std::min(airport->getLow(), f.getDest()->getLow()));
 
             if ( f.getDest()->getLow() >=airport->getNum())
                 l.insert(airport);
+            children++;
         } else if (contains(f.getDest()->getCode(), s)) {
             airport->setLow(std::min(airport->getLow(), f.getDest()->getNum()));
         }
     }
+    if (parent == nullptr && children >= 2)
+        l.insert(airport);
     s.pop();
 }
 
@@ -637,21 +640,35 @@ void dfs_essential(Airport* airport, std::stack<std::string> &s, std::unordered_
  */
 std::vector<Airport *> Graph::getEssentialAirports() {
     std::vector<Airport*> v;
-    std::unordered_set<Airport*>l;
-    std::stack<std::string>s;
-    int i=1;
+    std::unordered_set<Airport*> l;
+    std::stack<std::string> s;
+    int i = 1;
+
     for (Airport* ap : getvAirports()) {
         ap->setNum(0);
     }
-    
-    for(Airport * ap:getvAirports()){
-        if(ap->getNum()==0){
-            dfs_essential(ap,s,l,i);
+    Airline toDelete = Airline("x","x","x","x");
+    for (Airport* ap : getvAirports()) {
+        for (auto f : ap->getFlights()) {
+            if(f.getAirline()->getCode()!="x")
+                 f.getDest()->addFlight(Flight(f.getDest(), f.getSource(), &toDelete));
         }
     }
-    for(auto ap:l){
-        v.push_back(ap);
+    for (Airport* ap : getvAirports()) {
+        ap->setNum(0);
     }
+
+    for (Airport* ap : getvAirports()) {
+        if (ap->getNum() == 0) {
+            dfs_essential(ap, s, l, i);
+        }
+    }
+    for (Airport* ap : vAirports) {
+        ap->deleteFlightsByAirline("x");
+    }
+
+    v.assign(l.begin(), l.end());
+
     return v;
 }
 
