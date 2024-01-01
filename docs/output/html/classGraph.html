@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Graph Class Reference</title>
+<title>Flight Management: Graph Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Flight Management
    </div>
   </td>
  </tr>
@@ -69,85 +69,722 @@ $(function() {
 <div class="title">Graph Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="classGraph.html" title="Graph is the class that represents the graph which contains all the information about the flight syst...">Graph</a> is the class that represents the graph which contains all the information about the flight system.  
+ <a href="classGraph.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Graph_8h_source.html">Graph.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0b7402c5339a8f6e6ba066d1a2e6b72c"><td class="memItemLeft" align="right" valign="top"><a id="a0b7402c5339a8f6e6ba066d1a2e6b72c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addFlight</b> (<a class="el" href="classFlight.html">Flight</a> flight)</td></tr>
+<tr class="memitem:a0b7402c5339a8f6e6ba066d1a2e6b72c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a0b7402c5339a8f6e6ba066d1a2e6b72c">addFlight</a> (<a class="el" href="classFlight.html">Flight</a> flight)</td></tr>
+<tr class="memdesc:a0b7402c5339a8f6e6ba066d1a2e6b72c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a flight (edge) to the graph.  <a href="classGraph.html#a0b7402c5339a8f6e6ba066d1a2e6b72c">More...</a><br /></td></tr>
 <tr class="separator:a0b7402c5339a8f6e6ba066d1a2e6b72c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a942a02762bc2312393f9b852147bd9cf"><td class="memItemLeft" align="right" valign="top"><a id="a942a02762bc2312393f9b852147bd9cf"></a>
-std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getvAirports</b> ()</td></tr>
+<tr class="memitem:a942a02762bc2312393f9b852147bd9cf"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a942a02762bc2312393f9b852147bd9cf">getvAirports</a> ()</td></tr>
+<tr class="memdesc:a942a02762bc2312393f9b852147bd9cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all the airports.  <a href="classGraph.html#a942a02762bc2312393f9b852147bd9cf">More...</a><br /></td></tr>
 <tr class="separator:a942a02762bc2312393f9b852147bd9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70cf2d5fe38d582fd6b7a1c04a69dea9"><td class="memItemLeft" align="right" valign="top"><a id="a70cf2d5fe38d582fd6b7a1c04a69dea9"></a>
-<a class="el" href="classAirport.html">Airport</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getAirport</b> (std::string code)</td></tr>
+<tr class="memitem:a70cf2d5fe38d582fd6b7a1c04a69dea9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAirport.html">Airport</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a70cf2d5fe38d582fd6b7a1c04a69dea9">getAirport</a> (std::string code)</td></tr>
+<tr class="memdesc:a70cf2d5fe38d582fd6b7a1c04a69dea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a airport using its code.  <a href="classGraph.html#a70cf2d5fe38d582fd6b7a1c04a69dea9">More...</a><br /></td></tr>
 <tr class="separator:a70cf2d5fe38d582fd6b7a1c04a69dea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24b7e2d1723f45af83050238306143d2"><td class="memItemLeft" align="right" valign="top"><a id="a24b7e2d1723f45af83050238306143d2"></a>
-std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getAirportByCity</b> (std::pair&lt; std::string, std::string &gt; city)</td></tr>
+<tr class="memitem:a24b7e2d1723f45af83050238306143d2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a24b7e2d1723f45af83050238306143d2">getAirportByCity</a> (std::pair&lt; std::string, std::string &gt; city)</td></tr>
+<tr class="memdesc:a24b7e2d1723f45af83050238306143d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the airports by the city where they are located.  <a href="classGraph.html#a24b7e2d1723f45af83050238306143d2">More...</a><br /></td></tr>
 <tr class="separator:a24b7e2d1723f45af83050238306143d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5615c3613f8f90f4caddfa951cd38000"><td class="memItemLeft" align="right" valign="top"><a id="a5615c3613f8f90f4caddfa951cd38000"></a>
-<a class="el" href="classAirport.html">Airport</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getAirportByName</b> (std::string name)</td></tr>
+<tr class="memitem:a5615c3613f8f90f4caddfa951cd38000"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAirport.html">Airport</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a5615c3613f8f90f4caddfa951cd38000">getAirportByName</a> (std::string name)</td></tr>
+<tr class="memdesc:a5615c3613f8f90f4caddfa951cd38000"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the airport by its name.  <a href="classGraph.html#a5615c3613f8f90f4caddfa951cd38000">More...</a><br /></td></tr>
 <tr class="separator:a5615c3613f8f90f4caddfa951cd38000"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a770a04f8df54b2453ad21c3bcccb1410"><td class="memItemLeft" align="right" valign="top"><a id="a770a04f8df54b2453ad21c3bcccb1410"></a>
-<a class="el" href="classAirline.html">Airline</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getAirline</b> (std::string code)</td></tr>
+<tr class="memitem:a770a04f8df54b2453ad21c3bcccb1410"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAirline.html">Airline</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a770a04f8df54b2453ad21c3bcccb1410">getAirline</a> (std::string code)</td></tr>
+<tr class="memdesc:a770a04f8df54b2453ad21c3bcccb1410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a airline by its code.  <a href="classGraph.html#a770a04f8df54b2453ad21c3bcccb1410">More...</a><br /></td></tr>
 <tr class="separator:a770a04f8df54b2453ad21c3bcccb1410"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bdccc00dd192eed1b14841638a0d21a"><td class="memItemLeft" align="right" valign="top"><a id="a9bdccc00dd192eed1b14841638a0d21a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addAirport</b> (<a class="el" href="classAirport.html">Airport</a> *airport)</td></tr>
+<tr class="memitem:a9bdccc00dd192eed1b14841638a0d21a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a9bdccc00dd192eed1b14841638a0d21a">addAirport</a> (<a class="el" href="classAirport.html">Airport</a> *airport)</td></tr>
+<tr class="memdesc:a9bdccc00dd192eed1b14841638a0d21a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a airport (vertex) to the graph.  <a href="classGraph.html#a9bdccc00dd192eed1b14841638a0d21a">More...</a><br /></td></tr>
 <tr class="separator:a9bdccc00dd192eed1b14841638a0d21a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24a48cb49239f037010e2cf3fa994cee"><td class="memItemLeft" align="right" valign="top"><a id="a24a48cb49239f037010e2cf3fa994cee"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addAirline</b> (<a class="el" href="classAirline.html">Airline</a> *airline)</td></tr>
+<tr class="memitem:a24a48cb49239f037010e2cf3fa994cee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a24a48cb49239f037010e2cf3fa994cee">addAirline</a> (<a class="el" href="classAirline.html">Airline</a> *airline)</td></tr>
+<tr class="memdesc:a24a48cb49239f037010e2cf3fa994cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a airline to the graph.  <a href="classGraph.html#a24a48cb49239f037010e2cf3fa994cee">More...</a><br /></td></tr>
 <tr class="separator:a24a48cb49239f037010e2cf3fa994cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00c89f9300992b2ac69104bb7ddcc868"><td class="memItemLeft" align="right" valign="top"><a id="a00c89f9300992b2ac69104bb7ddcc868"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetVisited</b> ()</td></tr>
-<tr class="separator:a00c89f9300992b2ac69104bb7ddcc868"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71cab3c90dcd762eedc74b9307a236e7"><td class="memItemLeft" align="right" valign="top"><a id="a71cab3c90dcd762eedc74b9307a236e7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetProcessing</b> ()</td></tr>
-<tr class="separator:a71cab3c90dcd762eedc74b9307a236e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bea42056658b669cab2d4b054f7c517"><td class="memItemLeft" align="right" valign="top"><a id="a5bea42056658b669cab2d4b054f7c517"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumAirports</b> ()</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a5bea42056658b669cab2d4b054f7c517">getNumAirports</a> ()</td></tr>
+<tr class="memdesc:a5bea42056658b669cab2d4b054f7c517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of airports (vertices) of the graph. <br /></td></tr>
 <tr class="separator:a5bea42056658b669cab2d4b054f7c517"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a086c97d79b0e727bbd8c95e4c22ae7ac"><td class="memItemLeft" align="right" valign="top"><a id="a086c97d79b0e727bbd8c95e4c22ae7ac"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumFlights</b> ()</td></tr>
+<tr class="memitem:a086c97d79b0e727bbd8c95e4c22ae7ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a086c97d79b0e727bbd8c95e4c22ae7ac">getNumFlights</a> ()</td></tr>
+<tr class="memdesc:a086c97d79b0e727bbd8c95e4c22ae7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of flights (edges) of the graph.  <a href="classGraph.html#a086c97d79b0e727bbd8c95e4c22ae7ac">More...</a><br /></td></tr>
 <tr class="separator:a086c97d79b0e727bbd8c95e4c22ae7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af37359ad2ce2a6843376f344e459ebae"><td class="memItemLeft" align="right" valign="top"><a id="af37359ad2ce2a6843376f344e459ebae"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumAirlines</b> ()</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#af37359ad2ce2a6843376f344e459ebae">getNumAirlines</a> ()</td></tr>
+<tr class="memdesc:af37359ad2ce2a6843376f344e459ebae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of airlines of the graph. <br /></td></tr>
 <tr class="separator:af37359ad2ce2a6843376f344e459ebae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90ef33e73977b7a1b7de6f95894cd8c3"><td class="memItemLeft" align="right" valign="top"><a id="a90ef33e73977b7a1b7de6f95894cd8c3"></a>
-std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getNumFlightsFromAirport</b> (std::string code)</td></tr>
+<tr class="memitem:a90ef33e73977b7a1b7de6f95894cd8c3"><td class="memItemLeft" align="right" valign="top">std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a90ef33e73977b7a1b7de6f95894cd8c3">getNumFlightsFromAirport</a> (std::string code)</td></tr>
+<tr class="memdesc:a90ef33e73977b7a1b7de6f95894cd8c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of flights (edges) and different airlines from a airport (vertex)  <a href="classGraph.html#a90ef33e73977b7a1b7de6f95894cd8c3">More...</a><br /></td></tr>
 <tr class="separator:a90ef33e73977b7a1b7de6f95894cd8c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fb65db3d7b786b235b3cfd9e05b50f3"><td class="memItemLeft" align="right" valign="top"><a id="a2fb65db3d7b786b235b3cfd9e05b50f3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumFlightsFromCity</b> (std::pair&lt; std::string, std::string &gt; city)</td></tr>
+<tr class="memitem:a2fb65db3d7b786b235b3cfd9e05b50f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a2fb65db3d7b786b235b3cfd9e05b50f3">getNumFlightsFromCity</a> (std::pair&lt; std::string, std::string &gt; city)</td></tr>
+<tr class="memdesc:a2fb65db3d7b786b235b3cfd9e05b50f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of flights from a city.  <a href="classGraph.html#a2fb65db3d7b786b235b3cfd9e05b50f3">More...</a><br /></td></tr>
 <tr class="separator:a2fb65db3d7b786b235b3cfd9e05b50f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a215350d80cbbb431d1d5645dce37d0c2"><td class="memItemLeft" align="right" valign="top"><a id="a215350d80cbbb431d1d5645dce37d0c2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumFlightsPerAirline</b> (std::string airline)</td></tr>
+<tr class="memitem:a215350d80cbbb431d1d5645dce37d0c2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a215350d80cbbb431d1d5645dce37d0c2">getNumFlightsPerAirline</a> (std::string airline)</td></tr>
+<tr class="memdesc:a215350d80cbbb431d1d5645dce37d0c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of flights per airline.  <a href="classGraph.html#a215350d80cbbb431d1d5645dce37d0c2">More...</a><br /></td></tr>
 <tr class="separator:a215350d80cbbb431d1d5645dce37d0c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a288b8a20a59f60b3deface1073034641"><td class="memItemLeft" align="right" valign="top"><a id="a288b8a20a59f60b3deface1073034641"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCountriesFromCity</b> (std::pair&lt; std::string, std::string &gt; city)</td></tr>
+<tr class="memitem:a288b8a20a59f60b3deface1073034641"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a288b8a20a59f60b3deface1073034641">getCountriesFromCity</a> (std::pair&lt; std::string, std::string &gt; city)</td></tr>
+<tr class="memdesc:a288b8a20a59f60b3deface1073034641"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the countries that a given city flies to.  <a href="classGraph.html#a288b8a20a59f60b3deface1073034641">More...</a><br /></td></tr>
 <tr class="separator:a288b8a20a59f60b3deface1073034641"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab925eb36a2197e20cb5afd157f55836d"><td class="memItemLeft" align="right" valign="top"><a id="ab925eb36a2197e20cb5afd157f55836d"></a>
-std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getReachableAirportsFrom</b> (std::string code, int stops)</td></tr>
+<tr class="memitem:ab925eb36a2197e20cb5afd157f55836d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#ab925eb36a2197e20cb5afd157f55836d">getReachableAirportsFrom</a> (std::string code, int stops)</td></tr>
+<tr class="memdesc:ab925eb36a2197e20cb5afd157f55836d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the reachable airports from a given airport in a max number of stops.  <a href="classGraph.html#ab925eb36a2197e20cb5afd157f55836d">More...</a><br /></td></tr>
 <tr class="separator:ab925eb36a2197e20cb5afd157f55836d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf28ecf50f37f18ab8c3ffb12364c0da"><td class="memItemLeft" align="right" valign="top"><a id="adf28ecf50f37f18ab8c3ffb12364c0da"></a>
-std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getReachableCitiesFrom</b> (std::string code, int stops)</td></tr>
+<tr class="memitem:adf28ecf50f37f18ab8c3ffb12364c0da"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#adf28ecf50f37f18ab8c3ffb12364c0da">getReachableCitiesFrom</a> (std::string code, int stops)</td></tr>
+<tr class="memdesc:adf28ecf50f37f18ab8c3ffb12364c0da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the reachable cities from a given airport in a max number of stops.  <a href="classGraph.html#adf28ecf50f37f18ab8c3ffb12364c0da">More...</a><br /></td></tr>
 <tr class="separator:adf28ecf50f37f18ab8c3ffb12364c0da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02206b6382123365af255b67e87088f5"><td class="memItemLeft" align="right" valign="top"><a id="a02206b6382123365af255b67e87088f5"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getReachableCountriesFrom</b> (std::string code, int stops)</td></tr>
+<tr class="memitem:a02206b6382123365af255b67e87088f5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a02206b6382123365af255b67e87088f5">getReachableCountriesFrom</a> (std::string code, int stops)</td></tr>
+<tr class="memdesc:a02206b6382123365af255b67e87088f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the reachable countries from a given airport in a max number of stops.  <a href="classGraph.html#a02206b6382123365af255b67e87088f5">More...</a><br /></td></tr>
 <tr class="separator:a02206b6382123365af255b67e87088f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac40ef70959dde6af98ab1f7641a573ac"><td class="memItemLeft" align="right" valign="top"><a id="ac40ef70959dde6af98ab1f7641a573ac"></a>
-std::vector&lt; std::pair&lt; <a class="el" href="classAirport.html">Airport</a> *, <a class="el" href="classAirport.html">Airport</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxTrip</b> (int &amp;stops)</td></tr>
+<tr class="memitem:ac40ef70959dde6af98ab1f7641a573ac"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; <a class="el" href="classAirport.html">Airport</a> *, <a class="el" href="classAirport.html">Airport</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#ac40ef70959dde6af98ab1f7641a573ac">getMaxTrip</a> (int &amp;stops)</td></tr>
+<tr class="memdesc:ac40ef70959dde6af98ab1f7641a573ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the pair of source-destination airports (or pairs, if more than one) that correspond to the maximum trip, that is, the flight trip(s) with the greatest number of stops in between them.  <a href="classGraph.html#ac40ef70959dde6af98ab1f7641a573ac">More...</a><br /></td></tr>
 <tr class="separator:ac40ef70959dde6af98ab1f7641a573ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04a89c729eaaf9b1145c9bdc33579127"><td class="memItemLeft" align="right" valign="top"><a id="a04a89c729eaaf9b1145c9bdc33579127"></a>
-std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getGreatestNumFlights</b> (int top)</td></tr>
+<tr class="memitem:a04a89c729eaaf9b1145c9bdc33579127"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a04a89c729eaaf9b1145c9bdc33579127">getGreatestNumFlights</a> (int top)</td></tr>
+<tr class="memdesc:a04a89c729eaaf9b1145c9bdc33579127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a vector with a given size of the airports with the most flight out.  <a href="classGraph.html#a04a89c729eaaf9b1145c9bdc33579127">More...</a><br /></td></tr>
 <tr class="separator:a04a89c729eaaf9b1145c9bdc33579127"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a595b6a7805c24493ce6175079ceac705"><td class="memItemLeft" align="right" valign="top"><a id="a595b6a7805c24493ce6175079ceac705"></a>
-std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getEssentialAirports</b> ()</td></tr>
+<tr class="memitem:a595b6a7805c24493ce6175079ceac705"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a595b6a7805c24493ce6175079ceac705">getEssentialAirports</a> ()</td></tr>
+<tr class="memdesc:a595b6a7805c24493ce6175079ceac705"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the airports that are essential to the network's.  <a href="classGraph.html#a595b6a7805c24493ce6175079ceac705">More...</a><br /></td></tr>
 <tr class="separator:a595b6a7805c24493ce6175079ceac705"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9768b5827477a4670d7c02dec76d6b1"><td class="memItemLeft" align="right" valign="top"><a id="ab9768b5827477a4670d7c02dec76d6b1"></a>
-std::vector&lt; std::vector&lt; <a class="el" href="classFlight.html">Flight</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getBestOption</b> (std::string source, int searchFrom, std::string dest, int searchTo, int maxAirlines, std::vector&lt; std::string &gt; airlineCodes)</td></tr>
+<tr class="memitem:ab9768b5827477a4670d7c02dec76d6b1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="classFlight.html">Flight</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#ab9768b5827477a4670d7c02dec76d6b1">getBestOption</a> (std::string source, int searchFrom, std::string dest, int searchTo, int maxAirlines, std::vector&lt; std::string &gt; airlineCodes)</td></tr>
 <tr class="separator:ab9768b5827477a4670d7c02dec76d6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a260a67e3e0917d6fb88de7d1383a7a3b"><td class="memItemLeft" align="right" valign="top"><a id="a260a67e3e0917d6fb88de7d1383a7a3b"></a>
-std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getNearestAirports</b> (double latitude, double longitude)</td></tr>
+<tr class="memitem:a260a67e3e0917d6fb88de7d1383a7a3b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a260a67e3e0917d6fb88de7d1383a7a3b">getNearestAirports</a> (double latitude, double longitude)</td></tr>
+<tr class="memdesc:a260a67e3e0917d6fb88de7d1383a7a3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the closest airport (or more, if at the same distance) to the coordinates given.  <a href="classGraph.html#a260a67e3e0917d6fb88de7d1383a7a3b">More...</a><br /></td></tr>
 <tr class="separator:a260a67e3e0917d6fb88de7d1383a7a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classGraph.html" title="Graph is the class that represents the graph which contains all the information about the flight syst...">Graph</a> is the class that represents the graph which contains all the information about the flight system. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a24a48cb49239f037010e2cf3fa994cee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24a48cb49239f037010e2cf3fa994cee">&#9670;&nbsp;</a></span>addAirline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Graph::addAirline </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classAirline.html">Airline</a> *&#160;</td>
+          <td class="paramname"><em>airline</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a airline to the graph. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">airline</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9bdccc00dd192eed1b14841638a0d21a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bdccc00dd192eed1b14841638a0d21a">&#9670;&nbsp;</a></span>addAirport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Graph::addAirport </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classAirport.html">Airport</a> *&#160;</td>
+          <td class="paramname"><em>airport</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a airport (vertex) to the graph. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">airport</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0b7402c5339a8f6e6ba066d1a2e6b72c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b7402c5339a8f6e6ba066d1a2e6b72c">&#9670;&nbsp;</a></span>addFlight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Graph::addFlight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFlight.html">Flight</a>&#160;</td>
+          <td class="paramname"><em>flight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a flight (edge) to the graph. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flight</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a770a04f8df54b2453ad21c3bcccb1410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a770a04f8df54b2453ad21c3bcccb1410">&#9670;&nbsp;</a></span>getAirline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classAirline.html">Airline</a> * Graph::getAirline </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a airline by its code. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">code</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a70cf2d5fe38d582fd6b7a1c04a69dea9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70cf2d5fe38d582fd6b7a1c04a69dea9">&#9670;&nbsp;</a></span>getAirport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classAirport.html">Airport</a> * Graph::getAirport </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a airport using its code. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">code</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a24b7e2d1723f45af83050238306143d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24b7e2d1723f45af83050238306143d2">&#9670;&nbsp;</a></span>getAirportByCity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt; Graph::getAirportByCity </td>
+          <td>(</td>
+          <td class="paramtype">std::pair&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramname"><em>city</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the airports by the city where they are located. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">city</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5615c3613f8f90f4caddfa951cd38000"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5615c3613f8f90f4caddfa951cd38000">&#9670;&nbsp;</a></span>getAirportByName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classAirport.html">Airport</a> * Graph::getAirportByName </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the airport by its name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab9768b5827477a4670d7c02dec76d6b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9768b5827477a4670d7c02dec76d6b1">&#9670;&nbsp;</a></span>getBestOption()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; <a class="el" href="classFlight.html">Flight</a> &gt; &gt; Graph::getBestOption </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>searchFrom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>searchTo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxAirlines</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt;&#160;</td>
+          <td class="paramname"><em>airlineCodes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Gets the best flight option (or the set of options if they are equivalent), for a given source and
+</pre><p> destination location. If specified by client the best flight option(s) have the constraint of a maximum number of airlines used. If specified by client the best flight option(s) have the constraint of using only specified airlines. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>Source location </td></tr>
+    <tr><td class="paramname">searchFrom</td><td>Type of source </td></tr>
+    <tr><td class="paramname">dest</td><td>Destination location </td></tr>
+    <tr><td class="paramname">searchTo</td><td>Type of dest </td></tr>
+    <tr><td class="paramname">maxAirlines</td><td>Maximum number of airlines that can be used </td></tr>
+    <tr><td class="paramname">airlineCodes</td><td>Codes of the only airlines that can be used </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector with the best options</dd></dl>
+<p>Time Complexity = O(S*D*(V+E+F)), S = nº airports in (or closest) source location, D = nº airports in (or closest) destination location, V = nº airports, E = nº flights, F = total number of flights from the minimum trip(s) </p>
+
+</div>
+</div>
+<a id="a288b8a20a59f60b3deface1073034641"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a288b8a20a59f60b3deface1073034641">&#9670;&nbsp;</a></span>getCountriesFromCity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; Graph::getCountriesFromCity </td>
+          <td>(</td>
+          <td class="paramtype">std::pair&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramname"><em>city</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the countries that a given city flies to. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">city</td><td>Source city </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Countries that city flies to</dd></dl>
+<p>Time Complexity = O(A*F*log(n)) -&gt;A is the number of airports in the city,F is the number of flights per A,n is the number of countries in the set(countries) </p>
+
+</div>
+</div>
+<a id="a595b6a7805c24493ce6175079ceac705"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a595b6a7805c24493ce6175079ceac705">&#9670;&nbsp;</a></span>getEssentialAirports()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt; Graph::getEssentialAirports </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the airports that are essential to the network's. </p>
+<dl class="section return"><dt>Returns</dt><dd>v</dd></dl>
+<p>Time Complexity = O(V+E), V = nº airports, E = nº flights </p>
+
+</div>
+</div>
+<a id="a04a89c729eaaf9b1145c9bdc33579127"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04a89c729eaaf9b1145c9bdc33579127">&#9670;&nbsp;</a></span>getGreatestNumFlights()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt; Graph::getGreatestNumFlights </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a vector with a given size of the airports with the most flight out. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Number of airports to show </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>vector with size n containing the airports with the most flights out</dd></dl>
+<p>Time Complexity = O(V), V = nº airports </p>
+
+</div>
+</div>
+<a id="ac40ef70959dde6af98ab1f7641a573ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac40ef70959dde6af98ab1f7641a573ac">&#9670;&nbsp;</a></span>getMaxTrip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::pair&lt; <a class="el" href="classAirport.html">Airport</a> *, <a class="el" href="classAirport.html">Airport</a> * &gt; &gt; Graph::getMaxTrip </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>stops</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the pair of source-destination airports (or pairs, if more than one) that correspond to the maximum trip, that is, the flight trip(s) with the greatest number of stops in between them. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stops</td><td>Stops of the maximum trip </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector with the pairs of source-destination airports</dd></dl>
+<p>Time Complexity = O(V(V+E)), V = nº airports, E = nº flights </p>
+
+</div>
+</div>
+<a id="a260a67e3e0917d6fb88de7d1383a7a3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a260a67e3e0917d6fb88de7d1383a7a3b">&#9670;&nbsp;</a></span>getNearestAirports()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt; Graph::getNearestAirports </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>lat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>lon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the closest airport (or more, if at the same distance) to the coordinates given. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lat</td><td>Given latitude </td></tr>
+    <tr><td class="paramname">lon</td><td>Given longitude </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector with the airports closer to the point given (usually with size 1)</dd></dl>
+<p>Time Complexity = O(V), V = nº airports </p>
+
+</div>
+</div>
+<a id="a086c97d79b0e727bbd8c95e4c22ae7ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a086c97d79b0e727bbd8c95e4c22ae7ac">&#9670;&nbsp;</a></span>getNumFlights()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::getNumFlights </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of flights (edges) of the graph. </p>
+<p>Time Complexity = O(V) </p>
+
+</div>
+</div>
+<a id="a90ef33e73977b7a1b7de6f95894cd8c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90ef33e73977b7a1b7de6f95894cd8c3">&#9670;&nbsp;</a></span>getNumFlightsFromAirport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; int, int &gt; Graph::getNumFlightsFromAirport </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of flights (edges) and different airlines from a airport (vertex) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">code</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>res</dd></dl>
+<p>Time Complexity = O(n*log(m)) -&gt; n is the number of edges from the airport, m is the number of different airlines </p>
+
+</div>
+</div>
+<a id="a2fb65db3d7b786b235b3cfd9e05b50f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fb65db3d7b786b235b3cfd9e05b50f3">&#9670;&nbsp;</a></span>getNumFlightsFromCity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::getNumFlightsFromCity </td>
+          <td>(</td>
+          <td class="paramtype">std::pair&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramname"><em>city</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of flights from a city. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">city</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>n</dd></dl>
+<p>Time Complexity = O(n) -&gt; n is the number of airports in the city </p>
+
+</div>
+</div>
+<a id="a215350d80cbbb431d1d5645dce37d0c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a215350d80cbbb431d1d5645dce37d0c2">&#9670;&nbsp;</a></span>getNumFlightsPerAirline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::getNumFlightsPerAirline </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>airline</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of flights per airline. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">airline</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>n</dd></dl>
+<p>Time Complexity = O(V+E) </p>
+
+</div>
+</div>
+<a id="ab925eb36a2197e20cb5afd157f55836d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab925eb36a2197e20cb5afd157f55836d">&#9670;&nbsp;</a></span>getReachableAirportsFrom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt; Graph::getReachableAirportsFrom </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>stops</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the reachable airports from a given airport in a max number of stops. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">code</td><td>Code from source airport </td></tr>
+    <tr><td class="paramname">stops</td><td>Max number of stops </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reachable airports from source in a max number of stops</dd></dl>
+<p>Time Complexity = O(V+E), V = nº airports, E = nº flights </p>
+
+</div>
+</div>
+<a id="adf28ecf50f37f18ab8c3ffb12364c0da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf28ecf50f37f18ab8c3ffb12364c0da">&#9670;&nbsp;</a></span>getReachableCitiesFrom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; Graph::getReachableCitiesFrom </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>stops</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the reachable cities from a given airport in a max number of stops. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">code</td><td>Code from source airport </td></tr>
+    <tr><td class="paramname">stops</td><td>Max number of stops </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reachable cities from source in a max number of stops</dd></dl>
+<p>Time Complexity = O(V+E), V = nº airports, E = nº flights </p>
+
+</div>
+</div>
+<a id="a02206b6382123365af255b67e87088f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02206b6382123365af255b67e87088f5">&#9670;&nbsp;</a></span>getReachableCountriesFrom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; Graph::getReachableCountriesFrom </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>stops</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the reachable countries from a given airport in a max number of stops. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">code</td><td>Code from source airport </td></tr>
+    <tr><td class="paramname">stops</td><td>Max number of stops </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reachable countries from source in a max number of stops</dd></dl>
+<p>Time Complexity = O(V+E), V = nº airports, E = nº flights </p>
+
+</div>
+</div>
+<a id="a942a02762bc2312393f9b852147bd9cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a942a02762bc2312393f9b852147bd9cf">&#9670;&nbsp;</a></span>getvAirports()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classAirport.html">Airport</a> * &gt; Graph::getvAirports </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets all the airports. </p>
+<dl class="section return"><dt>Returns</dt><dd>vAirports </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/tiago/Desktop/FlightManagement/src/<a class="el" href="Graph_8h_source.html">Graph.h</a></li>
 <li>/home/tiago/Desktop/FlightManagement/src/Graph.cpp</li>

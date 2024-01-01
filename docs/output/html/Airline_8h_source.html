@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: /home/tiago/Desktop/FlightManagement/src/Airline.h Source File</title>
+<title>Flight Management: /home/tiago/Desktop/FlightManagement/src/Airline.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Flight Management
    </div>
   </td>
  </tr>
@@ -75,49 +75,58 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classAirline.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAirline.html">Airline</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    std::string code;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    std::string name;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    std::string callsign;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    std::string country;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classAirline.html">Airline</a>(std::string code,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            std::string name,</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            std::string callsign,</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            std::string country);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::string getCode() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::string getName() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    std::string getCallsign() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::string getCountry() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byCode(<a class="code" href="classAirline.html">Airline</a> *a1, <a class="code" href="classAirline.html">Airline</a> *a2);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byName(<a class="code" href="classAirline.html">Airline</a> *a1, <a class="code" href="classAirline.html">Airline</a> *a2);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byCallsign(<a class="code" href="classAirline.html">Airline</a> *a1, <a class="code" href="classAirline.html">Airline</a> *a2);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byCountry(<a class="code" href="classAirline.html">Airline</a> *a1, <a class="code" href="classAirline.html">Airline</a> *a2);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// Hash function for the Airline class</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structAirlineHash.html">   32</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structAirlineHash.html">AirlineHash</a> {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    std::size_t operator()(<span class="keyword">const</span> <a class="code" href="classAirline.html">Airline</a> *airline)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> std::hash&lt;std::string&gt;{}(airline-&gt;getCode());</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">// Equality function for the Airport class</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structAirlineEqual.html">   39</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structAirlineEqual.html">AirlineEqual</a> {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> <a class="code" href="classAirline.html">Airline</a> *lhs, <span class="keyword">const</span> <a class="code" href="classAirline.html">Airline</a> *rhs)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> lhs-&gt;getCode() == rhs-&gt;getCode();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJETO2_AIRLINE_H</span></div>
-<div class="ttc" id="aclassAirline_html"><div class="ttname"><a href="classAirline.html">Airline</a></div><div class="ttdef"><b>Definition:</b> Airline.h:7</div></div>
-<div class="ttc" id="astructAirlineEqual_html"><div class="ttname"><a href="structAirlineEqual.html">AirlineEqual</a></div><div class="ttdef"><b>Definition:</b> Airline.h:39</div></div>
-<div class="ttc" id="astructAirlineHash_html"><div class="ttname"><a href="structAirlineHash.html">AirlineHash</a></div><div class="ttdef"><b>Definition:</b> Airline.h:32</div></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classAirline.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAirline.html">Airline</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    std::string code;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    std::string name;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    std::string callsign;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::string country;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classAirline.html#aeab28471086562d53f134c60a5d0a976">Airline</a>(std::string code,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            std::string name,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            std::string callsign,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            std::string country);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::string <a class="code" href="classAirline.html#ae3a78341e134ede353f32e060033c4ee">getCode</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::string <a class="code" href="classAirline.html#aaaabbcbd34ed54234915325e91af0148">getName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::string <a class="code" href="classAirline.html#aa0219926dd0151332c9e309036e345d3">getCallsign</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    std::string <a class="code" href="classAirline.html#a73e2c48e0d98eda7417b4a256881e6f1">getCountry</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classAirline.html#a04e8a8959921bb5cdf64eda77f74b93e">byCode</a>(<a class="code" href="classAirline.html">Airline</a> *a1, <a class="code" href="classAirline.html">Airline</a> *a2);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classAirline.html#a17d1212d3676ffdf5c2eb21ad4655885">byName</a>(<a class="code" href="classAirline.html">Airline</a> *a1, <a class="code" href="classAirline.html">Airline</a> *a2);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classAirline.html#ad342cf3bcfbdb8c21ca2d17b21ec4c5f">byCallsign</a>(<a class="code" href="classAirline.html">Airline</a> *a1, <a class="code" href="classAirline.html">Airline</a> *a2);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classAirline.html#a63d93336c3b41a1d4830da949b36ca07">byCountry</a>(<a class="code" href="classAirline.html">Airline</a> *a1, <a class="code" href="classAirline.html">Airline</a> *a2);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// Hash function for the Airline class</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structAirlineHash.html">   36</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structAirlineHash.html">AirlineHash</a> {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::size_t operator()(<span class="keyword">const</span> <a class="code" href="classAirline.html">Airline</a> *airline)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> std::hash&lt;std::string&gt;{}(airline-&gt;<a class="code" href="classAirline.html#ae3a78341e134ede353f32e060033c4ee">getCode</a>());</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// Equality function for the Airport class</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structAirlineEqual.html">   43</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structAirlineEqual.html">AirlineEqual</a> {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> <a class="code" href="classAirline.html">Airline</a> *lhs, <span class="keyword">const</span> <a class="code" href="classAirline.html">Airline</a> *rhs)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> lhs-&gt;<a class="code" href="classAirline.html#ae3a78341e134ede353f32e060033c4ee">getCode</a>() == rhs-&gt;<a class="code" href="classAirline.html#ae3a78341e134ede353f32e060033c4ee">getCode</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJETO2_AIRLINE_H</span></div>
+<div class="ttc" id="aclassAirline_html"><div class="ttname"><a href="classAirline.html">Airline</a></div><div class="ttdoc">Airline is a class that represents a airline which a Flight contains.</div><div class="ttdef"><b>Definition:</b> Airline.h:11</div></div>
+<div class="ttc" id="aclassAirline_html_a04e8a8959921bb5cdf64eda77f74b93e"><div class="ttname"><a href="classAirline.html#a04e8a8959921bb5cdf64eda77f74b93e">Airline::byCode</a></div><div class="ttdeci">static bool byCode(Airline *a1, Airline *a2)</div><div class="ttdoc">Boolean function to order airlines by code.</div><div class="ttdef"><b>Definition:</b> Airline.cpp:54</div></div>
+<div class="ttc" id="aclassAirline_html_a17d1212d3676ffdf5c2eb21ad4655885"><div class="ttname"><a href="classAirline.html#a17d1212d3676ffdf5c2eb21ad4655885">Airline::byName</a></div><div class="ttdeci">static bool byName(Airline *a1, Airline *a2)</div><div class="ttdoc">Boolean function to order airlines by name.</div><div class="ttdef"><b>Definition:</b> Airline.cpp:63</div></div>
+<div class="ttc" id="aclassAirline_html_a63d93336c3b41a1d4830da949b36ca07"><div class="ttname"><a href="classAirline.html#a63d93336c3b41a1d4830da949b36ca07">Airline::byCountry</a></div><div class="ttdeci">static bool byCountry(Airline *a1, Airline *a2)</div><div class="ttdoc">Boolean function to order airlines by country.</div><div class="ttdef"><b>Definition:</b> Airline.cpp:81</div></div>
+<div class="ttc" id="aclassAirline_html_a73e2c48e0d98eda7417b4a256881e6f1"><div class="ttname"><a href="classAirline.html#a73e2c48e0d98eda7417b4a256881e6f1">Airline::getCountry</a></div><div class="ttdeci">std::string getCountry() const</div><div class="ttdoc">Gets the country which the airline belongs.</div><div class="ttdef"><b>Definition:</b> Airline.cpp:45</div></div>
+<div class="ttc" id="aclassAirline_html_aa0219926dd0151332c9e309036e345d3"><div class="ttname"><a href="classAirline.html#aa0219926dd0151332c9e309036e345d3">Airline::getCallsign</a></div><div class="ttdeci">std::string getCallsign() const</div><div class="ttdoc">Gets the callsign of a airline.</div><div class="ttdef"><b>Definition:</b> Airline.cpp:37</div></div>
+<div class="ttc" id="aclassAirline_html_aaaabbcbd34ed54234915325e91af0148"><div class="ttname"><a href="classAirline.html#aaaabbcbd34ed54234915325e91af0148">Airline::getName</a></div><div class="ttdeci">std::string getName() const</div><div class="ttdoc">Gets the name of a airline.</div><div class="ttdef"><b>Definition:</b> Airline.cpp:29</div></div>
+<div class="ttc" id="aclassAirline_html_ad342cf3bcfbdb8c21ca2d17b21ec4c5f"><div class="ttname"><a href="classAirline.html#ad342cf3bcfbdb8c21ca2d17b21ec4c5f">Airline::byCallsign</a></div><div class="ttdeci">static bool byCallsign(Airline *a1, Airline *a2)</div><div class="ttdoc">Boolean function to order airlines by callsign.</div><div class="ttdef"><b>Definition:</b> Airline.cpp:72</div></div>
+<div class="ttc" id="aclassAirline_html_ae3a78341e134ede353f32e060033c4ee"><div class="ttname"><a href="classAirline.html#ae3a78341e134ede353f32e060033c4ee">Airline::getCode</a></div><div class="ttdeci">std::string getCode() const</div><div class="ttdoc">Gets the code of a airline.</div><div class="ttdef"><b>Definition:</b> Airline.cpp:21</div></div>
+<div class="ttc" id="aclassAirline_html_aeab28471086562d53f134c60a5d0a976"><div class="ttname"><a href="classAirline.html#aeab28471086562d53f134c60a5d0a976">Airline::Airline</a></div><div class="ttdeci">Airline(std::string code, std::string name, std::string callsign, std::string country)</div><div class="ttdoc">Constructor of Airline.</div><div class="ttdef"><b>Definition:</b> Airline.cpp:10</div></div>
+<div class="ttc" id="astructAirlineEqual_html"><div class="ttname"><a href="structAirlineEqual.html">AirlineEqual</a></div><div class="ttdef"><b>Definition:</b> Airline.h:43</div></div>
+<div class="ttc" id="astructAirlineHash_html"><div class="ttname"><a href="structAirlineHash.html">AirlineHash</a></div><div class="ttdef"><b>Definition:</b> Airline.h:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

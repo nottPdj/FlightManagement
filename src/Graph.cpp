@@ -608,7 +608,7 @@ bool contains(std::string i ,std::stack<std::string>s){
  * @param s
  * @param l
  * @param i
- * @details Time Complexity = O(E)
+ * @details Time Complexity = O(V+E), V = nº airports, E = nº flights
  */
 void dfs_essential(Airport* airport, std::stack<std::string> &s, std::unordered_set<Airport*> &l, int &i, Airport * parent=nullptr) {
     airport->setLow(i);
@@ -636,7 +636,7 @@ void dfs_essential(Airport* airport, std::stack<std::string> &s, std::unordered_
 /**
  * @brief Gets the airports that are essential to the network's
  * @return v
- * @details Time Complexity = O(V+E)
+ * @details Time Complexity = O(V+E), V = nº airports, E = nº flights
  */
 std::vector<Airport *> Graph::getEssentialAirports() {
     std::vector<Airport*> v;
@@ -846,7 +846,7 @@ void Graph::resetProcessing() {
  * @param lat Given latitude
  * @param lon Given longitude
  * @return Vector with the airports closer to the point given (usually with size 1)
- * @details Time Complexity = O(V), V = nº airports in
+ * @details Time Complexity = O(V), V = nº airports
  */
  std::vector<Airport *> Graph::getNearestAirports(double lat, double lon) {
     std::vector<Airport *> nearest;

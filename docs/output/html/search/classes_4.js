@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sortingoptions_24',['sortingOptions',['../structsortingOptions.html',1,'']]]
+  ['sortingoptions_80',['sortingOptions',['../structsortingOptions.html',1,'']]]
 ];

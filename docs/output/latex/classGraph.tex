@@ -1,83 +1,429 @@
 \hypertarget{classGraph}{}\doxysection{Graph Class Reference}
 \label{classGraph}\index{Graph@{Graph}}
+
+
+\mbox{\hyperlink{classGraph}{Graph}} is the class that represents the graph which contains all the information about the flight system.  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classGraph_a0b7402c5339a8f6e6ba066d1a2e6b72c}\label{classGraph_a0b7402c5339a8f6e6ba066d1a2e6b72c}} 
-void {\bfseries add\+Flight} (\mbox{\hyperlink{classFlight}{Flight}} flight)
-\item 
-\mbox{\Hypertarget{classGraph_a942a02762bc2312393f9b852147bd9cf}\label{classGraph_a942a02762bc2312393f9b852147bd9cf}} 
-std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ {\bfseries getv\+Airports} ()
-\item 
-\mbox{\Hypertarget{classGraph_a70cf2d5fe38d582fd6b7a1c04a69dea9}\label{classGraph_a70cf2d5fe38d582fd6b7a1c04a69dea9}} 
-\mbox{\hyperlink{classAirport}{Airport}} $\ast$ {\bfseries get\+Airport} (std\+::string code)
-\item 
-\mbox{\Hypertarget{classGraph_a24b7e2d1723f45af83050238306143d2}\label{classGraph_a24b7e2d1723f45af83050238306143d2}} 
-std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ {\bfseries get\+Airport\+By\+City} (std\+::pair$<$ std\+::string, std\+::string $>$ city)
-\item 
-\mbox{\Hypertarget{classGraph_a5615c3613f8f90f4caddfa951cd38000}\label{classGraph_a5615c3613f8f90f4caddfa951cd38000}} 
-\mbox{\hyperlink{classAirport}{Airport}} $\ast$ {\bfseries get\+Airport\+By\+Name} (std\+::string name)
-\item 
-\mbox{\Hypertarget{classGraph_a770a04f8df54b2453ad21c3bcccb1410}\label{classGraph_a770a04f8df54b2453ad21c3bcccb1410}} 
-\mbox{\hyperlink{classAirline}{Airline}} $\ast$ {\bfseries get\+Airline} (std\+::string code)
-\item 
-\mbox{\Hypertarget{classGraph_a9bdccc00dd192eed1b14841638a0d21a}\label{classGraph_a9bdccc00dd192eed1b14841638a0d21a}} 
-void {\bfseries add\+Airport} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$airport)
-\item 
-\mbox{\Hypertarget{classGraph_a24a48cb49239f037010e2cf3fa994cee}\label{classGraph_a24a48cb49239f037010e2cf3fa994cee}} 
-void {\bfseries add\+Airline} (\mbox{\hyperlink{classAirline}{Airline}} $\ast$airline)
-\item 
-\mbox{\Hypertarget{classGraph_a00c89f9300992b2ac69104bb7ddcc868}\label{classGraph_a00c89f9300992b2ac69104bb7ddcc868}} 
-void {\bfseries reset\+Visited} ()
-\item 
-\mbox{\Hypertarget{classGraph_a71cab3c90dcd762eedc74b9307a236e7}\label{classGraph_a71cab3c90dcd762eedc74b9307a236e7}} 
-void {\bfseries reset\+Processing} ()
-\item 
+void \mbox{\hyperlink{classGraph_a0b7402c5339a8f6e6ba066d1a2e6b72c}{add\+Flight}} (\mbox{\hyperlink{classFlight}{Flight}} flight)
+\begin{DoxyCompactList}\small\item\em Adds a flight (edge) to the graph. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ \mbox{\hyperlink{classGraph_a942a02762bc2312393f9b852147bd9cf}{getv\+Airports}} ()
+\begin{DoxyCompactList}\small\item\em Gets all the airports. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAirport}{Airport}} $\ast$ \mbox{\hyperlink{classGraph_a70cf2d5fe38d582fd6b7a1c04a69dea9}{get\+Airport}} (std\+::string code)
+\begin{DoxyCompactList}\small\item\em Gets a airport using its code. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ \mbox{\hyperlink{classGraph_a24b7e2d1723f45af83050238306143d2}{get\+Airport\+By\+City}} (std\+::pair$<$ std\+::string, std\+::string $>$ city)
+\begin{DoxyCompactList}\small\item\em Gets the airports by the city where they are located. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAirport}{Airport}} $\ast$ \mbox{\hyperlink{classGraph_a5615c3613f8f90f4caddfa951cd38000}{get\+Airport\+By\+Name}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Gets the airport by its name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAirline}{Airline}} $\ast$ \mbox{\hyperlink{classGraph_a770a04f8df54b2453ad21c3bcccb1410}{get\+Airline}} (std\+::string code)
+\begin{DoxyCompactList}\small\item\em Gets a airline by its code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a9bdccc00dd192eed1b14841638a0d21a}{add\+Airport}} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$airport)
+\begin{DoxyCompactList}\small\item\em Adds a airport (vertex) to the graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a24a48cb49239f037010e2cf3fa994cee}{add\+Airline}} (\mbox{\hyperlink{classAirline}{Airline}} $\ast$airline)
+\begin{DoxyCompactList}\small\item\em Adds a airline to the graph. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classGraph_a5bea42056658b669cab2d4b054f7c517}\label{classGraph_a5bea42056658b669cab2d4b054f7c517}} 
-int {\bfseries get\+Num\+Airports} ()
-\item 
-\mbox{\Hypertarget{classGraph_a086c97d79b0e727bbd8c95e4c22ae7ac}\label{classGraph_a086c97d79b0e727bbd8c95e4c22ae7ac}} 
-int {\bfseries get\+Num\+Flights} ()
-\item 
+int \mbox{\hyperlink{classGraph_a5bea42056658b669cab2d4b054f7c517}{get\+Num\+Airports}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of airports (vertices) of the graph. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGraph_a086c97d79b0e727bbd8c95e4c22ae7ac}{get\+Num\+Flights}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of flights (edges) of the graph. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classGraph_af37359ad2ce2a6843376f344e459ebae}\label{classGraph_af37359ad2ce2a6843376f344e459ebae}} 
-int {\bfseries get\+Num\+Airlines} ()
+int \mbox{\hyperlink{classGraph_af37359ad2ce2a6843376f344e459ebae}{get\+Num\+Airlines}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of airlines of the graph. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{classGraph_a90ef33e73977b7a1b7de6f95894cd8c3}{get\+Num\+Flights\+From\+Airport}} (std\+::string code)
+\begin{DoxyCompactList}\small\item\em Gets the number of flights (edges) and different airlines from a airport (vertex) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGraph_a2fb65db3d7b786b235b3cfd9e05b50f3}{get\+Num\+Flights\+From\+City}} (std\+::pair$<$ std\+::string, std\+::string $>$ city)
+\begin{DoxyCompactList}\small\item\em Gets the number of flights from a city. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGraph_a215350d80cbbb431d1d5645dce37d0c2}{get\+Num\+Flights\+Per\+Airline}} (std\+::string airline)
+\begin{DoxyCompactList}\small\item\em Gets the number of flights per airline. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classGraph_a288b8a20a59f60b3deface1073034641}{get\+Countries\+From\+City}} (std\+::pair$<$ std\+::string, std\+::string $>$ city)
+\begin{DoxyCompactList}\small\item\em Gets the countries that a given city flies to. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ \mbox{\hyperlink{classGraph_ab925eb36a2197e20cb5afd157f55836d}{get\+Reachable\+Airports\+From}} (std\+::string code, int stops)
+\begin{DoxyCompactList}\small\item\em Gets the reachable airports from a given airport in a max number of stops. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \mbox{\hyperlink{classGraph_adf28ecf50f37f18ab8c3ffb12364c0da}{get\+Reachable\+Cities\+From}} (std\+::string code, int stops)
+\begin{DoxyCompactList}\small\item\em Gets the reachable cities from a given airport in a max number of stops. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classGraph_a02206b6382123365af255b67e87088f5}{get\+Reachable\+Countries\+From}} (std\+::string code, int stops)
+\begin{DoxyCompactList}\small\item\em Gets the reachable countries from a given airport in a max number of stops. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$, \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ $>$ \mbox{\hyperlink{classGraph_ac40ef70959dde6af98ab1f7641a573ac}{get\+Max\+Trip}} (int \&stops)
+\begin{DoxyCompactList}\small\item\em Gets the pair of source-\/destination airports (or pairs, if more than one) that correspond to the maximum trip, that is, the flight trip(s) with the greatest number of stops in between them. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ \mbox{\hyperlink{classGraph_a04a89c729eaaf9b1145c9bdc33579127}{get\+Greatest\+Num\+Flights}} (int top)
+\begin{DoxyCompactList}\small\item\em Gets a vector with a given size of the airports with the most flight out. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ \mbox{\hyperlink{classGraph_a595b6a7805c24493ce6175079ceac705}{get\+Essential\+Airports}} ()
+\begin{DoxyCompactList}\small\item\em Gets the airports that are essential to the network\textquotesingle{}s. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classFlight}{Flight}} $>$ $>$ \mbox{\hyperlink{classGraph_ab9768b5827477a4670d7c02dec76d6b1}{get\+Best\+Option}} (std\+::string source, int search\+From, std\+::string dest, int search\+To, int max\+Airlines, std\+::vector$<$ std\+::string $>$ airline\+Codes)
 \item 
-\mbox{\Hypertarget{classGraph_a90ef33e73977b7a1b7de6f95894cd8c3}\label{classGraph_a90ef33e73977b7a1b7de6f95894cd8c3}} 
-std\+::pair$<$ int, int $>$ {\bfseries get\+Num\+Flights\+From\+Airport} (std\+::string code)
-\item 
-\mbox{\Hypertarget{classGraph_a2fb65db3d7b786b235b3cfd9e05b50f3}\label{classGraph_a2fb65db3d7b786b235b3cfd9e05b50f3}} 
-int {\bfseries get\+Num\+Flights\+From\+City} (std\+::pair$<$ std\+::string, std\+::string $>$ city)
-\item 
-\mbox{\Hypertarget{classGraph_a215350d80cbbb431d1d5645dce37d0c2}\label{classGraph_a215350d80cbbb431d1d5645dce37d0c2}} 
-int {\bfseries get\+Num\+Flights\+Per\+Airline} (std\+::string airline)
-\item 
-\mbox{\Hypertarget{classGraph_a288b8a20a59f60b3deface1073034641}\label{classGraph_a288b8a20a59f60b3deface1073034641}} 
-std\+::vector$<$ std\+::string $>$ {\bfseries get\+Countries\+From\+City} (std\+::pair$<$ std\+::string, std\+::string $>$ city)
-\item 
-\mbox{\Hypertarget{classGraph_ab925eb36a2197e20cb5afd157f55836d}\label{classGraph_ab925eb36a2197e20cb5afd157f55836d}} 
-std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ {\bfseries get\+Reachable\+Airports\+From} (std\+::string code, int stops)
-\item 
-\mbox{\Hypertarget{classGraph_adf28ecf50f37f18ab8c3ffb12364c0da}\label{classGraph_adf28ecf50f37f18ab8c3ffb12364c0da}} 
-std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ {\bfseries get\+Reachable\+Cities\+From} (std\+::string code, int stops)
-\item 
-\mbox{\Hypertarget{classGraph_a02206b6382123365af255b67e87088f5}\label{classGraph_a02206b6382123365af255b67e87088f5}} 
-std\+::vector$<$ std\+::string $>$ {\bfseries get\+Reachable\+Countries\+From} (std\+::string code, int stops)
-\item 
-\mbox{\Hypertarget{classGraph_ac40ef70959dde6af98ab1f7641a573ac}\label{classGraph_ac40ef70959dde6af98ab1f7641a573ac}} 
-std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$, \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ $>$ {\bfseries get\+Max\+Trip} (int \&stops)
-\item 
-\mbox{\Hypertarget{classGraph_a04a89c729eaaf9b1145c9bdc33579127}\label{classGraph_a04a89c729eaaf9b1145c9bdc33579127}} 
-std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ {\bfseries get\+Greatest\+Num\+Flights} (int top)
-\item 
-\mbox{\Hypertarget{classGraph_a595b6a7805c24493ce6175079ceac705}\label{classGraph_a595b6a7805c24493ce6175079ceac705}} 
-std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ {\bfseries get\+Essential\+Airports} ()
-\item 
+std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ \mbox{\hyperlink{classGraph_a260a67e3e0917d6fb88de7d1383a7a3b}{get\+Nearest\+Airports}} (double latitude, double longitude)
+\begin{DoxyCompactList}\small\item\em Gets the closest airport (or more, if at the same distance) to the coordinates given. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classGraph}{Graph}} is the class that represents the graph which contains all the information about the flight system. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGraph_a24a48cb49239f037010e2cf3fa994cee}\label{classGraph_a24a48cb49239f037010e2cf3fa994cee}} 
+\index{Graph@{Graph}!addAirline@{addAirline}}
+\index{addAirline@{addAirline}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addAirline()}{addAirline()}}
+{\footnotesize\ttfamily void Graph\+::add\+Airline (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirline}{Airline}} $\ast$}]{airline }\end{DoxyParamCaption})}
+
+
+
+Adds a airline to the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airline} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a9bdccc00dd192eed1b14841638a0d21a}\label{classGraph_a9bdccc00dd192eed1b14841638a0d21a}} 
+\index{Graph@{Graph}!addAirport@{addAirport}}
+\index{addAirport@{addAirport}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addAirport()}{addAirport()}}
+{\footnotesize\ttfamily void Graph\+::add\+Airport (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{airport }\end{DoxyParamCaption})}
+
+
+
+Adds a airport (vertex) to the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airport} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a0b7402c5339a8f6e6ba066d1a2e6b72c}\label{classGraph_a0b7402c5339a8f6e6ba066d1a2e6b72c}} 
+\index{Graph@{Graph}!addFlight@{addFlight}}
+\index{addFlight@{addFlight}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addFlight()}{addFlight()}}
+{\footnotesize\ttfamily void Graph\+::add\+Flight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{flight }\end{DoxyParamCaption})}
+
+
+
+Adds a flight (edge) to the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flight} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a770a04f8df54b2453ad21c3bcccb1410}\label{classGraph_a770a04f8df54b2453ad21c3bcccb1410}} 
+\index{Graph@{Graph}!getAirline@{getAirline}}
+\index{getAirline@{getAirline}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getAirline()}{getAirline()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAirline}{Airline}} $\ast$ Graph\+::get\+Airline (\begin{DoxyParamCaption}\item[{std\+::string}]{code }\end{DoxyParamCaption})}
+
+
+
+Gets a airline by its code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_a70cf2d5fe38d582fd6b7a1c04a69dea9}\label{classGraph_a70cf2d5fe38d582fd6b7a1c04a69dea9}} 
+\index{Graph@{Graph}!getAirport@{getAirport}}
+\index{getAirport@{getAirport}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getAirport()}{getAirport()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAirport}{Airport}} $\ast$ Graph\+::get\+Airport (\begin{DoxyParamCaption}\item[{std\+::string}]{code }\end{DoxyParamCaption})}
+
+
+
+Gets a airport using its code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a24b7e2d1723f45af83050238306143d2}\label{classGraph_a24b7e2d1723f45af83050238306143d2}} 
+\index{Graph@{Graph}!getAirportByCity@{getAirportByCity}}
+\index{getAirportByCity@{getAirportByCity}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getAirportByCity()}{getAirportByCity()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ Graph\+::get\+Airport\+By\+City (\begin{DoxyParamCaption}\item[{std\+::pair$<$ std\+::string, std\+::string $>$}]{city }\end{DoxyParamCaption})}
+
+
+
+Gets the airports by the city where they are located. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a5615c3613f8f90f4caddfa951cd38000}\label{classGraph_a5615c3613f8f90f4caddfa951cd38000}} 
+\index{Graph@{Graph}!getAirportByName@{getAirportByName}}
+\index{getAirportByName@{getAirportByName}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getAirportByName()}{getAirportByName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAirport}{Airport}} $\ast$ Graph\+::get\+Airport\+By\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Gets the airport by its name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classGraph_ab9768b5827477a4670d7c02dec76d6b1}\label{classGraph_ab9768b5827477a4670d7c02dec76d6b1}} 
-std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classFlight}{Flight}} $>$ $>$ {\bfseries get\+Best\+Option} (std\+::string source, int search\+From, std\+::string dest, int search\+To, int max\+Airlines, std\+::vector$<$ std\+::string $>$ airline\+Codes)
-\item 
-\mbox{\Hypertarget{classGraph_a260a67e3e0917d6fb88de7d1383a7a3b}\label{classGraph_a260a67e3e0917d6fb88de7d1383a7a3b}} 
-std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ {\bfseries get\+Nearest\+Airports} (double latitude, double longitude)
-\end{DoxyCompactItemize}
+\index{Graph@{Graph}!getBestOption@{getBestOption}}
+\index{getBestOption@{getBestOption}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getBestOption()}{getBestOption()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classFlight}{Flight}} $>$ $>$ Graph\+::get\+Best\+Option (\begin{DoxyParamCaption}\item[{std\+::string}]{source,  }\item[{int}]{search\+From,  }\item[{std\+::string}]{dest,  }\item[{int}]{search\+To,  }\item[{int}]{max\+Airlines,  }\item[{std\+::vector$<$ std\+::string $>$}]{airline\+Codes }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Gets the best flight option (or the set of options if they are equivalent), for a given source and
+\end{DoxyVerb}
+ destination location. If specified by client the best flight option(s) have the constraint of a maximum number of airlines used. If specified by client the best flight option(s) have the constraint of using only specified airlines. 
+\begin{DoxyParams}{Parameters}
+{\em source} & Source location \\
+\hline
+{\em search\+From} & Type of source \\
+\hline
+{\em dest} & Destination location \\
+\hline
+{\em search\+To} & Type of dest \\
+\hline
+{\em max\+Airlines} & Maximum number of airlines that can be used \\
+\hline
+{\em airline\+Codes} & Codes of the only airlines that can be used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector with the best options
+\end{DoxyReturn}
+Time Complexity = O(S$\ast$\+D$\ast$(V+\+E+F)), S = nº airports in (or closest) source location, D = nº airports in (or closest) destination location, V = nº airports, E = nº flights, F = total number of flights from the minimum trip(s) \mbox{\Hypertarget{classGraph_a288b8a20a59f60b3deface1073034641}\label{classGraph_a288b8a20a59f60b3deface1073034641}} 
+\index{Graph@{Graph}!getCountriesFromCity@{getCountriesFromCity}}
+\index{getCountriesFromCity@{getCountriesFromCity}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getCountriesFromCity()}{getCountriesFromCity()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Graph\+::get\+Countries\+From\+City (\begin{DoxyParamCaption}\item[{std\+::pair$<$ std\+::string, std\+::string $>$}]{city }\end{DoxyParamCaption})}
+
+
+
+Gets the countries that a given city flies to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & Source city \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Countries that city flies to
+\end{DoxyReturn}
+Time Complexity = O(\+A$\ast$\+F$\ast$log(n)) -\/$>$A is the number of airports in the city,F is the number of flights per A,n is the number of countries in the set(countries) \mbox{\Hypertarget{classGraph_a595b6a7805c24493ce6175079ceac705}\label{classGraph_a595b6a7805c24493ce6175079ceac705}} 
+\index{Graph@{Graph}!getEssentialAirports@{getEssentialAirports}}
+\index{getEssentialAirports@{getEssentialAirports}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getEssentialAirports()}{getEssentialAirports()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ Graph\+::get\+Essential\+Airports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the airports that are essential to the network\textquotesingle{}s. 
+
+\begin{DoxyReturn}{Returns}
+v
+\end{DoxyReturn}
+Time Complexity = O(V+E), V = nº airports, E = nº flights \mbox{\Hypertarget{classGraph_a04a89c729eaaf9b1145c9bdc33579127}\label{classGraph_a04a89c729eaaf9b1145c9bdc33579127}} 
+\index{Graph@{Graph}!getGreatestNumFlights@{getGreatestNumFlights}}
+\index{getGreatestNumFlights@{getGreatestNumFlights}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getGreatestNumFlights()}{getGreatestNumFlights()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ Graph\+::get\+Greatest\+Num\+Flights (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Gets a vector with a given size of the airports with the most flight out. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of airports to show \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector with size n containing the airports with the most flights out
+\end{DoxyReturn}
+Time Complexity = O(\+V), V = nº airports \mbox{\Hypertarget{classGraph_ac40ef70959dde6af98ab1f7641a573ac}\label{classGraph_ac40ef70959dde6af98ab1f7641a573ac}} 
+\index{Graph@{Graph}!getMaxTrip@{getMaxTrip}}
+\index{getMaxTrip@{getMaxTrip}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getMaxTrip()}{getMaxTrip()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$, \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ $>$ Graph\+::get\+Max\+Trip (\begin{DoxyParamCaption}\item[{int \&}]{stops }\end{DoxyParamCaption})}
+
+
+
+Gets the pair of source-\/destination airports (or pairs, if more than one) that correspond to the maximum trip, that is, the flight trip(s) with the greatest number of stops in between them. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stops} & Stops of the maximum trip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector with the pairs of source-\/destination airports
+\end{DoxyReturn}
+Time Complexity = O(V(V+E)), V = nº airports, E = nº flights \mbox{\Hypertarget{classGraph_a260a67e3e0917d6fb88de7d1383a7a3b}\label{classGraph_a260a67e3e0917d6fb88de7d1383a7a3b}} 
+\index{Graph@{Graph}!getNearestAirports@{getNearestAirports}}
+\index{getNearestAirports@{getNearestAirports}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getNearestAirports()}{getNearestAirports()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ Graph\+::get\+Nearest\+Airports (\begin{DoxyParamCaption}\item[{double}]{lat,  }\item[{double}]{lon }\end{DoxyParamCaption})}
+
+
+
+Gets the closest airport (or more, if at the same distance) to the coordinates given. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lat} & Given latitude \\
+\hline
+{\em lon} & Given longitude \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector with the airports closer to the point given (usually with size 1)
+\end{DoxyReturn}
+Time Complexity = O(\+V), V = nº airports \mbox{\Hypertarget{classGraph_a086c97d79b0e727bbd8c95e4c22ae7ac}\label{classGraph_a086c97d79b0e727bbd8c95e4c22ae7ac}} 
+\index{Graph@{Graph}!getNumFlights@{getNumFlights}}
+\index{getNumFlights@{getNumFlights}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getNumFlights()}{getNumFlights()}}
+{\footnotesize\ttfamily int Graph\+::get\+Num\+Flights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the number of flights (edges) of the graph. 
+
+Time Complexity = O(\+V) \mbox{\Hypertarget{classGraph_a90ef33e73977b7a1b7de6f95894cd8c3}\label{classGraph_a90ef33e73977b7a1b7de6f95894cd8c3}} 
+\index{Graph@{Graph}!getNumFlightsFromAirport@{getNumFlightsFromAirport}}
+\index{getNumFlightsFromAirport@{getNumFlightsFromAirport}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getNumFlightsFromAirport()}{getNumFlightsFromAirport()}}
+{\footnotesize\ttfamily std\+::pair$<$ int, int $>$ Graph\+::get\+Num\+Flights\+From\+Airport (\begin{DoxyParamCaption}\item[{std\+::string}]{code }\end{DoxyParamCaption})}
+
+
+
+Gets the number of flights (edges) and different airlines from a airport (vertex) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+res
+\end{DoxyReturn}
+Time Complexity = O(n$\ast$log(m)) -\/$>$ n is the number of edges from the airport, m is the number of different airlines \mbox{\Hypertarget{classGraph_a2fb65db3d7b786b235b3cfd9e05b50f3}\label{classGraph_a2fb65db3d7b786b235b3cfd9e05b50f3}} 
+\index{Graph@{Graph}!getNumFlightsFromCity@{getNumFlightsFromCity}}
+\index{getNumFlightsFromCity@{getNumFlightsFromCity}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getNumFlightsFromCity()}{getNumFlightsFromCity()}}
+{\footnotesize\ttfamily int Graph\+::get\+Num\+Flights\+From\+City (\begin{DoxyParamCaption}\item[{std\+::pair$<$ std\+::string, std\+::string $>$}]{city }\end{DoxyParamCaption})}
+
+
+
+Gets the number of flights from a city. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+n
+\end{DoxyReturn}
+Time Complexity = O(n) -\/$>$ n is the number of airports in the city \mbox{\Hypertarget{classGraph_a215350d80cbbb431d1d5645dce37d0c2}\label{classGraph_a215350d80cbbb431d1d5645dce37d0c2}} 
+\index{Graph@{Graph}!getNumFlightsPerAirline@{getNumFlightsPerAirline}}
+\index{getNumFlightsPerAirline@{getNumFlightsPerAirline}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getNumFlightsPerAirline()}{getNumFlightsPerAirline()}}
+{\footnotesize\ttfamily int Graph\+::get\+Num\+Flights\+Per\+Airline (\begin{DoxyParamCaption}\item[{std\+::string}]{airline }\end{DoxyParamCaption})}
+
+
+
+Gets the number of flights per airline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airline} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+n
+\end{DoxyReturn}
+Time Complexity = O(V+E) \mbox{\Hypertarget{classGraph_ab925eb36a2197e20cb5afd157f55836d}\label{classGraph_ab925eb36a2197e20cb5afd157f55836d}} 
+\index{Graph@{Graph}!getReachableAirportsFrom@{getReachableAirportsFrom}}
+\index{getReachableAirportsFrom@{getReachableAirportsFrom}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getReachableAirportsFrom()}{getReachableAirportsFrom()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ Graph\+::get\+Reachable\+Airports\+From (\begin{DoxyParamCaption}\item[{std\+::string}]{code,  }\item[{int}]{stops }\end{DoxyParamCaption})}
+
+
+
+Gets the reachable airports from a given airport in a max number of stops. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Code from source airport \\
+\hline
+{\em stops} & Max number of stops \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reachable airports from source in a max number of stops
+\end{DoxyReturn}
+Time Complexity = O(V+E), V = nº airports, E = nº flights \mbox{\Hypertarget{classGraph_adf28ecf50f37f18ab8c3ffb12364c0da}\label{classGraph_adf28ecf50f37f18ab8c3ffb12364c0da}} 
+\index{Graph@{Graph}!getReachableCitiesFrom@{getReachableCitiesFrom}}
+\index{getReachableCitiesFrom@{getReachableCitiesFrom}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getReachableCitiesFrom()}{getReachableCitiesFrom()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ Graph\+::get\+Reachable\+Cities\+From (\begin{DoxyParamCaption}\item[{std\+::string}]{code,  }\item[{int}]{stops }\end{DoxyParamCaption})}
+
+
+
+Gets the reachable cities from a given airport in a max number of stops. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Code from source airport \\
+\hline
+{\em stops} & Max number of stops \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reachable cities from source in a max number of stops
+\end{DoxyReturn}
+Time Complexity = O(V+E), V = nº airports, E = nº flights \mbox{\Hypertarget{classGraph_a02206b6382123365af255b67e87088f5}\label{classGraph_a02206b6382123365af255b67e87088f5}} 
+\index{Graph@{Graph}!getReachableCountriesFrom@{getReachableCountriesFrom}}
+\index{getReachableCountriesFrom@{getReachableCountriesFrom}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getReachableCountriesFrom()}{getReachableCountriesFrom()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Graph\+::get\+Reachable\+Countries\+From (\begin{DoxyParamCaption}\item[{std\+::string}]{code,  }\item[{int}]{stops }\end{DoxyParamCaption})}
+
+
+
+Gets the reachable countries from a given airport in a max number of stops. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Code from source airport \\
+\hline
+{\em stops} & Max number of stops \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reachable countries from source in a max number of stops
+\end{DoxyReturn}
+Time Complexity = O(V+E), V = nº airports, E = nº flights \mbox{\Hypertarget{classGraph_a942a02762bc2312393f9b852147bd9cf}\label{classGraph_a942a02762bc2312393f9b852147bd9cf}} 
+\index{Graph@{Graph}!getvAirports@{getvAirports}}
+\index{getvAirports@{getvAirports}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getvAirports()}{getvAirports()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $\ast$ $>$ Graph\+::getv\+Airports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets all the airports. 
+
+\begin{DoxyReturn}{Returns}
+v\+Airports 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

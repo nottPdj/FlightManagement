@@ -1,47 +1,45 @@
 \hypertarget{classFlight}{}\doxysection{Flight Class Reference}
 \label{classFlight}\index{Flight@{Flight}}
+
+
+\mbox{\hyperlink{classFlight}{Flight}} is the class that represents a flight, a edge of the graph.  
+
+
+
+
+{\ttfamily \#include $<$Flight.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classFlight_a3ece503168a60a0a7d02c87ca80626ab}\label{classFlight_a3ece503168a60a0a7d02c87ca80626ab}} 
-{\bfseries Flight} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$source, \mbox{\hyperlink{classAirport}{Airport}} $\ast$dest, \mbox{\hyperlink{classAirline}{Airline}} $\ast$airline)
-\item 
-\mbox{\Hypertarget{classFlight_a357ddd9627d7500f0a3269b99c2f3b88}\label{classFlight_a357ddd9627d7500f0a3269b99c2f3b88}} 
-\mbox{\hyperlink{classAirport}{Airport}} $\ast$ {\bfseries get\+Source} () const
-\item 
-\mbox{\Hypertarget{classFlight_ad8734a5161240adad54dd6a52c81fe9b}\label{classFlight_ad8734a5161240adad54dd6a52c81fe9b}} 
-\mbox{\hyperlink{classAirport}{Airport}} $\ast$ {\bfseries get\+Dest} () const
-\item 
-\mbox{\Hypertarget{classFlight_acb5e3bf1f37855b09b98a15b58fda673}\label{classFlight_acb5e3bf1f37855b09b98a15b58fda673}} 
-\mbox{\hyperlink{classAirline}{Airline}} $\ast$ {\bfseries get\+Airline} () const
-\item 
+\mbox{\hyperlink{classFlight_a3ece503168a60a0a7d02c87ca80626ab}{Flight}} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$source, \mbox{\hyperlink{classAirport}{Airport}} $\ast$dest, \mbox{\hyperlink{classAirline}{Airline}} $\ast$airline)
+\begin{DoxyCompactList}\small\item\em Constructor of \mbox{\hyperlink{classFlight}{Flight}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAirport}{Airport}} $\ast$ \mbox{\hyperlink{classFlight_a357ddd9627d7500f0a3269b99c2f3b88}{get\+Source}} () const
+\begin{DoxyCompactList}\small\item\em Gets the source airport of the flight. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAirport}{Airport}} $\ast$ \mbox{\hyperlink{classFlight_ad8734a5161240adad54dd6a52c81fe9b}{get\+Dest}} () const
+\begin{DoxyCompactList}\small\item\em Gets the destination airport of the flight. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAirline}{Airline}} $\ast$ \mbox{\hyperlink{classFlight_acb5e3bf1f37855b09b98a15b58fda673}{get\+Airline}} () const
+\begin{DoxyCompactList}\small\item\em Gets the airline of the flight. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classFlight_abaf2486974b62952f1a90eeccea408bf}\label{classFlight_abaf2486974b62952f1a90eeccea408bf}} 
 void {\bfseries set\+Dest} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$dest)
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classFlight_a02680b166fee84a7deb22640683eed96}\label{classFlight_a02680b166fee84a7deb22640683eed96}} 
-static bool {\bfseries by\+Source\+Code} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
-\item 
-\mbox{\Hypertarget{classFlight_af144361ab4a555e7311e47ff10d53e81}\label{classFlight_af144361ab4a555e7311e47ff10d53e81}} 
-static bool {\bfseries by\+Source\+City} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
-\item 
-\mbox{\Hypertarget{classFlight_a81165ef66d92b7357bbaa6c5a8a0e06a}\label{classFlight_a81165ef66d92b7357bbaa6c5a8a0e06a}} 
-static bool {\bfseries by\+Source\+Country} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
-\item 
-\mbox{\Hypertarget{classFlight_a906e985f261b15ca7606acce4e325cdf}\label{classFlight_a906e985f261b15ca7606acce4e325cdf}} 
-static bool {\bfseries by\+Dest\+Code} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
-\item 
-\mbox{\Hypertarget{classFlight_ab8cca2209462ea4b85478760fe788613}\label{classFlight_ab8cca2209462ea4b85478760fe788613}} 
-static bool {\bfseries by\+Dest\+City} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
-\item 
-\mbox{\Hypertarget{classFlight_ab6d68887c739e71592146e637e310d91}\label{classFlight_ab6d68887c739e71592146e637e310d91}} 
-static bool {\bfseries by\+Dest\+Country} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
-\item 
-\mbox{\Hypertarget{classFlight_ab5dee729b19b796dc3f24fdbc9bc329b}\label{classFlight_ab5dee729b19b796dc3f24fdbc9bc329b}} 
-static bool {\bfseries by\+Airline\+Code} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
-\end{DoxyCompactItemize}
+static bool \mbox{\hyperlink{classFlight_a02680b166fee84a7deb22640683eed96}{by\+Source\+Code}} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order flights by source airport code. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classFlight_af144361ab4a555e7311e47ff10d53e81}{by\+Source\+City}} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order flights by source airport city. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classFlight_a81165ef66d92b7357bbaa6c5a8a0e06a}{by\+Source\+Country}} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order flights by source airport country. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classFlight_a906e985f261b15ca7606acce4e325cdf}{by\+Dest\+Code}} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order flights by destination airport code. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classFlight_ab8cca2209462ea4b85478760fe788613}{by\+Dest\+City}} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order flights by destination airport city. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classFlight_ab6d68887c739e71592146e637e310d91}{by\+Dest\+Country}} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order flights by destination airport country. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classFlight_ab5dee729b19b796dc3f24fdbc9bc329b}{by\+Airline\+Code}} (\mbox{\hyperlink{classFlight}{Flight}} f1, \mbox{\hyperlink{classFlight}{Flight}} f2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order flights by airport code. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -51,6 +49,192 @@ class {\bfseries Graph}
 \mbox{\Hypertarget{classFlight_a4f708736a3f45571b524d4daee22b599}\label{classFlight_a4f708736a3f45571b524d4daee22b599}} 
 class {\bfseries Airport}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classFlight}{Flight}} is the class that represents a flight, a edge of the graph. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFlight_a3ece503168a60a0a7d02c87ca80626ab}\label{classFlight_a3ece503168a60a0a7d02c87ca80626ab}} 
+\index{Flight@{Flight}!Flight@{Flight}}
+\index{Flight@{Flight}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{Flight()}{Flight()}}
+{\footnotesize\ttfamily Flight\+::\+Flight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{classAirline}{Airline}} $\ast$}]{airline }\end{DoxyParamCaption})}
+
+
+
+Constructor of \mbox{\hyperlink{classFlight}{Flight}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em dest} & \\
+\hline
+{\em airline} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFlight_ab5dee729b19b796dc3f24fdbc9bc329b}\label{classFlight_ab5dee729b19b796dc3f24fdbc9bc329b}} 
+\index{Flight@{Flight}!byAirlineCode@{byAirlineCode}}
+\index{byAirlineCode@{byAirlineCode}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{byAirlineCode()}{byAirlineCode()}}
+{\footnotesize\ttfamily bool Flight\+::by\+Airline\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f1,  }\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order flights by airport code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f1} & \\
+\hline
+{\em f2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFlight_ab8cca2209462ea4b85478760fe788613}\label{classFlight_ab8cca2209462ea4b85478760fe788613}} 
+\index{Flight@{Flight}!byDestCity@{byDestCity}}
+\index{byDestCity@{byDestCity}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{byDestCity()}{byDestCity()}}
+{\footnotesize\ttfamily bool Flight\+::by\+Dest\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f1,  }\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order flights by destination airport city. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f1} & \\
+\hline
+{\em f2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFlight_a906e985f261b15ca7606acce4e325cdf}\label{classFlight_a906e985f261b15ca7606acce4e325cdf}} 
+\index{Flight@{Flight}!byDestCode@{byDestCode}}
+\index{byDestCode@{byDestCode}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{byDestCode()}{byDestCode()}}
+{\footnotesize\ttfamily bool Flight\+::by\+Dest\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f1,  }\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order flights by destination airport code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f1} & \\
+\hline
+{\em f2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFlight_ab6d68887c739e71592146e637e310d91}\label{classFlight_ab6d68887c739e71592146e637e310d91}} 
+\index{Flight@{Flight}!byDestCountry@{byDestCountry}}
+\index{byDestCountry@{byDestCountry}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{byDestCountry()}{byDestCountry()}}
+{\footnotesize\ttfamily bool Flight\+::by\+Dest\+Country (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f1,  }\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order flights by destination airport country. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f1} & \\
+\hline
+{\em f2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFlight_af144361ab4a555e7311e47ff10d53e81}\label{classFlight_af144361ab4a555e7311e47ff10d53e81}} 
+\index{Flight@{Flight}!bySourceCity@{bySourceCity}}
+\index{bySourceCity@{bySourceCity}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{bySourceCity()}{bySourceCity()}}
+{\footnotesize\ttfamily bool Flight\+::by\+Source\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f1,  }\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order flights by source airport city. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f1} & \\
+\hline
+{\em f2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFlight_a02680b166fee84a7deb22640683eed96}\label{classFlight_a02680b166fee84a7deb22640683eed96}} 
+\index{Flight@{Flight}!bySourceCode@{bySourceCode}}
+\index{bySourceCode@{bySourceCode}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{bySourceCode()}{bySourceCode()}}
+{\footnotesize\ttfamily bool Flight\+::by\+Source\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f1,  }\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order flights by source airport code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f1} & \\
+\hline
+{\em f2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFlight_a81165ef66d92b7357bbaa6c5a8a0e06a}\label{classFlight_a81165ef66d92b7357bbaa6c5a8a0e06a}} 
+\index{Flight@{Flight}!bySourceCountry@{bySourceCountry}}
+\index{bySourceCountry@{bySourceCountry}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{bySourceCountry()}{bySourceCountry()}}
+{\footnotesize\ttfamily bool Flight\+::by\+Source\+Country (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f1,  }\item[{\mbox{\hyperlink{classFlight}{Flight}}}]{f2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order flights by source airport country. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f1} & \\
+\hline
+{\em f2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFlight_acb5e3bf1f37855b09b98a15b58fda673}\label{classFlight_acb5e3bf1f37855b09b98a15b58fda673}} 
+\index{Flight@{Flight}!getAirline@{getAirline}}
+\index{getAirline@{getAirline}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getAirline()}{getAirline()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAirline}{Airline}} $\ast$ Flight\+::get\+Airline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the airline of the flight. 
+
+\begin{DoxyReturn}{Returns}
+airline 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFlight_ad8734a5161240adad54dd6a52c81fe9b}\label{classFlight_ad8734a5161240adad54dd6a52c81fe9b}} 
+\index{Flight@{Flight}!getDest@{getDest}}
+\index{getDest@{getDest}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getDest()}{getDest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAirport}{Airport}} $\ast$ Flight\+::get\+Dest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the destination airport of the flight. 
+
+\begin{DoxyReturn}{Returns}
+dest 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFlight_a357ddd9627d7500f0a3269b99c2f3b88}\label{classFlight_a357ddd9627d7500f0a3269b99c2f3b88}} 
+\index{Flight@{Flight}!getSource@{getSource}}
+\index{getSource@{getSource}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getSource()}{getSource()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAirport}{Airport}} $\ast$ Flight\+::get\+Source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the source airport of the flight. 
+
+\begin{DoxyReturn}{Returns}
+source 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

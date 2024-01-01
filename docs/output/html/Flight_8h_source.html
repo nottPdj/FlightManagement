@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: /home/tiago/Desktop/FlightManagement/src/Flight.h Source File</title>
+<title>Flight Management: /home/tiago/Desktop/FlightManagement/src/Flight.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Flight Management
    </div>
   </td>
  </tr>
@@ -78,38 +78,49 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span><a class="code" href="classAirport.html">Airport</a>;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classFlight.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classFlight.html">Flight</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classAirport.html">Airport</a> * source;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classAirport.html">Airport</a> * dest;      <span class="comment">// destination vertex</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classAirline.html">Airline</a> * airline;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classFlight.html">Flight</a>(<a class="code" href="classAirport.html">Airport</a> *source, <a class="code" href="classAirport.html">Airport</a> *dest, <a class="code" href="classAirline.html">Airline</a> *airline);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classAirport.html">Airport</a> *getSource() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classAirport.html">Airport</a> *getDest() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classAirline.html">Airline</a> *getAirline() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> setDest(<a class="code" href="classAirport.html">Airport</a> *dest);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> bySourceCode(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> bySourceCity(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> bySourceCountry(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byDestCode(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byDestCity(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byDestCountry(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byAirlineCode(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classGraph.html">Graph</a>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classAirport.html">Airport</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classFlight.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classFlight.html">Flight</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classAirport.html">Airport</a> * source;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classAirport.html">Airport</a> * dest;      <span class="comment">// destination vertex</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classAirline.html">Airline</a> * airline;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classFlight.html#a3ece503168a60a0a7d02c87ca80626ab">Flight</a>(<a class="code" href="classAirport.html">Airport</a> *source, <a class="code" href="classAirport.html">Airport</a> *dest, <a class="code" href="classAirline.html">Airline</a> *airline);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classAirport.html">Airport</a> *<a class="code" href="classFlight.html#a357ddd9627d7500f0a3269b99c2f3b88">getSource</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classAirport.html">Airport</a> *<a class="code" href="classFlight.html#ad8734a5161240adad54dd6a52c81fe9b">getDest</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classAirline.html">Airline</a> *<a class="code" href="classFlight.html#acb5e3bf1f37855b09b98a15b58fda673">getAirline</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> setDest(<a class="code" href="classAirport.html">Airport</a> *dest);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classFlight.html#a02680b166fee84a7deb22640683eed96">bySourceCode</a>(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classFlight.html#af144361ab4a555e7311e47ff10d53e81">bySourceCity</a>(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classFlight.html#a81165ef66d92b7357bbaa6c5a8a0e06a">bySourceCountry</a>(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classFlight.html#a906e985f261b15ca7606acce4e325cdf">byDestCode</a>(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classFlight.html#ab8cca2209462ea4b85478760fe788613">byDestCity</a>(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classFlight.html#ab6d68887c739e71592146e637e310d91">byDestCountry</a>(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classFlight.html#ab5dee729b19b796dc3f24fdbc9bc329b">byAirlineCode</a>(<a class="code" href="classFlight.html">Flight</a> f1, <a class="code" href="classFlight.html">Flight</a> f2);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classGraph.html">Graph</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classAirport.html">Airport</a>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJETO2_FLIGHT_H</span></div>
-<div class="ttc" id="aclassAirline_html"><div class="ttname"><a href="classAirline.html">Airline</a></div><div class="ttdef"><b>Definition:</b> Airline.h:7</div></div>
-<div class="ttc" id="aclassAirport_html"><div class="ttname"><a href="classAirport.html">Airport</a></div><div class="ttdef"><b>Definition:</b> Airport.h:10</div></div>
-<div class="ttc" id="aclassFlight_html"><div class="ttname"><a href="classFlight.html">Flight</a></div><div class="ttdef"><b>Definition:</b> Flight.h:10</div></div>
-<div class="ttc" id="aclassGraph_html"><div class="ttname"><a href="classGraph.html">Graph</a></div><div class="ttdef"><b>Definition:</b> Graph.h:15</div></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJETO2_FLIGHT_H</span></div>
+<div class="ttc" id="aclassAirline_html"><div class="ttname"><a href="classAirline.html">Airline</a></div><div class="ttdoc">Airline is a class that represents a airline which a Flight contains.</div><div class="ttdef"><b>Definition:</b> Airline.h:11</div></div>
+<div class="ttc" id="aclassAirport_html"><div class="ttname"><a href="classAirport.html">Airport</a></div><div class="ttdoc">Airport is the class that represents a airport which is also a vertex in the graph.</div><div class="ttdef"><b>Definition:</b> Airport.h:12</div></div>
+<div class="ttc" id="aclassFlight_html"><div class="ttname"><a href="classFlight.html">Flight</a></div><div class="ttdoc">Flight is the class that represents a flight, a edge of the graph.</div><div class="ttdef"><b>Definition:</b> Flight.h:13</div></div>
+<div class="ttc" id="aclassFlight_html_a02680b166fee84a7deb22640683eed96"><div class="ttname"><a href="classFlight.html#a02680b166fee84a7deb22640683eed96">Flight::bySourceCode</a></div><div class="ttdeci">static bool bySourceCode(Flight f1, Flight f2)</div><div class="ttdoc">Boolean function to order flights by source airport code.</div><div class="ttdef"><b>Definition:</b> Flight.cpp:45</div></div>
+<div class="ttc" id="aclassFlight_html_a357ddd9627d7500f0a3269b99c2f3b88"><div class="ttname"><a href="classFlight.html#a357ddd9627d7500f0a3269b99c2f3b88">Flight::getSource</a></div><div class="ttdeci">Airport * getSource() const</div><div class="ttdoc">Gets the source airport of the flight.</div><div class="ttdef"><b>Definition:</b> Flight.cpp:19</div></div>
+<div class="ttc" id="aclassFlight_html_a3ece503168a60a0a7d02c87ca80626ab"><div class="ttname"><a href="classFlight.html#a3ece503168a60a0a7d02c87ca80626ab">Flight::Flight</a></div><div class="ttdeci">Flight(Airport *source, Airport *dest, Airline *airline)</div><div class="ttdoc">Constructor of Flight.</div><div class="ttdef"><b>Definition:</b> Flight.cpp:9</div></div>
+<div class="ttc" id="aclassFlight_html_a81165ef66d92b7357bbaa6c5a8a0e06a"><div class="ttname"><a href="classFlight.html#a81165ef66d92b7357bbaa6c5a8a0e06a">Flight::bySourceCountry</a></div><div class="ttdeci">static bool bySourceCountry(Flight f1, Flight f2)</div><div class="ttdoc">Boolean function to order flights by source airport country.</div><div class="ttdef"><b>Definition:</b> Flight.cpp:63</div></div>
+<div class="ttc" id="aclassFlight_html_a906e985f261b15ca7606acce4e325cdf"><div class="ttname"><a href="classFlight.html#a906e985f261b15ca7606acce4e325cdf">Flight::byDestCode</a></div><div class="ttdeci">static bool byDestCode(Flight f1, Flight f2)</div><div class="ttdoc">Boolean function to order flights by destination airport code.</div><div class="ttdef"><b>Definition:</b> Flight.cpp:72</div></div>
+<div class="ttc" id="aclassFlight_html_ab5dee729b19b796dc3f24fdbc9bc329b"><div class="ttname"><a href="classFlight.html#ab5dee729b19b796dc3f24fdbc9bc329b">Flight::byAirlineCode</a></div><div class="ttdeci">static bool byAirlineCode(Flight f1, Flight f2)</div><div class="ttdoc">Boolean function to order flights by airport code.</div><div class="ttdef"><b>Definition:</b> Flight.cpp:99</div></div>
+<div class="ttc" id="aclassFlight_html_ab6d68887c739e71592146e637e310d91"><div class="ttname"><a href="classFlight.html#ab6d68887c739e71592146e637e310d91">Flight::byDestCountry</a></div><div class="ttdeci">static bool byDestCountry(Flight f1, Flight f2)</div><div class="ttdoc">Boolean function to order flights by destination airport country.</div><div class="ttdef"><b>Definition:</b> Flight.cpp:90</div></div>
+<div class="ttc" id="aclassFlight_html_ab8cca2209462ea4b85478760fe788613"><div class="ttname"><a href="classFlight.html#ab8cca2209462ea4b85478760fe788613">Flight::byDestCity</a></div><div class="ttdeci">static bool byDestCity(Flight f1, Flight f2)</div><div class="ttdoc">Boolean function to order flights by destination airport city.</div><div class="ttdef"><b>Definition:</b> Flight.cpp:81</div></div>
+<div class="ttc" id="aclassFlight_html_acb5e3bf1f37855b09b98a15b58fda673"><div class="ttname"><a href="classFlight.html#acb5e3bf1f37855b09b98a15b58fda673">Flight::getAirline</a></div><div class="ttdeci">Airline * getAirline() const</div><div class="ttdoc">Gets the airline of the flight.</div><div class="ttdef"><b>Definition:</b> Flight.cpp:35</div></div>
+<div class="ttc" id="aclassFlight_html_ad8734a5161240adad54dd6a52c81fe9b"><div class="ttname"><a href="classFlight.html#ad8734a5161240adad54dd6a52c81fe9b">Flight::getDest</a></div><div class="ttdeci">Airport * getDest() const</div><div class="ttdoc">Gets the destination airport of the flight.</div><div class="ttdef"><b>Definition:</b> Flight.cpp:27</div></div>
+<div class="ttc" id="aclassFlight_html_af144361ab4a555e7311e47ff10d53e81"><div class="ttname"><a href="classFlight.html#af144361ab4a555e7311e47ff10d53e81">Flight::bySourceCity</a></div><div class="ttdeci">static bool bySourceCity(Flight f1, Flight f2)</div><div class="ttdoc">Boolean function to order flights by source airport city.</div><div class="ttdef"><b>Definition:</b> Flight.cpp:54</div></div>
+<div class="ttc" id="aclassGraph_html"><div class="ttname"><a href="classGraph.html">Graph</a></div><div class="ttdoc">Graph is the class that represents the graph which contains all the information about the flight syst...</div><div class="ttdef"><b>Definition:</b> Graph.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['printingoptions_23',['printingOptions',['../structprintingOptions.html',1,'']]]
+  ['printingoptions_79',['printingOptions',['../structprintingOptions.html',1,'']]]
 ];

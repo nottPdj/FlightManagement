@@ -1,38 +1,188 @@
 \hypertarget{classAirline}{}\doxysection{Airline Class Reference}
 \label{classAirline}\index{Airline@{Airline}}
+
+
+\mbox{\hyperlink{classAirline}{Airline}} is a class that represents a airline which a \mbox{\hyperlink{classFlight}{Flight}} contains.  
+
+
+
+
+{\ttfamily \#include $<$Airline.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classAirline_aeab28471086562d53f134c60a5d0a976}\label{classAirline_aeab28471086562d53f134c60a5d0a976}} 
-{\bfseries Airline} (std\+::string code, std\+::string name, std\+::string callsign, std\+::string country)
-\item 
-\mbox{\Hypertarget{classAirline_ae3a78341e134ede353f32e060033c4ee}\label{classAirline_ae3a78341e134ede353f32e060033c4ee}} 
-std\+::string {\bfseries get\+Code} () const
-\item 
-\mbox{\Hypertarget{classAirline_aaaabbcbd34ed54234915325e91af0148}\label{classAirline_aaaabbcbd34ed54234915325e91af0148}} 
-std\+::string {\bfseries get\+Name} () const
-\item 
-\mbox{\Hypertarget{classAirline_aa0219926dd0151332c9e309036e345d3}\label{classAirline_aa0219926dd0151332c9e309036e345d3}} 
-std\+::string {\bfseries get\+Callsign} () const
-\item 
-\mbox{\Hypertarget{classAirline_a73e2c48e0d98eda7417b4a256881e6f1}\label{classAirline_a73e2c48e0d98eda7417b4a256881e6f1}} 
-std\+::string {\bfseries get\+Country} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classAirline_aeab28471086562d53f134c60a5d0a976}{Airline}} (std\+::string code, std\+::string name, std\+::string callsign, std\+::string country)
+\begin{DoxyCompactList}\small\item\em Constructor of \mbox{\hyperlink{classAirline}{Airline}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirline_ae3a78341e134ede353f32e060033c4ee}{get\+Code}} () const
+\begin{DoxyCompactList}\small\item\em Gets the code of a airline. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirline_aaaabbcbd34ed54234915325e91af0148}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Gets the name of a airline. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirline_aa0219926dd0151332c9e309036e345d3}{get\+Callsign}} () const
+\begin{DoxyCompactList}\small\item\em Gets the callsign of a airline. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirline_a73e2c48e0d98eda7417b4a256881e6f1}{get\+Country}} () const
+\begin{DoxyCompactList}\small\item\em Gets the country which the airline belongs. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classAirline_a04e8a8959921bb5cdf64eda77f74b93e}\label{classAirline_a04e8a8959921bb5cdf64eda77f74b93e}} 
-static bool {\bfseries by\+Code} (\mbox{\hyperlink{classAirline}{Airline}} $\ast$a1, \mbox{\hyperlink{classAirline}{Airline}} $\ast$a2)
-\item 
-\mbox{\Hypertarget{classAirline_a17d1212d3676ffdf5c2eb21ad4655885}\label{classAirline_a17d1212d3676ffdf5c2eb21ad4655885}} 
-static bool {\bfseries by\+Name} (\mbox{\hyperlink{classAirline}{Airline}} $\ast$a1, \mbox{\hyperlink{classAirline}{Airline}} $\ast$a2)
-\item 
+static bool \mbox{\hyperlink{classAirline_a04e8a8959921bb5cdf64eda77f74b93e}{by\+Code}} (\mbox{\hyperlink{classAirline}{Airline}} $\ast$a1, \mbox{\hyperlink{classAirline}{Airline}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order airlines by code. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classAirline_a17d1212d3676ffdf5c2eb21ad4655885}{by\+Name}} (\mbox{\hyperlink{classAirline}{Airline}} $\ast$a1, \mbox{\hyperlink{classAirline}{Airline}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order airlines by name. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classAirline_ad342cf3bcfbdb8c21ca2d17b21ec4c5f}{by\+Callsign}} (\mbox{\hyperlink{classAirline}{Airline}} $\ast$a1, \mbox{\hyperlink{classAirline}{Airline}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order airlines by callsign. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classAirline_a63d93336c3b41a1d4830da949b36ca07}{by\+Country}} (\mbox{\hyperlink{classAirline}{Airline}} $\ast$a1, \mbox{\hyperlink{classAirline}{Airline}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order airlines by country. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classAirline}{Airline}} is a class that represents a airline which a \mbox{\hyperlink{classFlight}{Flight}} contains. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAirline_aeab28471086562d53f134c60a5d0a976}\label{classAirline_aeab28471086562d53f134c60a5d0a976}} 
+\index{Airline@{Airline}!Airline@{Airline}}
+\index{Airline@{Airline}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{Airline()}{Airline()}}
+{\footnotesize\ttfamily Airline\+::\+Airline (\begin{DoxyParamCaption}\item[{std\+::string}]{code,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{callsign,  }\item[{std\+::string}]{country }\end{DoxyParamCaption})}
+
+
+
+Constructor of \mbox{\hyperlink{classAirline}{Airline}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & \\
+\hline
+{\em name} & \\
+\hline
+{\em callsign} & \\
+\hline
+{\em country} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classAirline_ad342cf3bcfbdb8c21ca2d17b21ec4c5f}\label{classAirline_ad342cf3bcfbdb8c21ca2d17b21ec4c5f}} 
-static bool {\bfseries by\+Callsign} (\mbox{\hyperlink{classAirline}{Airline}} $\ast$a1, \mbox{\hyperlink{classAirline}{Airline}} $\ast$a2)
-\item 
+\index{Airline@{Airline}!byCallsign@{byCallsign}}
+\index{byCallsign@{byCallsign}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{byCallsign()}{byCallsign()}}
+{\footnotesize\ttfamily bool Airline\+::by\+Callsign (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirline}{Airline}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAirline}{Airline}} $\ast$}]{a2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order airlines by callsign. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \\
+\hline
+{\em a2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirline_a04e8a8959921bb5cdf64eda77f74b93e}\label{classAirline_a04e8a8959921bb5cdf64eda77f74b93e}} 
+\index{Airline@{Airline}!byCode@{byCode}}
+\index{byCode@{byCode}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{byCode()}{byCode()}}
+{\footnotesize\ttfamily bool Airline\+::by\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirline}{Airline}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAirline}{Airline}} $\ast$}]{a2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order airlines by code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \\
+\hline
+{\em a2} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classAirline_a63d93336c3b41a1d4830da949b36ca07}\label{classAirline_a63d93336c3b41a1d4830da949b36ca07}} 
-static bool {\bfseries by\+Country} (\mbox{\hyperlink{classAirline}{Airline}} $\ast$a1, \mbox{\hyperlink{classAirline}{Airline}} $\ast$a2)
-\end{DoxyCompactItemize}
+\index{Airline@{Airline}!byCountry@{byCountry}}
+\index{byCountry@{byCountry}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{byCountry()}{byCountry()}}
+{\footnotesize\ttfamily bool Airline\+::by\+Country (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirline}{Airline}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAirline}{Airline}} $\ast$}]{a2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order airlines by country. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \\
+\hline
+{\em a2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirline_a17d1212d3676ffdf5c2eb21ad4655885}\label{classAirline_a17d1212d3676ffdf5c2eb21ad4655885}} 
+\index{Airline@{Airline}!byName@{byName}}
+\index{byName@{byName}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{byName()}{byName()}}
+{\footnotesize\ttfamily bool Airline\+::by\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirline}{Airline}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAirline}{Airline}} $\ast$}]{a2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order airlines by name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \\
+\hline
+{\em a2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirline_aa0219926dd0151332c9e309036e345d3}\label{classAirline_aa0219926dd0151332c9e309036e345d3}} 
+\index{Airline@{Airline}!getCallsign@{getCallsign}}
+\index{getCallsign@{getCallsign}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{getCallsign()}{getCallsign()}}
+{\footnotesize\ttfamily std\+::string Airline\+::get\+Callsign (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the callsign of a airline. 
+
+\begin{DoxyReturn}{Returns}
+callsign 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirline_ae3a78341e134ede353f32e060033c4ee}\label{classAirline_ae3a78341e134ede353f32e060033c4ee}} 
+\index{Airline@{Airline}!getCode@{getCode}}
+\index{getCode@{getCode}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily std\+::string Airline\+::get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the code of a airline. 
+
+\begin{DoxyReturn}{Returns}
+code 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirline_a73e2c48e0d98eda7417b4a256881e6f1}\label{classAirline_a73e2c48e0d98eda7417b4a256881e6f1}} 
+\index{Airline@{Airline}!getCountry@{getCountry}}
+\index{getCountry@{getCountry}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{getCountry()}{getCountry()}}
+{\footnotesize\ttfamily std\+::string Airline\+::get\+Country (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the country which the airline belongs. 
+
+\begin{DoxyReturn}{Returns}
+country 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirline_aaaabbcbd34ed54234915325e91af0148}\label{classAirline_aaaabbcbd34ed54234915325e91af0148}} 
+\index{Airline@{Airline}!getName@{getName}}
+\index{getName@{getName}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Airline\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the name of a airline. 
+
+\begin{DoxyReturn}{Returns}
+name 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: /home/tiago/Desktop/FlightManagement/src/Graph.h Source File</title>
+<title>Flight Management: /home/tiago/Desktop/FlightManagement/src/Graph.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Flight Management
    </div>
   </td>
  </tr>
@@ -82,80 +82,100 @@ $(function() {
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;Airport.h&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classGraph.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGraph.html">Graph</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">struct </span>CityCountryHash {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        std::size_t operator()(<span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; p)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            std::size_t cityHash = std::hash&lt;std::string&gt;{}(p.first);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            std::size_t countryHash = std::hash&lt;std::string&gt;{}(p.second);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">return</span> cityHash ^ (countryHash &lt;&lt; 1);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    };</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">struct </span>CityCountryEqual {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; lhs, <span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; rhs)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">return</span> lhs.first == rhs.first &amp;&amp; lhs.second == rhs.second;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classGraph.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGraph.html">Graph</a> {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">struct </span>CityCountryHash {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        std::size_t operator()(<span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; p)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            std::size_t cityHash = std::hash&lt;std::string&gt;{}(p.first);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            std::size_t countryHash = std::hash&lt;std::string&gt;{}(p.second);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">return</span> cityHash ^ (countryHash &lt;&lt; 1);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    };</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">struct </span>CityCountryLess {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; lhs, <span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; rhs)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">if</span> (lhs.first == rhs.first) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordflow">return</span> lhs.second &lt; rhs.second;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">return</span> lhs.first &lt; rhs.first;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">struct </span>CityCountryEqual {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; lhs, <span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; rhs)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">return</span> lhs.first == rhs.first &amp;&amp; lhs.second == rhs.second;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    };</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::vector&lt;Airport*&gt; vAirports;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::unordered_map&lt;std::string, Airport *&gt; airports;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    std::unordered_map&lt;std::string, Airport *&gt; airportsName;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::unordered_map&lt;std::pair&lt;std::string, std::string&gt;, std::vector&lt;Airport *&gt;, CityCountryHash, CityCountryEqual&gt; airportsPerCity;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::unordered_map&lt;std::string, Airline *&gt; airlines;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> calculateMaxDistanceFrom(<a class="code" href="classAirport.html">Airport</a> * source);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    std::vector&lt;std::vector&lt;Flight&gt;&gt; getMinTrips(<a class="code" href="classAirport.html">Airport</a> * source, <a class="code" href="classAirport.html">Airport</a> * dest);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::vector&lt;std::vector&lt;Flight&gt;&gt; getMinTripsAirlines(<a class="code" href="classAirport.html">Airport</a> * source, <a class="code" href="classAirport.html">Airport</a> * dest, std::vector&lt;std::string&gt; use);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">bool</span> lessThanMaxAirlines(std::vector&lt;Flight&gt; trip, <span class="keywordtype">int</span> max);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">struct </span>CityCountryLess {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; lhs, <span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; rhs)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">if</span> (lhs.first == rhs.first) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">return</span> lhs.second &lt; rhs.second;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">return</span> lhs.first &lt; rhs.first;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    };</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> addFlight(<a class="code" href="classFlight.html">Flight</a> flight);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    std::vector&lt;Airport*&gt; getvAirports();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classAirport.html">Airport</a>* getAirport(std::string code);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    std::vector&lt;Airport*&gt; getAirportByCity(std::pair&lt;std::string, std::string&gt; city);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="classAirport.html">Airport</a>* getAirportByName(std::string name);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classAirline.html">Airline</a>* getAirline(std::string code);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> addAirport(<a class="code" href="classAirport.html">Airport</a>* airport);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> addAirline(<a class="code" href="classAirline.html">Airline</a>* airline);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> resetVisited();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> resetProcessing();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    std::vector&lt;Airport*&gt; vAirports;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::unordered_map&lt;std::string, Airport *&gt; airports;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    std::unordered_map&lt;std::string, Airport *&gt; airportsName;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    std::unordered_map&lt;std::pair&lt;std::string, std::string&gt;, std::vector&lt;Airport *&gt;, CityCountryHash, CityCountryEqual&gt; airportsPerCity;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    std::unordered_map&lt;std::string, Airline *&gt; airlines;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> calculateMaxDistanceFrom(<a class="code" href="classAirport.html">Airport</a> * source);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std::vector&lt;std::vector&lt;Flight&gt;&gt; getMinTrips(<a class="code" href="classAirport.html">Airport</a> * source, <a class="code" href="classAirport.html">Airport</a> * dest);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::vector&lt;std::vector&lt;Flight&gt;&gt; getMinTripsAirlines(<a class="code" href="classAirport.html">Airport</a> * source, <a class="code" href="classAirport.html">Airport</a> * dest, std::vector&lt;std::string&gt; use);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> lessThanMaxAirlines(std::vector&lt;Flight&gt; trip, <span class="keywordtype">int</span> max);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> resetVisited();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> resetProcessing();</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">int</span> getNumAirports();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> getNumFlights();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">int</span> getNumAirlines();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    std::pair&lt;int,int&gt; getNumFlightsFromAirport(std::string code);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">int</span> getNumFlightsFromCity(std::pair&lt;std::string, std::string&gt; city);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">int</span> getNumFlightsPerAirline(std::string airline);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::vector&lt;std::string&gt; getCountriesFromCity(std::pair&lt;std::string, std::string&gt; city);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    std::vector&lt;Airport *&gt; getReachableAirportsFrom(std::string code, <span class="keywordtype">int</span> stops);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    std::vector&lt;std::pair&lt;std::string, std::string&gt;&gt; getReachableCitiesFrom(std::string code, <span class="keywordtype">int</span> stops);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    std::vector&lt;std::string&gt; getReachableCountriesFrom(std::string code, <span class="keywordtype">int</span> stops);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    std::vector&lt;std::pair&lt;Airport *, Airport *&gt;&gt; getMaxTrip(<span class="keywordtype">int</span> &amp;stops);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    std::vector&lt;Airport *&gt; getGreatestNumFlights(<span class="keywordtype">int</span> top);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    std::vector&lt;Airport *&gt; getEssentialAirports();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    std::vector&lt;std::vector&lt;Flight&gt;&gt; getBestOption(std::string source, <span class="keywordtype">int</span> searchFrom, std::string dest, <span class="keywordtype">int</span> searchTo, <span class="keywordtype">int</span> maxAirlines, std::vector&lt;std::string&gt; airlineCodes);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;     std::vector&lt;Airport*&gt; getNearestAirports(<span class="keywordtype">double</span> latitude, <span class="keywordtype">double</span> longitude);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJETO2_GRAPH_H</span></div>
-<div class="ttc" id="aclassAirline_html"><div class="ttname"><a href="classAirline.html">Airline</a></div><div class="ttdef"><b>Definition:</b> Airline.h:7</div></div>
-<div class="ttc" id="aclassAirport_html"><div class="ttname"><a href="classAirport.html">Airport</a></div><div class="ttdef"><b>Definition:</b> Airport.h:10</div></div>
-<div class="ttc" id="aclassFlight_html"><div class="ttname"><a href="classFlight.html">Flight</a></div><div class="ttdef"><b>Definition:</b> Flight.h:10</div></div>
-<div class="ttc" id="aclassGraph_html"><div class="ttname"><a href="classGraph.html">Graph</a></div><div class="ttdef"><b>Definition:</b> Graph.h:15</div></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGraph.html#a0b7402c5339a8f6e6ba066d1a2e6b72c">addFlight</a>(<a class="code" href="classFlight.html">Flight</a> flight);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    std::vector&lt;Airport*&gt; <a class="code" href="classGraph.html#a942a02762bc2312393f9b852147bd9cf">getvAirports</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classAirport.html">Airport</a>* <a class="code" href="classGraph.html#a70cf2d5fe38d582fd6b7a1c04a69dea9">getAirport</a>(std::string code);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    std::vector&lt;Airport*&gt; <a class="code" href="classGraph.html#a24b7e2d1723f45af83050238306143d2">getAirportByCity</a>(std::pair&lt;std::string, std::string&gt; city);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="classAirport.html">Airport</a>* <a class="code" href="classGraph.html#a5615c3613f8f90f4caddfa951cd38000">getAirportByName</a>(std::string name);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="classAirline.html">Airline</a>* <a class="code" href="classGraph.html#a770a04f8df54b2453ad21c3bcccb1410">getAirline</a>(std::string code);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGraph.html#a9bdccc00dd192eed1b14841638a0d21a">addAirport</a>(<a class="code" href="classAirport.html">Airport</a>* airport);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGraph.html#a24a48cb49239f037010e2cf3fa994cee">addAirline</a>(<a class="code" href="classAirline.html">Airline</a>* airline);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classGraph.html#a5bea42056658b669cab2d4b054f7c517">getNumAirports</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classGraph.html#a086c97d79b0e727bbd8c95e4c22ae7ac">getNumFlights</a>();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classGraph.html#af37359ad2ce2a6843376f344e459ebae">getNumAirlines</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    std::pair&lt;int,int&gt; <a class="code" href="classGraph.html#a90ef33e73977b7a1b7de6f95894cd8c3">getNumFlightsFromAirport</a>(std::string code);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classGraph.html#a2fb65db3d7b786b235b3cfd9e05b50f3">getNumFlightsFromCity</a>(std::pair&lt;std::string, std::string&gt; city);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classGraph.html#a215350d80cbbb431d1d5645dce37d0c2">getNumFlightsPerAirline</a>(std::string airline);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    std::vector&lt;std::string&gt; <a class="code" href="classGraph.html#a288b8a20a59f60b3deface1073034641">getCountriesFromCity</a>(std::pair&lt;std::string, std::string&gt; city);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    std::vector&lt;Airport *&gt; <a class="code" href="classGraph.html#ab925eb36a2197e20cb5afd157f55836d">getReachableAirportsFrom</a>(std::string code, <span class="keywordtype">int</span> stops);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    std::vector&lt;std::pair&lt;std::string, std::string&gt;&gt; <a class="code" href="classGraph.html#adf28ecf50f37f18ab8c3ffb12364c0da">getReachableCitiesFrom</a>(std::string code, <span class="keywordtype">int</span> stops);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    std::vector&lt;std::string&gt; <a class="code" href="classGraph.html#a02206b6382123365af255b67e87088f5">getReachableCountriesFrom</a>(std::string code, <span class="keywordtype">int</span> stops);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    std::vector&lt;std::pair&lt;Airport *, Airport *&gt;&gt; <a class="code" href="classGraph.html#ac40ef70959dde6af98ab1f7641a573ac">getMaxTrip</a>(<span class="keywordtype">int</span> &amp;stops);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    std::vector&lt;Airport *&gt; <a class="code" href="classGraph.html#a04a89c729eaaf9b1145c9bdc33579127">getGreatestNumFlights</a>(<span class="keywordtype">int</span> top);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    std::vector&lt;Airport *&gt; <a class="code" href="classGraph.html#a595b6a7805c24493ce6175079ceac705">getEssentialAirports</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    std::vector&lt;std::vector&lt;Flight&gt;&gt; <a class="code" href="classGraph.html#ab9768b5827477a4670d7c02dec76d6b1">getBestOption</a>(std::string source, <span class="keywordtype">int</span> searchFrom, std::string dest, <span class="keywordtype">int</span> searchTo, <span class="keywordtype">int</span> maxAirlines, std::vector&lt;std::string&gt; airlineCodes);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    std::vector&lt;Airport*&gt; <a class="code" href="classGraph.html#a260a67e3e0917d6fb88de7d1383a7a3b">getNearestAirports</a>(<span class="keywordtype">double</span> latitude, <span class="keywordtype">double</span> longitude);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJETO2_GRAPH_H</span></div>
+<div class="ttc" id="aclassAirline_html"><div class="ttname"><a href="classAirline.html">Airline</a></div><div class="ttdoc">Airline is a class that represents a airline which a Flight contains.</div><div class="ttdef"><b>Definition:</b> Airline.h:11</div></div>
+<div class="ttc" id="aclassAirport_html"><div class="ttname"><a href="classAirport.html">Airport</a></div><div class="ttdoc">Airport is the class that represents a airport which is also a vertex in the graph.</div><div class="ttdef"><b>Definition:</b> Airport.h:12</div></div>
+<div class="ttc" id="aclassFlight_html"><div class="ttname"><a href="classFlight.html">Flight</a></div><div class="ttdoc">Flight is the class that represents a flight, a edge of the graph.</div><div class="ttdef"><b>Definition:</b> Flight.h:13</div></div>
+<div class="ttc" id="aclassGraph_html"><div class="ttname"><a href="classGraph.html">Graph</a></div><div class="ttdoc">Graph is the class that represents the graph which contains all the information about the flight syst...</div><div class="ttdef"><b>Definition:</b> Graph.h:18</div></div>
+<div class="ttc" id="aclassGraph_html_a02206b6382123365af255b67e87088f5"><div class="ttname"><a href="classGraph.html#a02206b6382123365af255b67e87088f5">Graph::getReachableCountriesFrom</a></div><div class="ttdeci">std::vector&lt; std::string &gt; getReachableCountriesFrom(std::string code, int stops)</div><div class="ttdoc">Gets the reachable countries from a given airport in a max number of stops.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:270</div></div>
+<div class="ttc" id="aclassGraph_html_a04a89c729eaaf9b1145c9bdc33579127"><div class="ttname"><a href="classGraph.html#a04a89c729eaaf9b1145c9bdc33579127">Graph::getGreatestNumFlights</a></div><div class="ttdeci">std::vector&lt; Airport * &gt; getGreatestNumFlights(int top)</div><div class="ttdoc">Gets a vector with a given size of the airports with the most flight out.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:560</div></div>
+<div class="ttc" id="aclassGraph_html_a086c97d79b0e727bbd8c95e4c22ae7ac"><div class="ttname"><a href="classGraph.html#a086c97d79b0e727bbd8c95e4c22ae7ac">Graph::getNumFlights</a></div><div class="ttdeci">int getNumFlights()</div><div class="ttdoc">Gets the number of flights (edges) of the graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:92</div></div>
+<div class="ttc" id="aclassGraph_html_a0b7402c5339a8f6e6ba066d1a2e6b72c"><div class="ttname"><a href="classGraph.html#a0b7402c5339a8f6e6ba066d1a2e6b72c">Graph::addFlight</a></div><div class="ttdeci">void addFlight(Flight flight)</div><div class="ttdoc">Adds a flight (edge) to the graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:52</div></div>
+<div class="ttc" id="aclassGraph_html_a215350d80cbbb431d1d5645dce37d0c2"><div class="ttname"><a href="classGraph.html#a215350d80cbbb431d1d5645dce37d0c2">Graph::getNumFlightsPerAirline</a></div><div class="ttdeci">int getNumFlightsPerAirline(std::string airline)</div><div class="ttdoc">Gets the number of flights per airline.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:146</div></div>
+<div class="ttc" id="aclassGraph_html_a24a48cb49239f037010e2cf3fa994cee"><div class="ttname"><a href="classGraph.html#a24a48cb49239f037010e2cf3fa994cee">Graph::addAirline</a></div><div class="ttdeci">void addAirline(Airline *airline)</div><div class="ttdoc">Adds a airline to the graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:77</div></div>
+<div class="ttc" id="aclassGraph_html_a24b7e2d1723f45af83050238306143d2"><div class="ttname"><a href="classGraph.html#a24b7e2d1723f45af83050238306143d2">Graph::getAirportByCity</a></div><div class="ttdeci">std::vector&lt; Airport * &gt; getAirportByCity(std::pair&lt; std::string, std::string &gt; city)</div><div class="ttdoc">Gets the airports by the city where they are located.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:27</div></div>
+<div class="ttc" id="aclassGraph_html_a260a67e3e0917d6fb88de7d1383a7a3b"><div class="ttname"><a href="classGraph.html#a260a67e3e0917d6fb88de7d1383a7a3b">Graph::getNearestAirports</a></div><div class="ttdeci">std::vector&lt; Airport * &gt; getNearestAirports(double latitude, double longitude)</div><div class="ttdoc">Gets the closest airport (or more, if at the same distance) to the coordinates given.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:851</div></div>
+<div class="ttc" id="aclassGraph_html_a288b8a20a59f60b3deface1073034641"><div class="ttname"><a href="classGraph.html#a288b8a20a59f60b3deface1073034641">Graph::getCountriesFromCity</a></div><div class="ttdeci">std::vector&lt; std::string &gt; getCountriesFromCity(std::pair&lt; std::string, std::string &gt; city)</div><div class="ttdoc">Gets the countries that a given city flies to.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:163</div></div>
+<div class="ttc" id="aclassGraph_html_a2fb65db3d7b786b235b3cfd9e05b50f3"><div class="ttname"><a href="classGraph.html#a2fb65db3d7b786b235b3cfd9e05b50f3">Graph::getNumFlightsFromCity</a></div><div class="ttdeci">int getNumFlightsFromCity(std::pair&lt; std::string, std::string &gt; city)</div><div class="ttdoc">Gets the number of flights from a city.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:131</div></div>
+<div class="ttc" id="aclassGraph_html_a5615c3613f8f90f4caddfa951cd38000"><div class="ttname"><a href="classGraph.html#a5615c3613f8f90f4caddfa951cd38000">Graph::getAirportByName</a></div><div class="ttdeci">Airport * getAirportByName(std::string name)</div><div class="ttdoc">Gets the airport by its name.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:35</div></div>
+<div class="ttc" id="aclassGraph_html_a595b6a7805c24493ce6175079ceac705"><div class="ttname"><a href="classGraph.html#a595b6a7805c24493ce6175079ceac705">Graph::getEssentialAirports</a></div><div class="ttdeci">std::vector&lt; Airport * &gt; getEssentialAirports()</div><div class="ttdoc">Gets the airports that are essential to the network's.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:641</div></div>
+<div class="ttc" id="aclassGraph_html_a5bea42056658b669cab2d4b054f7c517"><div class="ttname"><a href="classGraph.html#a5bea42056658b669cab2d4b054f7c517">Graph::getNumAirports</a></div><div class="ttdeci">int getNumAirports()</div><div class="ttdoc">Gets the number of airports (vertices) of the graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:84</div></div>
+<div class="ttc" id="aclassGraph_html_a70cf2d5fe38d582fd6b7a1c04a69dea9"><div class="ttname"><a href="classGraph.html#a70cf2d5fe38d582fd6b7a1c04a69dea9">Graph::getAirport</a></div><div class="ttdeci">Airport * getAirport(std::string code)</div><div class="ttdoc">Gets a airport using its code.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:19</div></div>
+<div class="ttc" id="aclassGraph_html_a770a04f8df54b2453ad21c3bcccb1410"><div class="ttname"><a href="classGraph.html#a770a04f8df54b2453ad21c3bcccb1410">Graph::getAirline</a></div><div class="ttdeci">Airline * getAirline(std::string code)</div><div class="ttdoc">Gets a airline by its code.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:44</div></div>
+<div class="ttc" id="aclassGraph_html_a90ef33e73977b7a1b7de6f95894cd8c3"><div class="ttname"><a href="classGraph.html#a90ef33e73977b7a1b7de6f95894cd8c3">Graph::getNumFlightsFromAirport</a></div><div class="ttdeci">std::pair&lt; int, int &gt; getNumFlightsFromAirport(std::string code)</div><div class="ttdoc">Gets the number of flights (edges) and different airlines from a airport (vertex)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:113</div></div>
+<div class="ttc" id="aclassGraph_html_a942a02762bc2312393f9b852147bd9cf"><div class="ttname"><a href="classGraph.html#a942a02762bc2312393f9b852147bd9cf">Graph::getvAirports</a></div><div class="ttdeci">std::vector&lt; Airport * &gt; getvAirports()</div><div class="ttdoc">Gets all the airports.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:11</div></div>
+<div class="ttc" id="aclassGraph_html_a9bdccc00dd192eed1b14841638a0d21a"><div class="ttname"><a href="classGraph.html#a9bdccc00dd192eed1b14841638a0d21a">Graph::addAirport</a></div><div class="ttdeci">void addAirport(Airport *airport)</div><div class="ttdoc">Adds a airport (vertex) to the graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:60</div></div>
+<div class="ttc" id="aclassGraph_html_ab925eb36a2197e20cb5afd157f55836d"><div class="ttname"><a href="classGraph.html#ab925eb36a2197e20cb5afd157f55836d">Graph::getReachableAirportsFrom</a></div><div class="ttdeci">std::vector&lt; Airport * &gt; getReachableAirportsFrom(std::string code, int stops)</div><div class="ttdoc">Gets the reachable airports from a given airport in a max number of stops.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:184</div></div>
+<div class="ttc" id="aclassGraph_html_ab9768b5827477a4670d7c02dec76d6b1"><div class="ttname"><a href="classGraph.html#ab9768b5827477a4670d7c02dec76d6b1">Graph::getBestOption</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; Flight &gt; &gt; getBestOption(std::string source, int searchFrom, std::string dest, int searchTo, int maxAirlines, std::vector&lt; std::string &gt; airlineCodes)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:711</div></div>
+<div class="ttc" id="aclassGraph_html_ac40ef70959dde6af98ab1f7641a573ac"><div class="ttname"><a href="classGraph.html#ac40ef70959dde6af98ab1f7641a573ac">Graph::getMaxTrip</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; Airport *, Airport * &gt; &gt; getMaxTrip(int &amp;stops)</div><div class="ttdoc">Gets the pair of source-destination airports (or pairs, if more than one) that correspond to the maxi...</div><div class="ttdef"><b>Definition:</b> Graph.cpp:533</div></div>
+<div class="ttc" id="aclassGraph_html_adf28ecf50f37f18ab8c3ffb12364c0da"><div class="ttname"><a href="classGraph.html#adf28ecf50f37f18ab8c3ffb12364c0da">Graph::getReachableCitiesFrom</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; getReachableCitiesFrom(std::string code, int stops)</div><div class="ttdoc">Gets the reachable cities from a given airport in a max number of stops.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:225</div></div>
+<div class="ttc" id="aclassGraph_html_af37359ad2ce2a6843376f344e459ebae"><div class="ttname"><a href="classGraph.html#af37359ad2ce2a6843376f344e459ebae">Graph::getNumAirlines</a></div><div class="ttdeci">int getNumAirlines()</div><div class="ttdoc">Gets the number of airlines of the graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:103</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

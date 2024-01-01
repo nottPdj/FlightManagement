@@ -1,89 +1,383 @@
 \hypertarget{classAirport}{}\doxysection{Airport Class Reference}
 \label{classAirport}\index{Airport@{Airport}}
+
+
+\mbox{\hyperlink{classAirport}{Airport}} is the class that represents a airport which is also a vertex in the graph.  
+
+
+
+
+{\ttfamily \#include $<$Airport.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classAirport_adfdfc1343ab9c1e5422f6c8716f58d0a}\label{classAirport_adfdfc1343ab9c1e5422f6c8716f58d0a}} 
-{\bfseries Airport} (std\+::string code, std\+::string name, std\+::string city, std\+::string country, std\+::string latitude, std\+::string longitude)
-\item 
-\mbox{\Hypertarget{classAirport_a715d0628f3540a1a65917d55b0311757}\label{classAirport_a715d0628f3540a1a65917d55b0311757}} 
-std\+::string {\bfseries get\+Code} () const
-\item 
-\mbox{\Hypertarget{classAirport_a5f6d1d66d9d1b5af15b67c500e444f9f}\label{classAirport_a5f6d1d66d9d1b5af15b67c500e444f9f}} 
-std\+::string {\bfseries get\+Name} () const
-\item 
-\mbox{\Hypertarget{classAirport_a4f8fbb5b1c5250bf0aaa77dfc25897dc}\label{classAirport_a4f8fbb5b1c5250bf0aaa77dfc25897dc}} 
-std\+::string {\bfseries get\+City} () const
-\item 
-\mbox{\Hypertarget{classAirport_aefabe22c551403c9ca291404eba2323b}\label{classAirport_aefabe22c551403c9ca291404eba2323b}} 
-std\+::string {\bfseries get\+Country} () const
-\item 
-\mbox{\Hypertarget{classAirport_a1cab6bff25c616a2ef5c49e3bcc5351d}\label{classAirport_a1cab6bff25c616a2ef5c49e3bcc5351d}} 
-std\+::string {\bfseries get\+Latitude} () const
-\item 
-\mbox{\Hypertarget{classAirport_a58db5ea8955440a6f08da925c25288ae}\label{classAirport_a58db5ea8955440a6f08da925c25288ae}} 
-std\+::string {\bfseries get\+Longitude} () const
-\item 
+\mbox{\hyperlink{classAirport_adfdfc1343ab9c1e5422f6c8716f58d0a}{Airport}} (std\+::string code, std\+::string name, std\+::string city, std\+::string country, std\+::string latitude, std\+::string longitude)
+\begin{DoxyCompactList}\small\item\em Constructor of \mbox{\hyperlink{classAirport}{Airport}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirport_a715d0628f3540a1a65917d55b0311757}{get\+Code}} () const
+\begin{DoxyCompactList}\small\item\em Gets the code of the airport. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirport_a5f6d1d66d9d1b5af15b67c500e444f9f}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Gets the name of the airport. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirport_a4f8fbb5b1c5250bf0aaa77dfc25897dc}{get\+City}} () const
+\begin{DoxyCompactList}\small\item\em Gets the city where the airport is located. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirport_aefabe22c551403c9ca291404eba2323b}{get\+Country}} () const
+\begin{DoxyCompactList}\small\item\em Gets the country where the airport is located. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirport_a1cab6bff25c616a2ef5c49e3bcc5351d}{get\+Latitude}} () const
+\begin{DoxyCompactList}\small\item\em Gets the latitude of the airport. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirport_a58db5ea8955440a6f08da925c25288ae}{get\+Longitude}} () const
+\begin{DoxyCompactList}\small\item\em Gets the longitude of the airport. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classAirport_a81bcab1565dd56da70932360c5d05e17}\label{classAirport_a81bcab1565dd56da70932360c5d05e17}} 
-int {\bfseries get\+NFlights\+Out} () const
-\item 
-\mbox{\Hypertarget{classAirport_abcf77f9d4577e3ad84a32dd06ff4dc8e}\label{classAirport_abcf77f9d4577e3ad84a32dd06ff4dc8e}} 
-void {\bfseries set\+Num} (int i)
-\item 
-\mbox{\Hypertarget{classAirport_a488304d750d32d6e8db604a6b5e39dde}\label{classAirport_a488304d750d32d6e8db604a6b5e39dde}} 
-void {\bfseries set\+Low} (int i)
-\item 
-\mbox{\Hypertarget{classAirport_a09febddd5ddaf0fd8af0735cb3577a5c}\label{classAirport_a09febddd5ddaf0fd8af0735cb3577a5c}} 
-int {\bfseries get\+Num} ()
-\item 
-\mbox{\Hypertarget{classAirport_a958ea92a271a0922095af526144f66dd}\label{classAirport_a958ea92a271a0922095af526144f66dd}} 
-int {\bfseries get\+Low} ()
-\item 
-\mbox{\Hypertarget{classAirport_ad4fdc3e9fa12a32c4f061f8393d9efcb}\label{classAirport_ad4fdc3e9fa12a32c4f061f8393d9efcb}} 
-std\+::vector$<$ \mbox{\hyperlink{classFlight}{Flight}} $>$ {\bfseries get\+Flights} ()
-\item 
+int \mbox{\hyperlink{classAirport_a81bcab1565dd56da70932360c5d05e17}{get\+NFlights\+Out}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of flights out. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAirport_abcf77f9d4577e3ad84a32dd06ff4dc8e}{set\+Num}} (int i)
+\begin{DoxyCompactList}\small\item\em Sets the number of the airport (vertex) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAirport_a488304d750d32d6e8db604a6b5e39dde}{set\+Low}} (int i)
+\begin{DoxyCompactList}\small\item\em Sets the low of the airport (vertex) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAirport_a7a2f56a5f9ceb88b746a7799180df566}\label{classAirport_a7a2f56a5f9ceb88b746a7799180df566}} 
+int \mbox{\hyperlink{classAirport_a7a2f56a5f9ceb88b746a7799180df566}{get\+Num}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of the airport (vertex) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAirport_afc45e496823c8a26c37b829c2ff09803}\label{classAirport_afc45e496823c8a26c37b829c2ff09803}} 
+int \mbox{\hyperlink{classAirport_afc45e496823c8a26c37b829c2ff09803}{get\+Low}} () const
+\begin{DoxyCompactList}\small\item\em Sets the low of the airport (vertex) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classFlight}{Flight}} $>$ \mbox{\hyperlink{classAirport_ad4fdc3e9fa12a32c4f061f8393d9efcb}{get\+Flights}} ()
+\begin{DoxyCompactList}\small\item\em Gets the flights out of the airport. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classAirport_ae0c8e702145d72ca69af5d51c7d8b7a4}\label{classAirport_ae0c8e702145d72ca69af5d51c7d8b7a4}} 
-bool {\bfseries is\+Visited} () const
-\item 
-\mbox{\Hypertarget{classAirport_a4a41592b183c7384d0e0e0be42136c7d}\label{classAirport_a4a41592b183c7384d0e0e0be42136c7d}} 
-void {\bfseries set\+Visited} (bool v)
-\item 
+bool \mbox{\hyperlink{classAirport_ae0c8e702145d72ca69af5d51c7d8b7a4}{is\+Visited}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the airport (vertex) is visited. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAirport_a4a41592b183c7384d0e0e0be42136c7d}{set\+Visited}} (bool v)
+\begin{DoxyCompactList}\small\item\em Sets the airport (vertex) to visited or not. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classAirport_a60b93e4300d10fbbcacd7b723c4a5b63}\label{classAirport_a60b93e4300d10fbbcacd7b723c4a5b63}} 
-bool {\bfseries is\+Processing} () const
-\item 
-\mbox{\Hypertarget{classAirport_abf172671d298709d58f57cb623a73bbc}\label{classAirport_abf172671d298709d58f57cb623a73bbc}} 
-void {\bfseries set\+Processing} (bool p)
-\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{classAirport_a60b93e4300d10fbbcacd7b723c4a5b63}{is\+Processing}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the airport (vertex) is processing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAirport_abf172671d298709d58f57cb623a73bbc}{set\+Processing}} (bool p)
+\begin{DoxyCompactList}\small\item\em Sets the airport (vertex) to processing or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classAirport_a8dd40d315362ac3bcd18e2ce65fec743}\label{classAirport_a8dd40d315362ac3bcd18e2ce65fec743}} 
-static bool {\bfseries by\+Code} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
-\item 
-\mbox{\Hypertarget{classAirport_ae2b7ea95af81a62f76ab0ff897aae8d0}\label{classAirport_ae2b7ea95af81a62f76ab0ff897aae8d0}} 
-static bool {\bfseries by\+Name} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
-\item 
-\mbox{\Hypertarget{classAirport_a072196e494fb9f9334b73aa3506d4d6d}\label{classAirport_a072196e494fb9f9334b73aa3506d4d6d}} 
-static bool {\bfseries by\+City} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
-\item 
-\mbox{\Hypertarget{classAirport_ad3e461489abf7e4749c09a00f4acb2a9}\label{classAirport_ad3e461489abf7e4749c09a00f4acb2a9}} 
-static bool {\bfseries by\+Country} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
-\item 
-\mbox{\Hypertarget{classAirport_ad9b99745c75a63d20b3b9ad6a26e9020}\label{classAirport_ad9b99745c75a63d20b3b9ad6a26e9020}} 
-static bool {\bfseries by\+Latitude} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
-\item 
-\mbox{\Hypertarget{classAirport_afa34aaf956c6ca084d92580aaf7d43e2}\label{classAirport_afa34aaf956c6ca084d92580aaf7d43e2}} 
-static bool {\bfseries by\+Longitude} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
-\item 
-\mbox{\Hypertarget{classAirport_a8adfa75bb85dfa92ee77cfc338c93f4e}\label{classAirport_a8adfa75bb85dfa92ee77cfc338c93f4e}} 
-static bool {\bfseries by\+NFlights\+Out} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
-\end{DoxyCompactItemize}
+static bool \mbox{\hyperlink{classAirport_a8dd40d315362ac3bcd18e2ce65fec743}{by\+Code}} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order airports by code. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classAirport_ae2b7ea95af81a62f76ab0ff897aae8d0}{by\+Name}} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order airports by name. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classAirport_a072196e494fb9f9334b73aa3506d4d6d}{by\+City}} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order airports by city. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classAirport_ad3e461489abf7e4749c09a00f4acb2a9}{by\+Country}} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order airports by country. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classAirport_ad9b99745c75a63d20b3b9ad6a26e9020}{by\+Latitude}} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order airports by latitude. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classAirport_afa34aaf956c6ca084d92580aaf7d43e2}{by\+Longitude}} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order airports by longitude. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classAirport_a8adfa75bb85dfa92ee77cfc338c93f4e}{by\+NFlights\+Out}} (\mbox{\hyperlink{classAirport}{Airport}} $\ast$a1, \mbox{\hyperlink{classAirport}{Airport}} $\ast$a2)
+\begin{DoxyCompactList}\small\item\em Boolean function to order airports by the number of flights out. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classAirport_afab89afd724f1b07b1aaad6bdc61c47a}\label{classAirport_afab89afd724f1b07b1aaad6bdc61c47a}} 
 class {\bfseries Graph}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classAirport}{Airport}} is the class that represents a airport which is also a vertex in the graph. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAirport_adfdfc1343ab9c1e5422f6c8716f58d0a}\label{classAirport_adfdfc1343ab9c1e5422f6c8716f58d0a}} 
+\index{Airport@{Airport}!Airport@{Airport}}
+\index{Airport@{Airport}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{Airport()}{Airport()}}
+{\footnotesize\ttfamily Airport\+::\+Airport (\begin{DoxyParamCaption}\item[{std\+::string}]{code,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{city,  }\item[{std\+::string}]{country,  }\item[{std\+::string}]{latitude,  }\item[{std\+::string}]{longitude }\end{DoxyParamCaption})}
+
+
+
+Constructor of \mbox{\hyperlink{classAirport}{Airport}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & \\
+\hline
+{\em name} & \\
+\hline
+{\em city} & \\
+\hline
+{\em country} & \\
+\hline
+{\em latitude} & \\
+\hline
+{\em longitude} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAirport_a072196e494fb9f9334b73aa3506d4d6d}\label{classAirport_a072196e494fb9f9334b73aa3506d4d6d}} 
+\index{Airport@{Airport}!byCity@{byCity}}
+\index{byCity@{byCity}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{byCity()}{byCity()}}
+{\footnotesize\ttfamily bool Airport\+::by\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order airports by city. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \\
+\hline
+{\em a2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirport_a8dd40d315362ac3bcd18e2ce65fec743}\label{classAirport_a8dd40d315362ac3bcd18e2ce65fec743}} 
+\index{Airport@{Airport}!byCode@{byCode}}
+\index{byCode@{byCode}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{byCode()}{byCode()}}
+{\footnotesize\ttfamily bool Airport\+::by\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order airports by code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \\
+\hline
+{\em a2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirport_ad3e461489abf7e4749c09a00f4acb2a9}\label{classAirport_ad3e461489abf7e4749c09a00f4acb2a9}} 
+\index{Airport@{Airport}!byCountry@{byCountry}}
+\index{byCountry@{byCountry}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{byCountry()}{byCountry()}}
+{\footnotesize\ttfamily bool Airport\+::by\+Country (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order airports by country. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \\
+\hline
+{\em a2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirport_ad9b99745c75a63d20b3b9ad6a26e9020}\label{classAirport_ad9b99745c75a63d20b3b9ad6a26e9020}} 
+\index{Airport@{Airport}!byLatitude@{byLatitude}}
+\index{byLatitude@{byLatitude}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{byLatitude()}{byLatitude()}}
+{\footnotesize\ttfamily bool Airport\+::by\+Latitude (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order airports by latitude. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \\
+\hline
+{\em a2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirport_afa34aaf956c6ca084d92580aaf7d43e2}\label{classAirport_afa34aaf956c6ca084d92580aaf7d43e2}} 
+\index{Airport@{Airport}!byLongitude@{byLongitude}}
+\index{byLongitude@{byLongitude}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{byLongitude()}{byLongitude()}}
+{\footnotesize\ttfamily bool Airport\+::by\+Longitude (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order airports by longitude. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \\
+\hline
+{\em a2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirport_ae2b7ea95af81a62f76ab0ff897aae8d0}\label{classAirport_ae2b7ea95af81a62f76ab0ff897aae8d0}} 
+\index{Airport@{Airport}!byName@{byName}}
+\index{byName@{byName}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{byName()}{byName()}}
+{\footnotesize\ttfamily bool Airport\+::by\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order airports by name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \\
+\hline
+{\em a2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirport_a8adfa75bb85dfa92ee77cfc338c93f4e}\label{classAirport_a8adfa75bb85dfa92ee77cfc338c93f4e}} 
+\index{Airport@{Airport}!byNFlightsOut@{byNFlightsOut}}
+\index{byNFlightsOut@{byNFlightsOut}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{byNFlightsOut()}{byNFlightsOut()}}
+{\footnotesize\ttfamily bool Airport\+::by\+NFlights\+Out (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a1,  }\item[{\mbox{\hyperlink{classAirport}{Airport}} $\ast$}]{a2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Boolean function to order airports by the number of flights out. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \\
+\hline
+{\em a2} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirport_a4f8fbb5b1c5250bf0aaa77dfc25897dc}\label{classAirport_a4f8fbb5b1c5250bf0aaa77dfc25897dc}} 
+\index{Airport@{Airport}!getCity@{getCity}}
+\index{getCity@{getCity}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getCity()}{getCity()}}
+{\footnotesize\ttfamily std\+::string Airport\+::get\+City (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the city where the airport is located. 
+
+\begin{DoxyReturn}{Returns}
+city 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirport_a715d0628f3540a1a65917d55b0311757}\label{classAirport_a715d0628f3540a1a65917d55b0311757}} 
+\index{Airport@{Airport}!getCode@{getCode}}
+\index{getCode@{getCode}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily std\+::string Airport\+::get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the code of the airport. 
+
+\begin{DoxyReturn}{Returns}
+code 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirport_aefabe22c551403c9ca291404eba2323b}\label{classAirport_aefabe22c551403c9ca291404eba2323b}} 
+\index{Airport@{Airport}!getCountry@{getCountry}}
+\index{getCountry@{getCountry}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getCountry()}{getCountry()}}
+{\footnotesize\ttfamily std\+::string Airport\+::get\+Country (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the country where the airport is located. 
+
+\begin{DoxyReturn}{Returns}
+country 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirport_ad4fdc3e9fa12a32c4f061f8393d9efcb}\label{classAirport_ad4fdc3e9fa12a32c4f061f8393d9efcb}} 
+\index{Airport@{Airport}!getFlights@{getFlights}}
+\index{getFlights@{getFlights}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getFlights()}{getFlights()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classFlight}{Flight}} $>$ Airport\+::get\+Flights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the flights out of the airport. 
+
+\begin{DoxyReturn}{Returns}
+flights 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirport_a1cab6bff25c616a2ef5c49e3bcc5351d}\label{classAirport_a1cab6bff25c616a2ef5c49e3bcc5351d}} 
+\index{Airport@{Airport}!getLatitude@{getLatitude}}
+\index{getLatitude@{getLatitude}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getLatitude()}{getLatitude()}}
+{\footnotesize\ttfamily std\+::string Airport\+::get\+Latitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the latitude of the airport. 
+
+\begin{DoxyReturn}{Returns}
+latitude 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirport_a58db5ea8955440a6f08da925c25288ae}\label{classAirport_a58db5ea8955440a6f08da925c25288ae}} 
+\index{Airport@{Airport}!getLongitude@{getLongitude}}
+\index{getLongitude@{getLongitude}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getLongitude()}{getLongitude()}}
+{\footnotesize\ttfamily std\+::string Airport\+::get\+Longitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the longitude of the airport. 
+
+\begin{DoxyReturn}{Returns}
+longitude 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirport_a5f6d1d66d9d1b5af15b67c500e444f9f}\label{classAirport_a5f6d1d66d9d1b5af15b67c500e444f9f}} 
+\index{Airport@{Airport}!getName@{getName}}
+\index{getName@{getName}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Airport\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the name of the airport. 
+
+\begin{DoxyReturn}{Returns}
+name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirport_a488304d750d32d6e8db604a6b5e39dde}\label{classAirport_a488304d750d32d6e8db604a6b5e39dde}} 
+\index{Airport@{Airport}!setLow@{setLow}}
+\index{setLow@{setLow}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{setLow()}{setLow()}}
+{\footnotesize\ttfamily void Airport\+::set\+Low (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Sets the low of the airport (vertex) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirport_abcf77f9d4577e3ad84a32dd06ff4dc8e}\label{classAirport_abcf77f9d4577e3ad84a32dd06ff4dc8e}} 
+\index{Airport@{Airport}!setNum@{setNum}}
+\index{setNum@{setNum}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{setNum()}{setNum()}}
+{\footnotesize\ttfamily void Airport\+::set\+Num (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Sets the number of the airport (vertex) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirport_abf172671d298709d58f57cb623a73bbc}\label{classAirport_abf172671d298709d58f57cb623a73bbc}} 
+\index{Airport@{Airport}!setProcessing@{setProcessing}}
+\index{setProcessing@{setProcessing}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{setProcessing()}{setProcessing()}}
+{\footnotesize\ttfamily void Airport\+::set\+Processing (\begin{DoxyParamCaption}\item[{bool}]{p }\end{DoxyParamCaption})}
+
+
+
+Sets the airport (vertex) to processing or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirport_a4a41592b183c7384d0e0e0be42136c7d}\label{classAirport_a4a41592b183c7384d0e0e0be42136c7d}} 
+\index{Airport@{Airport}!setVisited@{setVisited}}
+\index{setVisited@{setVisited}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{setVisited()}{setVisited()}}
+{\footnotesize\ttfamily void Airport\+::set\+Visited (\begin{DoxyParamCaption}\item[{bool}]{v }\end{DoxyParamCaption})}
+
+
+
+Sets the airport (vertex) to visited or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

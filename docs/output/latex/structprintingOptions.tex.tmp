@@ -2,6 +2,15 @@
 \label{structprintingOptions}\index{printingOptions@{printingOptions}}
 
 
+\mbox{\hyperlink{classTerminal}{Terminal}} auxiliary struct storing the printing options for a printing function.  
+
+
+
+
+{\ttfamily \#include $<$Terminal.\+h$>$}
+
+
+
 Collaboration diagram for printing\+Options\+:
 % FIG 0
 \doxysubsection*{Public Attributes}
@@ -35,6 +44,9 @@ bool {\bfseries show\+End\+Menu} = true
 bool {\bfseries get\+Input} = true
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classTerminal}{Terminal}} auxiliary struct storing the printing options for a printing function. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

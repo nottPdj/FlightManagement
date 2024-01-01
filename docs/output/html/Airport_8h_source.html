@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: /home/tiago/Desktop/FlightManagement/src/Airport.h Source File</title>
+<title>Flight Management: /home/tiago/Desktop/FlightManagement/src/Airport.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Flight Management
    </div>
   </td>
  </tr>
@@ -77,87 +77,95 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Flight.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span><a class="code" href="classFlight.html">Flight</a>;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classAirport.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAirport.html">Airport</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    std::string code;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    std::string name;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    std::string city;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    std::string country;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::string latitude;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::string longitude;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    std::vector&lt;Flight&gt; flights;  <span class="comment">// list of outgoing flights</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">int</span> nFlightsOut;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">int</span> num;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> low;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> visited;          <span class="comment">// auxiliary field</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">bool</span> processing;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> maxTripDistance;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    std::vector&lt;Airport *&gt; maxTripDests;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> getMaxTripDistance() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> setMaxTripDistance(<span class="keywordtype">int</span> distance);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::vector&lt;Airport *&gt; getMaxTripDests() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> addMaxTripDest(<a class="code" href="classAirport.html">Airport</a> * dest);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> addFlight(<a class="code" href="classFlight.html">Flight</a> flight);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">bool</span> removeFlightTo(<a class="code" href="classAirport.html">Airport</a> *d);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classAirport.html">Airport</a>(std::string code,</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::string name,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::string city,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::string country,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::string latitude,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::string longitude);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    std::string getCode() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::string getName() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::string getCity() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::string getCountry() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::string getLatitude() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    std::string getLongitude() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> getNFlightsOut() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> setNum(<span class="keywordtype">int</span> i);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> setLow(<span class="keywordtype">int</span> i);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">int</span> getNum();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">int</span> getLow();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::vector&lt;Flight&gt; getFlights();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">bool</span> isVisited() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> setVisited(<span class="keywordtype">bool</span> v);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> isProcessing() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> setProcessing(<span class="keywordtype">bool</span> p);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classGraph.html">Graph</a>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byCode(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byName(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byCity(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byCountry(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byLatitude(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byLongitude(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> byNFlightsOut(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classAirport.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAirport.html">Airport</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    std::string code;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    std::string name;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::string city;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::string country;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    std::string latitude;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::string longitude;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::vector&lt;Flight&gt; flights;  <span class="comment">// list of outgoing flights</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> nFlightsOut;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> num;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> low;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">bool</span> visited;          <span class="comment">// auxiliary field</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">bool</span> processing;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">int</span> maxTripDistance;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::vector&lt;Airport *&gt; maxTripDests;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> getMaxTripDistance() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> setMaxTripDistance(<span class="keywordtype">int</span> distance);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::vector&lt;Airport *&gt; getMaxTripDests() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> addMaxTripDest(<a class="code" href="classAirport.html">Airport</a> * dest);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> addFlight(<a class="code" href="classFlight.html">Flight</a> flight);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> removeFlightTo(<a class="code" href="classAirport.html">Airport</a> *d);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> deleteFlightsByAirline(<span class="keyword">const</span> std::string&amp; airlineCode);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classAirport.html#adfdfc1343ab9c1e5422f6c8716f58d0a">Airport</a>(std::string code,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::string name,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::string city,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    std::string country,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::string latitude,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::string longitude);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::string <a class="code" href="classAirport.html#a715d0628f3540a1a65917d55b0311757">getCode</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::string <a class="code" href="classAirport.html#a5f6d1d66d9d1b5af15b67c500e444f9f">getName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    std::string <a class="code" href="classAirport.html#a4f8fbb5b1c5250bf0aaa77dfc25897dc">getCity</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    std::string <a class="code" href="classAirport.html#aefabe22c551403c9ca291404eba2323b">getCountry</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::string <a class="code" href="classAirport.html#a1cab6bff25c616a2ef5c49e3bcc5351d">getLatitude</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::string <a class="code" href="classAirport.html#a58db5ea8955440a6f08da925c25288ae">getLongitude</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classAirport.html#a81bcab1565dd56da70932360c5d05e17">getNFlightsOut</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAirport.html#abcf77f9d4577e3ad84a32dd06ff4dc8e">setNum</a>(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAirport.html#a488304d750d32d6e8db604a6b5e39dde">setLow</a>(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classAirport.html#a7a2f56a5f9ceb88b746a7799180df566">getNum</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classAirport.html#afc45e496823c8a26c37b829c2ff09803">getLow</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    std::vector&lt;Flight&gt; <a class="code" href="classAirport.html#ad4fdc3e9fa12a32c4f061f8393d9efcb">getFlights</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classAirport.html#ae0c8e702145d72ca69af5d51c7d8b7a4">isVisited</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAirport.html#a4a41592b183c7384d0e0e0be42136c7d">setVisited</a>(<span class="keywordtype">bool</span> v);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classAirport.html#a60b93e4300d10fbbcacd7b723c4a5b63">isProcessing</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAirport.html#abf172671d298709d58f57cb623a73bbc">setProcessing</a>(<span class="keywordtype">bool</span> p);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classGraph.html">Graph</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classAirport.html#a8dd40d315362ac3bcd18e2ce65fec743">byCode</a>(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classAirport.html#ae2b7ea95af81a62f76ab0ff897aae8d0">byName</a>(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classAirport.html#a072196e494fb9f9334b73aa3506d4d6d">byCity</a>(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classAirport.html#ad3e461489abf7e4749c09a00f4acb2a9">byCountry</a>(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classAirport.html#ad9b99745c75a63d20b3b9ad6a26e9020">byLatitude</a>(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classAirport.html#afa34aaf956c6ca084d92580aaf7d43e2">byLongitude</a>(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">// Hash function for the Airport class</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structAirportHash.html">   70</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structAirportHash.html">AirportHash</a> {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::size_t operator()(<span class="keyword">const</span> <a class="code" href="classAirport.html">Airport</a> *airport)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> std::hash&lt;std::string&gt;{}(airport-&gt;getCode());</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">// Equality function for the Airport class</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="structAirportEqual.html">   77</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structAirportEqual.html">AirportEqual</a> {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> <a class="code" href="classAirport.html">Airport</a> *lhs, <span class="keyword">const</span> <a class="code" href="classAirport.html">Airport</a> *rhs)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span> lhs-&gt;getCode() == rhs-&gt;getCode();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJETO2_AIRPORT_H</span></div>
-<div class="ttc" id="aclassAirport_html"><div class="ttname"><a href="classAirport.html">Airport</a></div><div class="ttdef"><b>Definition:</b> Airport.h:10</div></div>
-<div class="ttc" id="aclassFlight_html"><div class="ttname"><a href="classFlight.html">Flight</a></div><div class="ttdef"><b>Definition:</b> Flight.h:10</div></div>
-<div class="ttc" id="aclassGraph_html"><div class="ttname"><a href="classGraph.html">Graph</a></div><div class="ttdef"><b>Definition:</b> Graph.h:15</div></div>
-<div class="ttc" id="astructAirportEqual_html"><div class="ttname"><a href="structAirportEqual.html">AirportEqual</a></div><div class="ttdef"><b>Definition:</b> Airport.h:77</div></div>
-<div class="ttc" id="astructAirportHash_html"><div class="ttname"><a href="structAirportHash.html">AirportHash</a></div><div class="ttdef"><b>Definition:</b> Airport.h:70</div></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classAirport.html#a8adfa75bb85dfa92ee77cfc338c93f4e">byNFlightsOut</a>(<a class="code" href="classAirport.html">Airport</a> *a1, <a class="code" href="classAirport.html">Airport</a> *a2);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJETO2_AIRPORT_H</span></div>
+<div class="ttc" id="aclassAirport_html"><div class="ttname"><a href="classAirport.html">Airport</a></div><div class="ttdoc">Airport is the class that represents a airport which is also a vertex in the graph.</div><div class="ttdef"><b>Definition:</b> Airport.h:12</div></div>
+<div class="ttc" id="aclassAirport_html_a072196e494fb9f9334b73aa3506d4d6d"><div class="ttname"><a href="classAirport.html#a072196e494fb9f9334b73aa3506d4d6d">Airport::byCity</a></div><div class="ttdeci">static bool byCity(Airport *a1, Airport *a2)</div><div class="ttdoc">Boolean function to order airports by city.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:99</div></div>
+<div class="ttc" id="aclassAirport_html_a1cab6bff25c616a2ef5c49e3bcc5351d"><div class="ttname"><a href="classAirport.html#a1cab6bff25c616a2ef5c49e3bcc5351d">Airport::getLatitude</a></div><div class="ttdeci">std::string getLatitude() const</div><div class="ttdoc">Gets the latitude of the airport.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:66</div></div>
+<div class="ttc" id="aclassAirport_html_a488304d750d32d6e8db604a6b5e39dde"><div class="ttname"><a href="classAirport.html#a488304d750d32d6e8db604a6b5e39dde">Airport::setLow</a></div><div class="ttdeci">void setLow(int i)</div><div class="ttdoc">Sets the low of the airport (vertex)</div><div class="ttdef"><b>Definition:</b> Airport.cpp:224</div></div>
+<div class="ttc" id="aclassAirport_html_a4a41592b183c7384d0e0e0be42136c7d"><div class="ttname"><a href="classAirport.html#a4a41592b183c7384d0e0e0be42136c7d">Airport::setVisited</a></div><div class="ttdeci">void setVisited(bool v)</div><div class="ttdoc">Sets the airport (vertex) to visited or not.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:139</div></div>
+<div class="ttc" id="aclassAirport_html_a4f8fbb5b1c5250bf0aaa77dfc25897dc"><div class="ttname"><a href="classAirport.html#a4f8fbb5b1c5250bf0aaa77dfc25897dc">Airport::getCity</a></div><div class="ttdeci">std::string getCity() const</div><div class="ttdoc">Gets the city where the airport is located.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:50</div></div>
+<div class="ttc" id="aclassAirport_html_a58db5ea8955440a6f08da925c25288ae"><div class="ttname"><a href="classAirport.html#a58db5ea8955440a6f08da925c25288ae">Airport::getLongitude</a></div><div class="ttdeci">std::string getLongitude() const</div><div class="ttdoc">Gets the longitude of the airport.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:74</div></div>
+<div class="ttc" id="aclassAirport_html_a5f6d1d66d9d1b5af15b67c500e444f9f"><div class="ttname"><a href="classAirport.html#a5f6d1d66d9d1b5af15b67c500e444f9f">Airport::getName</a></div><div class="ttdeci">std::string getName() const</div><div class="ttdoc">Gets the name of the airport.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:42</div></div>
+<div class="ttc" id="aclassAirport_html_a60b93e4300d10fbbcacd7b723c4a5b63"><div class="ttname"><a href="classAirport.html#a60b93e4300d10fbbcacd7b723c4a5b63">Airport::isProcessing</a></div><div class="ttdeci">bool isProcessing() const</div><div class="ttdoc">Checks if the airport (vertex) is processing.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:153</div></div>
+<div class="ttc" id="aclassAirport_html_a715d0628f3540a1a65917d55b0311757"><div class="ttname"><a href="classAirport.html#a715d0628f3540a1a65917d55b0311757">Airport::getCode</a></div><div class="ttdeci">std::string getCode() const</div><div class="ttdoc">Gets the code of the airport.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:34</div></div>
+<div class="ttc" id="aclassAirport_html_a7a2f56a5f9ceb88b746a7799180df566"><div class="ttname"><a href="classAirport.html#a7a2f56a5f9ceb88b746a7799180df566">Airport::getNum</a></div><div class="ttdeci">int getNum() const</div><div class="ttdoc">Gets the number of the airport (vertex)</div><div class="ttdef"><b>Definition:</b> Airport.cpp:231</div></div>
+<div class="ttc" id="aclassAirport_html_a81bcab1565dd56da70932360c5d05e17"><div class="ttname"><a href="classAirport.html#a81bcab1565dd56da70932360c5d05e17">Airport::getNFlightsOut</a></div><div class="ttdeci">int getNFlightsOut() const</div><div class="ttdoc">Gets the number of flights out.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:208</div></div>
+<div class="ttc" id="aclassAirport_html_a8adfa75bb85dfa92ee77cfc338c93f4e"><div class="ttname"><a href="classAirport.html#a8adfa75bb85dfa92ee77cfc338c93f4e">Airport::byNFlightsOut</a></div><div class="ttdeci">static bool byNFlightsOut(Airport *a1, Airport *a2)</div><div class="ttdoc">Boolean function to order airports by the number of flights out.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:131</div></div>
+<div class="ttc" id="aclassAirport_html_a8dd40d315362ac3bcd18e2ce65fec743"><div class="ttname"><a href="classAirport.html#a8dd40d315362ac3bcd18e2ce65fec743">Airport::byCode</a></div><div class="ttdeci">static bool byCode(Airport *a1, Airport *a2)</div><div class="ttdoc">Boolean function to order airports by code.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:83</div></div>
+<div class="ttc" id="aclassAirport_html_abcf77f9d4577e3ad84a32dd06ff4dc8e"><div class="ttname"><a href="classAirport.html#abcf77f9d4577e3ad84a32dd06ff4dc8e">Airport::setNum</a></div><div class="ttdeci">void setNum(int i)</div><div class="ttdoc">Sets the number of the airport (vertex)</div><div class="ttdef"><b>Definition:</b> Airport.cpp:216</div></div>
+<div class="ttc" id="aclassAirport_html_abf172671d298709d58f57cb623a73bbc"><div class="ttname"><a href="classAirport.html#abf172671d298709d58f57cb623a73bbc">Airport::setProcessing</a></div><div class="ttdeci">void setProcessing(bool p)</div><div class="ttdoc">Sets the airport (vertex) to processing or not.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:161</div></div>
+<div class="ttc" id="aclassAirport_html_ad3e461489abf7e4749c09a00f4acb2a9"><div class="ttname"><a href="classAirport.html#ad3e461489abf7e4749c09a00f4acb2a9">Airport::byCountry</a></div><div class="ttdeci">static bool byCountry(Airport *a1, Airport *a2)</div><div class="ttdoc">Boolean function to order airports by country.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:107</div></div>
+<div class="ttc" id="aclassAirport_html_ad4fdc3e9fa12a32c4f061f8393d9efcb"><div class="ttname"><a href="classAirport.html#ad4fdc3e9fa12a32c4f061f8393d9efcb">Airport::getFlights</a></div><div class="ttdeci">std::vector&lt; Flight &gt; getFlights()</div><div class="ttdoc">Gets the flights out of the airport.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:169</div></div>
+<div class="ttc" id="aclassAirport_html_ad9b99745c75a63d20b3b9ad6a26e9020"><div class="ttname"><a href="classAirport.html#ad9b99745c75a63d20b3b9ad6a26e9020">Airport::byLatitude</a></div><div class="ttdeci">static bool byLatitude(Airport *a1, Airport *a2)</div><div class="ttdoc">Boolean function to order airports by latitude.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:115</div></div>
+<div class="ttc" id="aclassAirport_html_adfdfc1343ab9c1e5422f6c8716f58d0a"><div class="ttname"><a href="classAirport.html#adfdfc1343ab9c1e5422f6c8716f58d0a">Airport::Airport</a></div><div class="ttdeci">Airport(std::string code, std::string name, std::string city, std::string country, std::string latitude, std::string longitude)</div><div class="ttdoc">Constructor of Airport.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:13</div></div>
+<div class="ttc" id="aclassAirport_html_ae0c8e702145d72ca69af5d51c7d8b7a4"><div class="ttname"><a href="classAirport.html#ae0c8e702145d72ca69af5d51c7d8b7a4">Airport::isVisited</a></div><div class="ttdeci">bool isVisited() const</div><div class="ttdoc">Checks if the airport (vertex) is visited.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:146</div></div>
+<div class="ttc" id="aclassAirport_html_ae2b7ea95af81a62f76ab0ff897aae8d0"><div class="ttname"><a href="classAirport.html#ae2b7ea95af81a62f76ab0ff897aae8d0">Airport::byName</a></div><div class="ttdeci">static bool byName(Airport *a1, Airport *a2)</div><div class="ttdoc">Boolean function to order airports by name.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:91</div></div>
+<div class="ttc" id="aclassAirport_html_aefabe22c551403c9ca291404eba2323b"><div class="ttname"><a href="classAirport.html#aefabe22c551403c9ca291404eba2323b">Airport::getCountry</a></div><div class="ttdeci">std::string getCountry() const</div><div class="ttdoc">Gets the country where the airport is located.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:58</div></div>
+<div class="ttc" id="aclassAirport_html_afa34aaf956c6ca084d92580aaf7d43e2"><div class="ttname"><a href="classAirport.html#afa34aaf956c6ca084d92580aaf7d43e2">Airport::byLongitude</a></div><div class="ttdeci">static bool byLongitude(Airport *a1, Airport *a2)</div><div class="ttdoc">Boolean function to order airports by longitude.</div><div class="ttdef"><b>Definition:</b> Airport.cpp:123</div></div>
+<div class="ttc" id="aclassAirport_html_afc45e496823c8a26c37b829c2ff09803"><div class="ttname"><a href="classAirport.html#afc45e496823c8a26c37b829c2ff09803">Airport::getLow</a></div><div class="ttdeci">int getLow() const</div><div class="ttdoc">Sets the low of the airport (vertex)</div><div class="ttdef"><b>Definition:</b> Airport.cpp:238</div></div>
+<div class="ttc" id="aclassFlight_html"><div class="ttname"><a href="classFlight.html">Flight</a></div><div class="ttdoc">Flight is the class that represents a flight, a edge of the graph.</div><div class="ttdef"><b>Definition:</b> Flight.h:13</div></div>
+<div class="ttc" id="aclassGraph_html"><div class="ttname"><a href="classGraph.html">Graph</a></div><div class="ttdoc">Graph is the class that represents the graph which contains all the information about the flight syst...</div><div class="ttdef"><b>Definition:</b> Graph.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

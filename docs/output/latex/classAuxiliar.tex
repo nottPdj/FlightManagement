@@ -1,18 +1,75 @@
 \hypertarget{classAuxiliar}{}\doxysection{Auxiliar Class Reference}
 \label{classAuxiliar}\index{Auxiliar@{Auxiliar}}
+
+
+\mbox{\hyperlink{classAuxiliar}{Auxiliar}} is used to read the data files.  
+
+
+
+
+{\ttfamily \#include $<$Auxiliar.\+h$>$}
+
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classAuxiliar_a638ef8c7af391c09fbffed5f6342e3ba}\label{classAuxiliar_a638ef8c7af391c09fbffed5f6342e3ba}} 
-static void {\bfseries read\+Airports} (\mbox{\hyperlink{classGraph}{Graph}} \&g)
-\item 
-\mbox{\Hypertarget{classAuxiliar_ae1f11755eda64345b90a91c48edb18c7}\label{classAuxiliar_ae1f11755eda64345b90a91c48edb18c7}} 
-static void {\bfseries read\+Airlines} (\mbox{\hyperlink{classGraph}{Graph}} \&g)
-\item 
-\mbox{\Hypertarget{classAuxiliar_ae6e942118a86ac6bbb9bee8d35c7f666}\label{classAuxiliar_ae6e942118a86ac6bbb9bee8d35c7f666}} 
-static void {\bfseries read\+Flights} (\mbox{\hyperlink{classGraph}{Graph}} \&g)
-\end{DoxyCompactItemize}
+static void \mbox{\hyperlink{classAuxiliar_a638ef8c7af391c09fbffed5f6342e3ba}{read\+Airports}} (\mbox{\hyperlink{classGraph}{Graph}} \&g)
+\begin{DoxyCompactList}\small\item\em Reads the airports. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classAuxiliar_ae1f11755eda64345b90a91c48edb18c7}{read\+Airlines}} (\mbox{\hyperlink{classGraph}{Graph}} \&g)
+\begin{DoxyCompactList}\small\item\em Reads the airlines. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classAuxiliar_ae6e942118a86ac6bbb9bee8d35c7f666}{read\+Flights}} (\mbox{\hyperlink{classGraph}{Graph}} \&g)
+\begin{DoxyCompactList}\small\item\em Reads the flights. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classAuxiliar}{Auxiliar}} is used to read the data files. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAuxiliar_ae1f11755eda64345b90a91c48edb18c7}\label{classAuxiliar_ae1f11755eda64345b90a91c48edb18c7}} 
+\index{Auxiliar@{Auxiliar}!readAirlines@{readAirlines}}
+\index{readAirlines@{readAirlines}!Auxiliar@{Auxiliar}}
+\doxysubsubsection{\texorpdfstring{readAirlines()}{readAirlines()}}
+{\footnotesize\ttfamily void Auxiliar\+::read\+Airlines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} \&}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Reads the airlines. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The main graph\\
+\hline
+\end{DoxyParams}
+Time Complexity O(n) n = number of airlines \mbox{\Hypertarget{classAuxiliar_a638ef8c7af391c09fbffed5f6342e3ba}\label{classAuxiliar_a638ef8c7af391c09fbffed5f6342e3ba}} 
+\index{Auxiliar@{Auxiliar}!readAirports@{readAirports}}
+\index{readAirports@{readAirports}!Auxiliar@{Auxiliar}}
+\doxysubsubsection{\texorpdfstring{readAirports()}{readAirports()}}
+{\footnotesize\ttfamily void Auxiliar\+::read\+Airports (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} \&}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Reads the airports. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The main graph\\
+\hline
+\end{DoxyParams}
+Time Complexity O(n) n = number of airports \mbox{\Hypertarget{classAuxiliar_ae6e942118a86ac6bbb9bee8d35c7f666}\label{classAuxiliar_ae6e942118a86ac6bbb9bee8d35c7f666}} 
+\index{Auxiliar@{Auxiliar}!readFlights@{readFlights}}
+\index{readFlights@{readFlights}!Auxiliar@{Auxiliar}}
+\doxysubsubsection{\texorpdfstring{readFlights()}{readFlights()}}
+{\footnotesize\ttfamily void Auxiliar\+::read\+Flights (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} \&}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Reads the flights. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The main graph\\
+\hline
+\end{DoxyParams}
+Time Complexity O(n) n = number of flights 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
